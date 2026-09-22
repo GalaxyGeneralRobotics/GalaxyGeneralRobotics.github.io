@@ -3,23 +3,325 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Galaxy General Robotics</title>
-  <meta http-equiv="refresh" content="0; url=astra-policy/" />
-  <link rel="canonical" href="astra-policy/" />
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background: #0a0a0f;
-      color: #f4f4f5;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    a { color: #8eb6ff; }
-  </style>
+  <title>银河通用开源算法 · Galbot</title>
+  <meta name="description" content="银河通用机器人公开的全身运动、操作与导航研究代码。重点项目为 LATENT、Humanoid-GPT 与 OpenTrack。" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
-  <p><a href="astra-policy/">Astra Policy</a></p>
+<body id="top">
+  <a class="skip" href="#featured">跳到重点工作</a>
+  <header class="top">
+    <div class="band">
+      <a class="brand" href="#top" aria-label="银河通用">
+        <img src="assets/galbot-wordmark.svg" alt="Galbot" />
+      </a>
+      <nav class="nav" aria-label="页面">
+        <a href="#featured">重点</a>
+        <a href="#motion">全身运动</a>
+        <a href="#manipulation">操作</a>
+        <a href="#navigation">导航</a>
+      </nav>
+      <div class="top-links">
+        <a href="https://github.com/GalaxyGeneralRobotics">GitHub</a>
+        <a href="https://www.galbot.com/">官网</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="band">
+        <p class="eyebrow">Galaxy General Robotics</p>
+        <h1>开源算法</h1>
+        <p class="lead">银河通用把全身运动、操作和导航三条研究线上的代码公开出来。这里只放已经可以复现的学术项目，论文、项目页和仓库放在一起。</p>
+        <div class="hero-links">
+          <a class="button" href="https://github.com/GalaxyGeneralRobotics">GitHub 组织</a>
+          <a class="button quiet" href="https://www.galbot.com/">galbot.com</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="featured">
+      <div class="band">
+        <div class="section-head">
+          <div class="section-title"><span class="num">00</span><h2>重点工作</h2></div>
+          <p>三条全身运动主线。它们分别对应通用跟踪、抗扰动跟踪，以及高动态的网球对打。</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <img src="assets/posters/latent.jpg" alt="人形机器人在室内球场上对打网球" />
+            <div class="body">
+              <p class="kicker">IROS 2026</p>
+              <h3>LATENT</h3>
+              <p class="en">Learning Athletic Humanoid Tennis Skills from Imperfect Human Motion Data</p>
+              <p class="zh">用不完整的人类击球片段学习网球技能，在真机上完成持续对打。</p>
+              <p class="links">
+                <a href="https://github.com/GalaxyGeneralRobotics/LATENT">代码</a>
+                <a href="https://arxiv.org/abs/2603.12686">论文</a>
+                <a href="https://zzk273.github.io/LATENT/">主页</a>
+              </p>
+            </div>
+          </article>
+          <article class="feature">
+            <img src="assets/posters/humanoid-gpt.jpg" alt="Humanoid-GPT 的数据规模、模型结构和真机跟踪示例" />
+            <div class="body">
+              <p class="kicker">CVPR 2026</p>
+              <h3>Humanoid-GPT</h3>
+              <p class="en">Scaling Data and Structure for Zero-Shot Motion Tracking</p>
+              <p class="zh">在约 20 亿帧重定向动作上预训练因果 Transformer，不经微调即可跟踪未见过的全身动作。</p>
+              <p class="links">
+                <a href="https://github.com/GalaxyGeneralRobotics/Humanoid-GPT">代码</a>
+                <a href="https://arxiv.org/abs/2606.03985">论文</a>
+                <a href="https://qizekun.github.io/Humanoid-GPT/">主页</a>
+              </p>
+            </div>
+          </article>
+          <article class="feature">
+            <img src="assets/posters/opentrack.jpg" alt="人形机器人在球场、草地和碎石上跟踪多种动作" />
+            <div class="body">
+              <p class="kicker">OpenTrack</p>
+              <h3>Any2Track</h3>
+              <p class="en">Track Any Motions under Any Disturbances</p>
+              <p class="zh">一个策略跟踪多样、高动态的动作，并在地形、外力和物理参数变化下保持稳定。</p>
+              <p class="links">
+                <a href="https://github.com/GalaxyGeneralRobotics/OpenTrack">代码</a>
+                <a href="https://arxiv.org/abs/2509.13833">论文</a>
+                <a href="https://zzk273.github.io/Any2Track/">主页</a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="motion">
+      <div class="band">
+        <div class="section-head">
+          <div class="section-title"><span class="num">01</span><h2>全身运动</h2></div>
+          <p>上面三项是这个方向的代表。同一条线上还开放了遥操作、室内穿行、跟踪评测和共语动作。</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top">
+              <h3>OpenWBT</h3>
+              <span class="badge">R2S2</span>
+            </div>
+            <p class="en">Whole-body teleoperation of Unitree G1 with Apple Vision Pro</p>
+            <p class="zh">一个人用 Vision Pro 遥操作全身，在真机和仿真里完成行走、下蹲、弯腰和抓取。技术基础来自 R2S2。</p>
+            <p class="links">
+              <a href="https://github.com/GalaxyGeneralRobotics/OpenWBT">代码</a>
+              <a href="https://arxiv.org/abs/2505.10918">论文</a>
+              <a href="https://zzk273.github.io/R2S2/">主页</a>
+              <a href="https://www.youtube.com/watch?v=EmWLJROMeB0">视频</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>Click-and-Traverse</h3>
+              <span class="badge">Traversal</span>
+            </div>
+            <p class="en">Collision-Free Humanoid Traversal in Cluttered Indoor Scenes</p>
+            <p class="zh">在地面、侧面和头顶同时有障碍的室内场景中穿行，并从多个专家策略蒸馏出通用策略。</p>
+            <p class="links">
+              <a href="https://github.com/GalaxyGeneralRobotics/Click-and-Traverse">代码</a>
+              <a href="https://arxiv.org/abs/2601.16035">论文</a>
+              <a href="https://axian12138.github.io/CAT/">主页</a>
+              <a href="https://www.youtube.com/watch?v=blek__Qf0Vc">视频</a>
+              <a href="https://www.bilibili.com/video/BV1aNr6BiEnL">哔哩哔哩</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>HumanTracker</h3>
+              <span class="badge">ECCV 2026</span>
+            </div>
+            <p class="en">Towards Comprehensive and Human-Aligned Motion Tracking Benchmark</p>
+            <p class="zh">约 153 小时光学动捕，加上和人类偏好对齐的轨迹评分，用来判断跟踪结果看起来是否自然。</p>
+            <p class="links">
+              <a href="https://github.com/GalaxyGeneralRobotics/HumanTracker">代码</a>
+              <a href="https://arxiv.org/abs/2608.13555">论文</a>
+              <a href="https://dairuliu.github.io/humantracker/">主页</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>RoboGesture</h3>
+              <span class="badge">ECCV 2026</span>
+            </div>
+            <p class="en">Real-Time Semantic-aligned Co-Speech Gestures for Humanoid Interaction</p>
+            <p class="zh">从语音实时生成语义对齐的共语手势，并在人形机器人上做无碰撞执行。</p>
+            <p class="links">
+              <a href="https://github.com/GalaxyGeneralRobotics/RoboGesture">代码</a>
+              <a href="https://arxiv.org/abs/2608.28693">论文</a>
+              <a href="https://robogesture.github.io/">主页</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="manipulation">
+      <div class="band">
+        <div class="section-head">
+          <div class="section-title"><span class="num">02</span><h2>操作</h2></div>
+          <p>抓取、潜动作、空间推理和灵巧手。Astra 作为策略的评测报告也放在这一栏。</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top">
+              <h3>Astra Policy</h3>
+              <span class="badge">本站报告</span>
+            </div>
+            <p class="en">Exploring the Comprehensive Capabilities of GPT-6 Astra as Policies</p>
+            <p class="zh">把 Astra 当作可执行策略，在操作、灵巧手、视觉导航、人形控制和运动上对照评测。</p>
+            <p class="links">
+              <a href="astra-policy/">阅读报告</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>LDA-1B</h3>
+              <span class="badge">RSS 2026</span>
+            </div>
+            <p class="en">Scaling Latent Dynamics Action Model via Universal Embodied Data Ingestion</p>
+            <p class="zh">在三万小时以上的人机异构数据上，同时学习动力学、未来预测和动作。</p>
+            <p class="links">
+              <a href="https://github.com/jiangranlv/LDA-1B">代码</a>
+              <a href="https://arxiv.org/abs/2602.12215">论文</a>
+              <a href="https://pku-epic.github.io/LDA/">主页</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>GraspVLA</h3>
+              <span class="badge">CoRL 2025</span>
+            </div>
+            <p class="en">A Grasping Foundation Model Pre-trained on Billion-scale Synthetic Action Data</p>
+            <p class="zh">用十亿帧合成抓取轨迹预训练，不靠真实机器人数据微调，直接做开放词汇抓取。</p>
+            <p class="links">
+              <a href="https://github.com/PKU-EPIC/GraspVLA">代码</a>
+              <a href="https://arxiv.org/abs/2505.03233">论文</a>
+              <a href="https://pku-epic.github.io/GraspVLA-web/">主页</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>SoFar</h3>
+              <span class="badge">NeurIPS 2025 Spotlight</span>
+            </div>
+            <p class="en">Language-Grounded Orientation Bridges Spatial Reasoning and Object Manipulation</p>
+            <p class="zh">用语言描述的朝向把空间理解和六自由度操作接起来，并包含 Open6DOR V2 评测。</p>
+            <p class="links">
+              <a href="https://github.com/qizekun/SoFar">代码</a>
+              <a href="https://arxiv.org/abs/2502.13143">论文</a>
+              <a href="https://qizekun.github.io/sofar/">主页</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>UniDexGrasp++</h3>
+              <span class="badge">ICCV 2023</span>
+            </div>
+            <p class="en">Improving Dexterous Grasping Policy Learning via Geometry-aware Curriculum</p>
+            <p class="zh">用几何课程和通用—专家迭代，把灵巧抓取策略学到大规模物体上。ICCV 口头报告，最佳论文提名。</p>
+            <p class="links">
+              <a href="https://github.com/PKU-EPIC/UniDexGrasp2">代码</a>
+              <a href="https://arxiv.org/abs/2304.00464">论文</a>
+              <a href="https://pku-epic.github.io/UniDexGrasp++/">主页</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>DexGraspNet</h3>
+              <span class="badge">ICRA 2023</span>
+            </div>
+            <p class="en">A Large-Scale Robotic Dexterous Grasp Dataset for General Objects</p>
+            <p class="zh">面向 ShadowHand 的大规模灵巧抓取数据与合成方法。ICRA 操作方向杰出论文提名。</p>
+            <p class="links">
+              <a href="https://github.com/PKU-EPIC/DexGraspNet">代码</a>
+              <a href="https://arxiv.org/abs/2210.02697">论文</a>
+              <a href="https://pku-epic.github.io/DexGraspNet/">主页</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="navigation">
+      <div class="band">
+        <div class="section-head">
+          <div class="section-title"><span class="num">03</span><h2>导航</h2></div>
+          <p>城市微出行、统一的视频导航，以及野外视觉跟踪。只列入已经放出代码或评测基准的工作。</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top">
+              <h3>UrbanVLA</h3>
+              <span class="badge">ICRA 2026</span>
+            </div>
+            <p class="en">A Vision-Language-Action Model for Urban Micromobility</p>
+            <p class="zh">把导航路线和车载视觉对齐，在城市街区里做长距离微出行。</p>
+            <p class="links">
+              <a href="https://github.com/GalaxyGeneralRobotics/UrbanVLA">代码</a>
+              <a href="https://arxiv.org/abs/2510.23576">论文</a>
+              <a href="https://pku-epic.github.io/UrbanVLA-Web/">主页</a>
+              <a href="https://www.youtube.com/watch?v=k98F77ugHQA">视频</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>Uni-NaVid</h3>
+              <span class="badge">RSS 2025</span>
+            </div>
+            <p class="en">A Video-based Vision-Language-Action Model for Unifying Embodied Navigation Tasks</p>
+            <p class="zh">一个视频动作模型覆盖语言导航、寻找物体和视觉跟踪。</p>
+            <p class="links">
+              <a href="https://github.com/jzhzhang/Uni-NaVid">代码</a>
+              <a href="https://arxiv.org/abs/2412.06224">论文</a>
+              <a href="https://pku-epic.github.io/Uni-NaVid/">主页</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>TrackVLA</h3>
+              <span class="badge">CoRL 2025</span>
+            </div>
+            <p class="en">Embodied Visual Tracking in the Wild</p>
+            <p class="zh">在野外同时识别并跟踪目标。开放仓库包含 EVT-Bench 和评测代码。</p>
+            <p class="links">
+              <a href="https://github.com/ShaoanWang/TrackVLA">代码</a>
+              <a href="https://arxiv.org/abs/2505.23189">论文</a>
+              <a href="https://pku-epic.github.io/TrackVLA-web/">主页</a>
+              <a href="https://youtu.be/v51U3Nk-SK4">视频</a>
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-top">
+              <h3>NaVid</h3>
+              <span class="badge">RSS 2024</span>
+            </div>
+            <p class="en">Video-based VLM Plans the Next Step for Vision-and-Language Navigation</p>
+            <p class="zh">只看第一人称视频来规划语言导航的下一步，不依赖里程计和地图。开放的是 VLN-CE 评测代码。</p>
+            <p class="links">
+              <a href="https://github.com/jzhzhang/NaVid-VLN-CE">代码</a>
+              <a href="https://arxiv.org/abs/2402.15852">论文</a>
+              <a href="https://pku-epic.github.io/NaVid/">主页</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="band">
+      <p>北京银河通用机器人有限公司</p>
+      <p class="foot-links">
+        <a href="https://www.galbot.com/">官网</a>
+        <a href="https://github.com/GalaxyGeneralRobotics">GitHub</a>
+        <a href="https://hughw19.github.io/">相关研究</a>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
