@@ -62,9 +62,12 @@ p{margin:0}
 .nav{display:flex;flex:1 1 12rem;flex-wrap:wrap;gap:8px 16px;min-width:0;font-size:13.5px;color:var(--fg-3)}
 .nav a{white-space:nowrap}
 .nav a:hover{color:var(--fg)}
-.top-links{margin-left:auto;display:flex;gap:16px;font-size:13px;color:var(--fg-2);flex:0 0 auto}
+.top-links{display:flex;gap:16px;font-size:13px;color:var(--fg-2);flex:0 0 auto}
 .top-links a{border-bottom:1px solid transparent}
 .top-links a:hover{color:var(--accent-2);border-bottom-color:currentColor}
+.lang-switch{display:inline-flex;margin-left:auto;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--bg-2);gap:2px}
+.lang-switch button{border:0;background:transparent;color:var(--fg-4);padding:5px 9px;border-radius:999px;font:500 11px/1 var(--sans);cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
 
 .hero{padding:88px 0 28px}
 .eyebrow{
@@ -129,7 +132,7 @@ p{margin:0}
   border-radius:16px;
   overflow:hidden;
 }
-.feature img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#0e1018}
+.feature video{width:100%;aspect-ratio:16/9;object-fit:cover;background:#0e1018;display:block}
 .feature .body{display:flex;flex-direction:column;gap:10px;padding:18px 18px 16px;flex:1}
 .kicker{
   font:500 11px/1.4 var(--mono);
@@ -138,8 +141,12 @@ p{margin:0}
   color:var(--accent-text);
 }
 .feature h3{font-size:26px;line-height:1.15}
-.en{color:var(--fg-3);font-size:13.5px;line-height:1.45}
-.zh{color:var(--fg-2);font-size:14.5px}
+.paper{color:var(--fg-3);font-size:13.5px;line-height:1.45}
+p.en,p.zh{color:var(--fg-2);font-size:14.5px;line-height:1.55}
+.zh{display:none}
+html[lang="zh-CN"] .en{display:none}
+html[lang="zh-CN"] p.zh{display:block}
+html[lang="zh-CN"] span.zh{display:inline}
 .links{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:auto;padding-top:8px}
 .links a{
   font-size:13px;font-weight:500;color:var(--accent-text);
@@ -165,8 +172,8 @@ p{margin:0}
   text-transform:uppercase;
   color:var(--fg-3);
 }
-.card .en{margin-top:6px}
-.card .zh{margin-top:10px}
+.card .paper{display:block;margin-top:6px}
+.card p.en,.card p.zh{margin-top:10px}
 .card .links{margin-top:14px}
 
 .foot{
