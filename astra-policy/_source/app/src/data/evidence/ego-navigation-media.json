@@ -1,0 +1,55 @@
+[
+  {
+    "id": "ego-indoor-g-motion",
+    "video": "media/ego-navigation/ego-indoor-g-motion-observer.mp4",
+    "duration": 10,
+    "width": 640,
+    "height": 360,
+    "source_path": "raw_docs/extracted/zhangzhikai/Astra_results from 张智楷/数据和资产/experiments/indoor-s2-20260918/g_motion-retry-001/video/observer.mp4",
+    "sha256": "a5006c35b700ae0c6bf007c0a8024fd87e6cf6d1240c80ef1c5e282d0c3bbbb3",
+    "ego": "media/ego-navigation/ego-indoor-g-motion-ego.mp4",
+    "egoDuration": 10,
+    "egoSourcePath": "raw_docs/extracted/zhangzhikai/Astra_results from 张智楷/数据和资产/experiments/indoor-s2-20260918/g_motion-retry-001/video/ego.mp4",
+    "egoSha256": "ed037dbca8ea6da41a6e58be2fde70769bccc971dfd8ba1bc35eece7f75dc7cb",
+    "poster": "media/ego-navigation/ego-indoor-g-motion.jpg",
+    "initialView": "ego"
+  },
+  {
+    "id": "ego-indoor-stair-duck",
+    "video": "media/ego-navigation/ego-indoor-stair-duck-ego.mp4",
+    "duration": 10.4,
+    "width": 640,
+    "height": 360,
+    "source_path": "raw_docs/extracted/zhangzhikai/Astra_results from 张智楷/数据和资产/experiments/indoor-s2-20260918/stair_duck-retry-001/video/ego.mp4",
+    "sha256": "16e28cae4033cd61e4fbfed00a08bb050839766583c9b99bc48ce475780bf991",
+    "poster": "media/ego-navigation/ego-indoor-stair-duck.jpg"
+  },
+  {
+    "id": "ego-race-fivepoint",
+    "video": "media/ego-navigation/ego-race-fivepoint-observer.mp4",
+    "duration": 11.96,
+    "width": 640,
+    "height": 360,
+    "source_path": "raw_docs/extracted/zhangzhikai/Astra_results from 张智楷/数据和资产/experiments/rgb-full-20260917/s2-retry-001/video/observer.mp4",
+    "sha256": "45ba78ed7740f3a7d51d5b94efde95054268263a80b17c67843344389af55d24",
+    "ego": "media/ego-navigation/ego-race-fivepoint-ego.mp4",
+    "egoDuration": 11.96,
+    "egoSourcePath": "raw_docs/extracted/zhangzhikai/Astra_results from 张智楷/数据和资产/experiments/rgb-full-20260917/s2-retry-001/video/ego.mp4",
+    "egoSha256": "54deb0afa86496315112803062752b6b03c4b346eb2715d7524173f3b7739111",
+    "poster": "media/ego-navigation/ego-race-fivepoint.jpg"
+  },
+  {
+    "id": "ego-race-passage",
+    "video": "media/ego-navigation/ego-race-passage-observer.mp4",
+    "duration": 24.04,
+    "width": 640,
+    "height": 360,
+    "source_path": "raw_docs/extracted/zhangzhikai/Astra_results from 张智楷/数据和资产/experiments/rgb-full-20260917/s3-retry-001/video/observer.mp4",
+    "sha256": "acab59e99f970921001df6877dc401dab756d38962f3a1847fe0a20e7d84d8e5",
+    "ego": "media/ego-navigation/ego-race-passage-ego.mp4",
+    "egoDuration": 24.04,
+    "egoSourcePath": "raw_docs/extracted/zhangzhikai/Astra_results from 张智楷/数据和资产/experiments/rgb-full-20260917/s3-retry-001/video/ego.mp4",
+    "egoSha256": "66fdcc8bfa9ccf34429a510be27be2b85f83fe316c01ebbbac4d5d44394021e7",
+    "poster": "media/ego-navigation/ego-race-passage.jpg"
+  }
+]

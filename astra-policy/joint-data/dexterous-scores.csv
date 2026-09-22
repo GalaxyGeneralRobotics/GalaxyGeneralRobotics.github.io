@@ -1,0 +1,12 @@
+﻿Task,Task prompt,pi0.5_mean_score,Direct_mean_score,Hybrid_mean_score
+Lift and stably hold a pot,Lift the pot at least 10 centimeters above the table and hold it steadily without dropping it.,40.0,44.0,62.0
+Place headphones in a box,Pick the headset and place it into the box.,42.0,22.0,42.0
+Remove a toy from a box,Take the toy out of the bin and place it on the table.,100.0,22.0,100.0
+Hang a mug on a rack,Hang the mug on the mug rack without requiring handle-specific alignment.,62.0,4.0,82.0
+Place two mahjong tiles in a basket,Place both mahjongs into the basket.,48.0,18.0,88.0
+Place two bottles in the left basket and two cans in the right basket,Place bottles into the front-left basket and cans into the front-right basket.,72.0,14.0,100.0
+Place an egg upright in an egg tray,Move the egg from the blue platform to the orange platform and leave it upright in the holder.,6.0,12.0,38.0
+Stack two bowls on a coaster,Stack the two bowls on the black mousemat.,46.0,20.0,52.0
+Insert two bread slices into separate slots,"Place both bread slices into the toaster, one slice in each slot.",10.0,8.0,28.0
+Arrange nesting dolls by size,"Arrange the four nesting dolls in a row from left to right, from smallest to largest.",16.0,2.0,26.0
+Overall mean,,44.2,16.6,61.8

@@ -1,0 +1,2 @@
+# Keep supplied CSV bytes unchanged.
+*.csv -text whitespace=cr-at-eol

@@ -1,0 +1,10 @@
+task,controller,evaluation_steps,full_cases,drop_cases,primary_at_goal_percent,mean_position_error_mm,mean_orientation_error_rad,mean_rotation_error_deg,speed_mae_rad_s,mean_final_position_error_mm,mean_final_rotation_error_deg,final_success_cases,ever_success_cases,mean_episode_return
+cylinder_rotation,Astra Direct,1749,3/5,1/5,0.51,,1.626,,0.960,,,,,
+cylinder_rotation,RL,2000,5/5,0/5,76.90,,0.173,,0.276,,,,,
+cuboid_rotation_10s,Astra Direct,1000,5/5,0/5,4.40,,0.742,,0.143,,,,,
+cuboid_rotation_10s,RL,1000,5/5,0/5,63.50,,0.096,,0.063,,,,,
+cylinder_translation,Astra Direct,1500,5/5,0/5,,,,,,59.0523,,1/5,,
+cylinder_translation,RL,1500,5/5,0/5,,,,,,17.2944,,4/5,,
+translation_rotation_astra_window,Astra Direct,668,0/5,0/5,,,,,,47.3532,32.7157,0/5,,
+translation_rotation_matched_window,RL,668,0/5,0/5,,,,,,16.2159,8.3149,4/5,,
+translation_rotation_15s,RL,1500,5/5,0/5,,,,,,16.0794,3.4876,5/5,,

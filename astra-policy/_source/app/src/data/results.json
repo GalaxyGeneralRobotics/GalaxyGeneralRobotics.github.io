@@ -1,0 +1,925 @@
+{
+  "humanoid": [
+    {
+      "task": "Stand",
+      "category": "loc",
+      "threshold": 800,
+      "mean": 954.2,
+      "spread": 0.1,
+      "threshold_met": true,
+      "dreamerv3_h1hand": "622.7 ± 404.8",
+      "tdmpc2_h1hand": "809.0 ± 137.1",
+      "sac_h1hand": "208.3 ± 105.6"
+    },
+    {
+      "task": "Walk",
+      "category": "loc",
+      "threshold": 700,
+      "mean": 848.7,
+      "spread": 5.9,
+      "threshold_met": true,
+      "dreamerv3_h1hand": "800.2 ± 158.7",
+      "tdmpc2_h1hand": "782.0 ± 109.2",
+      "sac_h1hand": "31.7 ± 24.0"
+    },
+    {
+      "task": "Run",
+      "category": "loc",
+      "threshold": 700,
+      "mean": 642.1,
+      "spread": 2.8,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "633.8 ± 222.4",
+      "tdmpc2_h1hand": "93.3 ± 14.3",
+      "sac_h1hand": "5.0 ± 2.1"
+    },
+    {
+      "task": "Maze",
+      "category": "loc",
+      "threshold": 1200,
+      "mean": 1358.8,
+      "spread": 7.4,
+      "threshold_met": true,
+      "dreamerv3_h1hand": "272.3 ± 116.6",
+      "tdmpc2_h1hand": "244.3 ± 97.7",
+      "sac_h1hand": "144.8 ± 17.8"
+    },
+    {
+      "task": "Hurdle",
+      "category": "loc",
+      "threshold": 700,
+      "mean": 183,
+      "spread": 0.3,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "126.2 ± 59.4",
+      "tdmpc2_h1hand": "46.4 ± 10.8",
+      "sac_h1hand": "13.2 ± 8.8"
+    },
+    {
+      "task": "Crawl",
+      "category": "loc",
+      "threshold": 700,
+      "mean": 971.9,
+      "spread": 0.2,
+      "threshold_met": true,
+      "dreamerv3_h1hand": "878.8 ± 122.7",
+      "tdmpc2_h1hand": "957.4 ± 17.5",
+      "sac_h1hand": "330.0 ± 111.9"
+    },
+    {
+      "task": "Reach",
+      "category": "loc",
+      "threshold": 12000,
+      "mean": 11430.2,
+      "spread": 2089,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "7580.9 ± 1951.0",
+      "tdmpc2_h1hand": "7316.1 ± 2112.1",
+      "sac_h1hand": "4565.1 ± 212.8"
+    },
+    {
+      "task": "Sit simple",
+      "category": "loc",
+      "threshold": 750,
+      "mean": 793,
+      "spread": 19.1,
+      "threshold_met": true,
+      "dreamerv3_h1hand": "891.4 ± 38.4",
+      "tdmpc2_h1hand": "411.1 ± 368.0",
+      "sac_h1hand": "148.3 ± 103.8"
+    },
+    {
+      "task": "Sit hard",
+      "category": "loc",
+      "threshold": 750,
+      "mean": 277.5,
+      "spread": 283.5,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "433.4 ± 355.9",
+      "tdmpc2_h1hand": "343.0 ± 381.7",
+      "sac_h1hand": "55.0 ± 18.2"
+    },
+    {
+      "task": "Balance simple",
+      "category": "loc",
+      "threshold": 800,
+      "mean": 53.1,
+      "spread": 6.7,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "19.8 ± 7.0",
+      "tdmpc2_h1hand": "40.5 ± 23.9",
+      "sac_h1hand": "61.5 ± 1.1"
+    },
+    {
+      "task": "Balance hard",
+      "category": "loc",
+      "threshold": 800,
+      "mean": 48.3,
+      "spread": 1.8,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "45.9 ± 27.4",
+      "tdmpc2_h1hand": "48.2 ± 28.5",
+      "sac_h1hand": "42.5 ± 22.6"
+    },
+    {
+      "task": "Stair",
+      "category": "loc",
+      "threshold": 700,
+      "mean": 272.5,
+      "spread": 44.0,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "131.1 ± 43.6",
+      "tdmpc2_h1hand": "70.4 ± 7.1",
+      "sac_h1hand": "14.1 ± 6.8"
+    },
+    {
+      "task": "Slide",
+      "category": "loc",
+      "threshold": 700,
+      "mean": 141.1,
+      "spread": 45.9,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "436.5 ± 200.1",
+      "tdmpc2_h1hand": "119.0 ± 35.9",
+      "sac_h1hand": "6.3 ± 2.8"
+    },
+    {
+      "task": "Pole",
+      "category": "loc",
+      "threshold": 700,
+      "mean": 628.7,
+      "spread": 10.5,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "658.3 ± 343.3",
+      "tdmpc2_h1hand": "226.3 ± 116.1",
+      "sac_h1hand": "46.3 ± 26.4"
+    },
+    {
+      "task": "Kitchen",
+      "category": "man",
+      "threshold": 4,
+      "mean": 0,
+      "spread": 0,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "0.0 ± 0.0",
+      "tdmpc2_h1hand": "0.0 ± 0.0",
+      "sac_h1hand": "0.0 ± 0.0"
+    },
+    {
+      "task": "Cube",
+      "category": "man",
+      "threshold": 370,
+      "mean": 6.3,
+      "spread": 0.3,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "111.2 ± 59.9",
+      "tdmpc2_h1hand": "54.7 ± 33.1",
+      "sac_h1hand": "130.7 ± 30.5"
+    },
+    {
+      "task": "Bookshelf simple",
+      "category": "man",
+      "threshold": 2000,
+      "mean": 666.3,
+      "spread": 7.6,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "840.4 ± 5.6",
+      "tdmpc2_h1hand": "136.2 ± 71.6",
+      "sac_h1hand": "346.9 ± 231.5"
+    },
+    {
+      "task": "Bookshelf hard",
+      "category": "man",
+      "threshold": 2000,
+      "mean": 572.8,
+      "spread": 201,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "530.2 ± 302.5",
+      "tdmpc2_h1hand": "37.0 ± 1.3",
+      "sac_h1hand": "293.9 ± 121.6"
+    },
+    {
+      "task": "Window",
+      "category": "man",
+      "threshold": 650,
+      "mean": 6.1,
+      "spread": 0.7,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "461.0 ± 252.8",
+      "tdmpc2_h1hand": "87.1 ± 37.5",
+      "sac_h1hand": "62.9 ± 83.8"
+    },
+    {
+      "task": "Spoon",
+      "category": "man",
+      "threshold": 650,
+      "mean": 319.1,
+      "spread": 8.6,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "349.7 ± 46.2",
+      "tdmpc2_h1hand": "77.9 ± 80.6",
+      "sac_h1hand": "87.7 ± 80.5"
+    },
+    {
+      "task": "Door",
+      "category": "man",
+      "threshold": 600,
+      "mean": 142.4,
+      "spread": 7.8,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "213.0 ± 149.3",
+      "tdmpc2_h1hand": "274.7 ± 12.5",
+      "sac_h1hand": "39.4 ± 25.2"
+    },
+    {
+      "task": "Push",
+      "category": "man",
+      "threshold": 700,
+      "mean": 877.3,
+      "spread": 59.6,
+      "threshold_met": true,
+      "dreamerv3_h1hand": "−1251.9 ± 659.8",
+      "tdmpc2_h1hand": "−258.7 ± 66.5",
+      "sac_h1hand": "−97.9 ± 147.0"
+    },
+    {
+      "task": "Basketball",
+      "category": "man",
+      "threshold": 1200,
+      "mean": 24,
+      "spread": 2.9,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "19.3 ± 2.5",
+      "tdmpc2_h1hand": "42.0 ± 14.8",
+      "sac_h1hand": "22.1 ± 3.2"
+    },
+    {
+      "task": "Truck",
+      "category": "man",
+      "threshold": 3000,
+      "mean": 787.3,
+      "spread": 87.1,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "1103.8 ± 232.9",
+      "tdmpc2_h1hand": "1132.6 ± 72.1",
+      "sac_h1hand": "1077.5 ± 95.0"
+    },
+    {
+      "task": "Package",
+      "category": "man",
+      "threshold": 1500,
+      "mean": -5148,
+      "spread": 1288.1,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "−18015.2 ± 9477.7",
+      "tdmpc2_h1hand": "−3655.6 ± 1055.0",
+      "sac_h1hand": "−6718.3 ± 607.0"
+    },
+    {
+      "task": "Cabinet",
+      "category": "man",
+      "threshold": 2500,
+      "mean": 274.1,
+      "spread": 110,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "57.3 ± 66.3",
+      "tdmpc2_h1hand": "112.8 ± 142.9",
+      "sac_h1hand": "211.8 ± 33.8"
+    },
+    {
+      "task": "Room",
+      "category": "man",
+      "threshold": 400,
+      "mean": 143.9,
+      "spread": 27.6,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "120.5 ± 71.4",
+      "tdmpc2_h1hand": "131.4 ± 56.7",
+      "sac_h1hand": "12.0 ± 4.9"
+    },
+    {
+      "task": "Insert normal",
+      "category": "man",
+      "threshold": 350,
+      "mean": 50.6,
+      "spread": 1.5,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "171.5 ± 33.2",
+      "tdmpc2_h1hand": "237.6 ± 9.1",
+      "sac_h1hand": "46.3 ± 63.1"
+    },
+    {
+      "task": "Insert small",
+      "category": "man",
+      "threshold": 350,
+      "mean": 46.7,
+      "spread": 8.8,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "184.8 ± 26.3",
+      "tdmpc2_h1hand": "129.8 ± 51.9",
+      "sac_h1hand": "10.8 ± 13.4"
+    },
+    {
+      "task": "Powerlift",
+      "category": "man",
+      "threshold": 800,
+      "mean": 84.6,
+      "spread": 53.7,
+      "threshold_met": false,
+      "dreamerv3_h1hand": "315.9 ± 16.9",
+      "tdmpc2_h1hand": "99.1 ± 47.3",
+      "sac_h1hand": "81.8 ± 46.7"
+    }
+  ],
+  "clutter": [
+    {
+      "method": "Passage",
+      "end": "goal_reached",
+      "sim_s": 13.18,
+      "progress_m": 8.622,
+      "final_error_m": 0.495,
+      "path_m": 9.061,
+      "contact_steps": 0,
+      "fall": false,
+      "arrival": true
+    },
+    {
+      "method": "GPT attempt 1",
+      "end": "fall",
+      "sim_s": 9.8,
+      "progress_m": 1.561,
+      "final_error_m": 7.556,
+      "path_m": 3.471,
+      "contact_steps": 95,
+      "fall": true,
+      "arrival": false
+    },
+    {
+      "method": "GPT attempt 2",
+      "end": "stationary_timeout",
+      "sim_s": 20.28,
+      "progress_m": -0.024,
+      "final_error_m": 9.141,
+      "path_m": null,
+      "contact_steps": null,
+      "fall": false,
+      "arrival": false
+    },
+    {
+      "method": "GPT attempt 3",
+      "end": "stationary_timeout",
+      "sim_s": 8,
+      "progress_m": 0.012,
+      "final_error_m": 9.104,
+      "path_m": 0.434,
+      "contact_steps": 0,
+      "fall": false,
+      "arrival": false
+    },
+    {
+      "method": "GPT attempt 4",
+      "end": "stationary_timeout",
+      "sim_s": 8.48,
+      "progress_m": 0.159,
+      "final_error_m": 8.958,
+      "path_m": 0.586,
+      "contact_steps": 0,
+      "fall": false,
+      "arrival": false
+    },
+    {
+      "method": "GPT attempt 5",
+      "end": "max_steps",
+      "sim_s": 30,
+      "progress_m": 2.598,
+      "final_error_m": 6.519,
+      "path_m": 3.833,
+      "contact_steps": 0,
+      "fall": false,
+      "arrival": false
+    }
+  ],
+  "proxy": [
+    {
+      "interface": "Five-point",
+      "episodes": 12,
+      "strict_pass": 0,
+      "arrive_hold": 4,
+      "falls": 1,
+      "final_error_m": 3.441,
+      "travel_m": 5.745,
+      "fivepoint_rmse_m": 0.161,
+      "mean_peak_contact_n": 1853,
+      "mean_nonfoot_contact_n": 644
+    },
+    {
+      "interface": "14-point",
+      "episodes": 12,
+      "strict_pass": 0,
+      "arrive_hold": 3,
+      "falls": 4,
+      "final_error_m": 5.334,
+      "travel_m": 3.866,
+      "fivepoint_rmse_m": 0.197,
+      "mean_peak_contact_n": 2293,
+      "mean_nonfoot_contact_n": 1562
+    }
+  ],
+  "terrain": [
+    {
+      "terrain": "stairs",
+      "method": "adapted",
+      "successes": 4,
+      "episodes": 6,
+      "sim_s": 33.51,
+      "wall_s": 1707.87,
+      "tokens_per_scene": 9820852,
+      "tokens_per_call": 126720,
+      "calls": 465,
+      "adaptation_tokens": 34871202
+    },
+    {
+      "terrain": "stairs",
+      "method": "unadapted",
+      "successes": 0,
+      "episodes": 6,
+      "sim_s": null,
+      "wall_s": null,
+      "tokens_per_scene": 495959,
+      "tokens_per_call": 35425,
+      "calls": 14,
+      "adaptation_tokens": null
+    },
+    {
+      "terrain": "stairs",
+      "method": "baseline",
+      "successes": 6,
+      "episodes": 6,
+      "sim_s": 6.24,
+      "wall_s": 0.79,
+      "tokens_per_scene": null,
+      "tokens_per_call": null,
+      "calls": null,
+      "adaptation_tokens": null
+    },
+    {
+      "terrain": "gaps",
+      "method": "adapted",
+      "successes": 3,
+      "episodes": 6,
+      "sim_s": 8.39,
+      "wall_s": 439.18,
+      "tokens_per_scene": 767654,
+      "tokens_per_call": null,
+      "calls": 99,
+      "adaptation_tokens": 4294705
+    },
+    {
+      "terrain": "gaps",
+      "method": "unadapted",
+      "successes": 1,
+      "episodes": 6,
+      "sim_s": 6.64,
+      "wall_s": 437.9,
+      "tokens_per_scene": 286246,
+      "tokens_per_call": null,
+      "calls": 60,
+      "adaptation_tokens": null
+    },
+    {
+      "terrain": "gaps",
+      "method": "baseline",
+      "successes": 6,
+      "episodes": 6,
+      "sim_s": 4.29,
+      "wall_s": 0.44,
+      "tokens_per_scene": 0,
+      "tokens_per_call": null,
+      "calls": 0,
+      "adaptation_tokens": null
+    }
+  ],
+  "videos": [
+    {
+      "id": "clutter-passage",
+      "source_path": "raw_docs/extracted/locomotion/open_clutter__easy_scene_0089__seed794782980__goal_reached.mp4",
+      "domain": "obstacles",
+      "method": "baseline",
+      "outcome": "success",
+      "title": {
+        "en": "Passage · goal reached",
+        "zh": "Passage · 到达目标"
+      },
+      "caption": {
+        "en": "13.18 s of simulation; final error 0.495 m; no obstacle-contact steps.",
+        "zh": "13.18 秒仿真；最终误差 0.495 m；障碍接触步数为 0。"
+      },
+      "video": "media/joint/clutter-passage.mp4",
+      "poster": "media/joint/clutter-passage.jpg",
+      "duration": 13.24,
+      "width": 1280,
+      "height": 720,
+      "source_sha256": "9b9749fefba73fa77486684e5509e565cfa0f569c6b7721cab295411799b78bc",
+      "sha256": "7f9171269167b21241a34e3a1b4e399d2bcefc6b5b541b0f5f042b8503723f40"
+    },
+    {
+      "id": "clutter-gpt1",
+      "source_path": "raw_docs/extracted/locomotion/open_clutter__easy_scene_0089__attempt_001__fall.mp4",
+      "domain": "obstacles",
+      "method": "gpt",
+      "outcome": "failure",
+      "title": {
+        "en": "Astra · attempt 1",
+        "zh": "Astra · 第 1 次尝试"
+      },
+      "caption": {
+        "en": "Falls at 9.80 s; 95 obstacle-contact steps.",
+        "zh": "9.80 秒时跌倒；95 个障碍接触步。"
+      },
+      "video": "media/joint/clutter-gpt1.mp4",
+      "poster": "media/joint/clutter-gpt1.jpg",
+      "duration": 9.84,
+      "width": 1280,
+      "height": 720,
+      "source_sha256": "3fa8ef3df1bd3d9d34e407af42dded176d10432e2d10f44831cfb48a0ec4cd9f",
+      "sha256": "0f4ad20141bc8d6346637e9bdc6d82e7399d79ac5a5fc6c6734d4e44d92e565b"
+    },
+    {
+      "id": "clutter-gpt5",
+      "source_path": "raw_docs/extracted/locomotion/open_clutter__easy_scene_0089__attempt_005__max_steps.mp4",
+      "domain": "obstacles",
+      "method": "gpt",
+      "outcome": "failure",
+      "title": {
+        "en": "Astra · attempt 5",
+        "zh": "Astra · 第 5 次尝试"
+      },
+      "caption": {
+        "en": "Stable forward motion, then stops before the obstacle. Final goal error: 6.519 m.",
+        "zh": "稳定向前移动后停在障碍前，最终距目标 6.519 m。"
+      },
+      "video": "media/joint/clutter-gpt5.mp4",
+      "poster": "media/joint/clutter-gpt5.jpg",
+      "duration": 30.04,
+      "width": 1280,
+      "height": 720,
+      "source_sha256": "f2d62f53695388b836edba920b9a5afdec50c66f4557ad97f621e5ee5523f2c7",
+      "sha256": "8729d85db723c12ced9403e24829173d2642211259abcd25163e46cc0a3c6d2f"
+    },
+    {
+      "id": "ceiling-passage",
+      "source_path": "raw_docs/extracted/locomotion/multilayer_passage__easy_scene_0062__crouch_demo.mp4",
+      "domain": "obstacles",
+      "method": "baseline",
+      "outcome": "demo",
+      "title": {
+        "en": "Passage · crouching demonstration",
+        "zh": "Passage · 下蹲通行演示"
+      },
+      "caption": {
+        "en": "Multi-layer Passage and perceptive ScaleBFM execute crouched motion under a low ceiling.",
+        "zh": "多层 Passage 与感知型 ScaleBFM 在低顶棚下执行下蹲运动。"
+      },
+      "video": "media/joint/ceiling-passage.mp4",
+      "poster": "media/joint/ceiling-passage.jpg",
+      "duration": 16.6,
+      "width": 960,
+      "height": 540,
+      "source_sha256": "d3d4e02034f738957e3d56fc0e15be64bd192adb42d6d22f1ee713a42098712c",
+      "sha256": "ccdf08641ea34eadd3222beea1cad6297a2f45ca25e5bb2e7671842fe31a422b"
+    },
+    {
+      "id": "proxy-fivepoint-arrival",
+      "source_path": "raw_docs/extracted/locomotion/low_ceiling_set02__easy_scene_0299__physx.mp4",
+      "domain": "proxy",
+      "method": "proxy",
+      "outcome": "failure",
+      "title": {
+        "en": "Five-point generator · arrival with contact",
+        "zh": "五点生成器 · 到达但发生接触"
+      },
+      "caption": {
+        "en": "Astra-authored five-point generator. Arrives with a 2,364 N contact peak; the strict course criterion is not met.",
+        "zh": "Astra 编写的五点生成器。到达目标时接触峰值为 2,364 N，未达到严格路线判据。"
+      },
+      "video": "media/joint/proxy-fivepoint-arrival.mp4",
+      "poster": "media/joint/proxy-fivepoint-arrival.jpg",
+      "duration": 57.8,
+      "width": 1280,
+      "height": 720,
+      "source_sha256": "d09c33cc43f8a8f4b47d190d3a7d449fb875dac9b522da6fd76b5ded61bb5dd9",
+      "sha256": "89f9cf4b83283c539664e9855ad8f45d3a3394ae3d745dab4eec48baec577f1e"
+    },
+    {
+      "id": "proxy-fivepoint-fall",
+      "source_path": "raw_docs/extracted/locomotion/low_ceiling_set02__medium_scene_0219__physx.mp4",
+      "domain": "proxy",
+      "method": "proxy",
+      "outcome": "failure",
+      "title": {
+        "en": "Five-point generator · fall in PhysX",
+        "zh": "五点生成器 · PhysX 中跌倒"
+      },
+      "caption": {
+        "en": "Astra-authored five-point generator. The PhysX run falls at 24.88 s; the corresponding MuJoCo run arrives.",
+        "zh": "Astra 编写的五点生成器。PhysX 运行在 24.88 秒时跌倒，对应 MuJoCo 运行到达。"
+      },
+      "video": "media/joint/proxy-fivepoint-fall.mp4",
+      "poster": "media/joint/proxy-fivepoint-fall.jpg",
+      "duration": 24.88,
+      "width": 1280,
+      "height": 720,
+      "source_sha256": "ed004f0e35d1927f9c6062a8b977cdde05db90712a2ac0c2d86924f65e4f8541",
+      "sha256": "87727b1929e5eb747062c97762894d2b74e242a3e7a8292ba6e90c2726fe6889"
+    },
+    {
+      "id": "proxy-wholebody-arrival",
+      "source_path": "raw_docs/extracted/locomotion/open_clutter__medium_scene_0053__physx.mp4",
+      "domain": "proxy",
+      "method": "proxy",
+      "outcome": "failure",
+      "title": {
+        "en": "14-point generator · contact failure",
+        "zh": "14-point 生成器 · 接触失败"
+      },
+      "caption": {
+        "en": "Astra-authored 14-point generator. Arrives with a 6,057 N contact peak; the strict course criterion is not met.",
+        "zh": "Astra 编写的 14-point 生成器。到达时接触峰值为 6,057 N，未达到严格路线判据。"
+      },
+      "video": "media/joint/proxy-wholebody-arrival.mp4",
+      "poster": "media/joint/proxy-wholebody-arrival.jpg",
+      "duration": 49.52,
+      "width": 1280,
+      "height": 720,
+      "source_sha256": "931b5298423a7f215e76a4c5c1507f5b909c6fd649f1d9b1fac670397918ab98",
+      "sha256": "416482d7f2bd0bc7d08ae86055c50126f064a9c0305abbd8f5a0a79491be469d"
+    },
+    {
+      "id": "proxy-wholebody-fall",
+      "source_path": "raw_docs/extracted/locomotion/low_ceiling_set01__easy_scene_0085__physx.mp4",
+      "domain": "proxy",
+      "method": "proxy",
+      "outcome": "failure",
+      "title": {
+        "en": "14-point generator · beam collision",
+        "zh": "14-point 生成器 · 横梁碰撞"
+      },
+      "caption": {
+        "en": "Astra-authored 14-point generator. The torso hits a low beam and the robot falls.",
+        "zh": "Astra 编写的 14-point 生成器。躯干撞上低横梁，机器人随后跌倒。"
+      },
+      "video": "media/joint/proxy-wholebody-fall.mp4",
+      "poster": "media/joint/proxy-wholebody-fall.jpg",
+      "duration": 19.12,
+      "width": 1280,
+      "height": 720,
+      "source_sha256": "da4c67b58d79fa42a2e24152741a6f1a792b80f6db0e06ac2d3d1566db70391a",
+      "sha256": "f90cbca7a102776c3bf256c8a5b7730f274eab100fdc4dd71b2c838cb2fa1d37"
+    },
+    {
+      "id": "flat-stand",
+      "source_path": "raw_docs/extracted/locomotion/video.mp4",
+      "domain": "flat",
+      "method": "gpt",
+      "outcome": "success",
+      "title": {
+        "en": "Stand · complete 30 s episode",
+        "zh": "站立 · 完整 30 秒"
+      },
+      "caption": {
+        "en": "The first attempt completes 30 s and all standing criteria with 600 PD targets. Maximum tilt is 8.59° and horizontal drift 0.062 m.",
+        "zh": "首次尝试执行 600 个 PD 目标，完成 30 秒及全部站立判据；最大倾角 8.59°、水平漂移 0.062 m。"
+      },
+      "video": "media/joint/flat-stand.mp4",
+      "poster": "media/joint/flat-stand.jpg",
+      "duration": 30,
+      "width": 960,
+      "height": 720,
+      "source_sha256": "bf96349ee17b7874d7c3c876d9f003e77bc7d8e0909b1e76a654ccd8c2191a3b",
+      "sha256": "a892a74dd697431b9085cc21b6a7f1e5a8712ed0eca86b399cce6659b2c46488",
+      "playback": "s0"
+    },
+    {
+      "id": "flat-walk",
+      "source_path": "raw_docs/extracted/locomotion/video (1).mp4",
+      "domain": "flat",
+      "method": "gpt",
+      "outcome": "failure",
+      "title": {
+        "en": "Walk · attempt 5, foot-slip termination",
+        "zh": "直行 · 第 5 次，脚滑移终止"
+      },
+      "caption": {
+        "en": "Walking attempt 5 ends at 6.40 s when stance-foot slip exceeds the limit.",
+        "zh": "直行第 5 次尝试在 6.40 秒因支撑脚滑移超限而终止。"
+      },
+      "video": "media/joint/flat-walk.mp4",
+      "poster": "media/joint/flat-walk.jpg",
+      "duration": 6.4,
+      "width": 960,
+      "height": 720,
+      "source_sha256": "73a06683e5da495f8d534d6557ed3fc297ce1c41b3b5284614fa8fa07b46fad5",
+      "sha256": "a97c3a3466f2e9cce122673cb58e52450e1eb4fbac96e35b36437c052dcf642d",
+      "playback": "s0"
+    },
+    {
+      "id": "flat-turn",
+      "source_path": "raw_docs/extracted/locomotion/video (2).mp4",
+      "domain": "flat",
+      "method": "gpt",
+      "outcome": "failure",
+      "title": {
+        "en": "Right turn · attempt 10",
+        "zh": "右转 · 第 10 次尝试"
+      },
+      "caption": {
+        "en": "Right-turn attempt 10 ends at 6.95 s on stance-foot slip and position limits.",
+        "zh": "右转第 10 次尝试在 6.95 秒因支撑脚滑移及位置越界而终止。"
+      },
+      "video": "media/joint/flat-turn.mp4",
+      "poster": "media/joint/flat-turn.jpg",
+      "duration": 6.92,
+      "width": 960,
+      "height": 720,
+      "source_sha256": "a91f56e9c35003a2ff11dfd5e74a0e938178c225a35d505110f9eddb85b80474",
+      "sha256": "b2b748506601a97ca4daa3e70316beb9280a74389d351394768a9fecef1402b4",
+      "playback": "s0"
+    },
+    {
+      "id": "stairs-unadapted",
+      "source_path": "raw_docs/extracted/locomotion/20260917-190241.mp4",
+      "domain": "terrain",
+      "method": "unadapted",
+      "outcome": "failure",
+      "title": {
+        "en": "Stairs · without policy notes",
+        "zh": "楼梯 · 未加载策略文档"
+      },
+      "caption": {
+        "en": "Astra + ScaleTrack without the adapted policy document; 0/6 successes overall.",
+        "zh": "Astra + ScaleTrack 未加载迭代后的策略文档；整体成功 0/6。"
+      },
+      "video": "media/joint/stairs-unadapted.mp4",
+      "poster": "media/joint/stairs-unadapted.jpg",
+      "duration": 6.98,
+      "width": 960,
+      "height": 540,
+      "source_sha256": "dc97b9f2f558680624dc3c87d6b9ce1229d77d2239a1b88160119ad93c38c8f6",
+      "sha256": "07ed19c82e2aabdc2a3f48bbf4e535b39737847aef9c24a47a4c1d1f9d5b7cfe"
+    },
+    {
+      "id": "stairs-baseline",
+      "source_path": "raw_docs/extracted/locomotion/飞书20260917-190414.mp4",
+      "domain": "terrain",
+      "method": "baseline",
+      "outcome": "success",
+      "title": {
+        "en": "Stairs · learned baseline",
+        "zh": "楼梯 · learned policy baseline"
+      },
+      "caption": {
+        "en": "The learned controller completes all six test stair geometries.",
+        "zh": "learned policy 完成全部六种测试楼梯。"
+      },
+      "video": "media/joint/stairs-baseline.mp4",
+      "poster": "media/joint/stairs-baseline.jpg",
+      "duration": 6.44,
+      "width": 960,
+      "height": 540,
+      "source_sha256": "ed228df93d5effc556d2852dfc73a4a20855bca6368c3e485386bd03dce734a1",
+      "sha256": "e60bf37e85a8680f4fdfc23135810eaa2cb2c33fe073c3641cd3743e0e617bab"
+    },
+    {
+      "id": "gaps-adapted-success",
+      "source_path": "raw_docs/extracted/locomotion/replay.mp4",
+      "domain": "terrain",
+      "method": "adapted",
+      "outcome": "success",
+      "title": {
+        "en": "Gaps · with policy notes",
+        "zh": "沟隙 · 加载策略文档"
+      },
+      "caption": {
+        "en": "Successful traversal.",
+        "zh": "成功通过。"
+      },
+      "video": "media/joint/gaps-adapted-success.mp4",
+      "poster": "media/joint/gaps-adapted-success.jpg",
+      "duration": 8.48,
+      "width": 960,
+      "height": 540,
+      "source_sha256": "87a732614df6619285b27ba53ac8567c2109a16a4c2a315a282b5eadb0db62b4",
+      "sha256": "0e38c6c4fc568b1c7140271abda5de1de25872b1b103d096c4405980cfe0d3e3"
+    },
+    {
+      "id": "gaps-adapted-failure",
+      "source_path": "raw_docs/extracted/locomotion/replay 3.mp4",
+      "domain": "terrain",
+      "method": "adapted",
+      "outcome": "failure",
+      "title": {
+        "en": "Gaps · with policy notes",
+        "zh": "沟隙 · 加载策略文档"
+      },
+      "caption": {
+        "en": "Astra plans gap traversal using the rollout-refined control document; this rollout fails.",
+        "zh": "Astra 根据经 rollout 修订的控制文档规划沟隙跨越；本次 rollout 未能通过。"
+      },
+      "video": "media/joint/gaps-adapted-failure.mp4",
+      "poster": "media/joint/gaps-adapted-failure.jpg",
+      "duration": 6.84,
+      "width": 960,
+      "height": 540,
+      "source_sha256": "bf359d6647bc3af6ac12e19d7a15c8814f7a90e4b3d1f83fa1fe3981a14af488",
+      "sha256": "00ce50924fa3606dd90ba1512e715b2a1a1296763a164d6ea656a8d7ac589c50"
+    },
+    {
+      "id": "gaps-baseline-1",
+      "source_path": "raw_docs/extracted/locomotion/replay 4.mp4",
+      "domain": "terrain",
+      "method": "baseline",
+      "outcome": "success",
+      "title": {
+        "en": "Gaps · learned baseline",
+        "zh": "沟隙 · learned policy baseline"
+      },
+      "caption": {
+        "en": "Successful traversal.",
+        "zh": "成功通过。"
+      },
+      "video": "media/joint/gaps-baseline-1.mp4",
+      "poster": "media/joint/gaps-baseline-1.jpg",
+      "duration": 4.52,
+      "width": 960,
+      "height": 540,
+      "source_sha256": "abe6341cad57bf5f3a8e0fe9c55f12feadfdc535f1d451cd5ed30cd9ba8afee8",
+      "sha256": "770be55c7fc7029f73154de9d88677eb4609096cf51cca914a442c178f1d2454"
+    },
+    {
+      "id": "gaps-baseline-2",
+      "source_path": "raw_docs/extracted/locomotion/replay 2.mp4",
+      "domain": "terrain",
+      "method": "baseline",
+      "outcome": "success",
+      "title": {
+        "en": "Gaps · learned baseline",
+        "zh": "沟隙 · learned policy baseline"
+      },
+      "caption": {
+        "en": "Successful traversal.",
+        "zh": "成功通过。"
+      },
+      "video": "media/joint/gaps-baseline-2.mp4",
+      "poster": "media/joint/gaps-baseline-2.jpg",
+      "duration": 4.16,
+      "width": 960,
+      "height": 540,
+      "source_sha256": "067975cbf64b240845ef589b75f42d3ed35d92b07bfdc120a0deaaf9acbbf344",
+      "sha256": "c62573cd95e20b624a302e71c22cee2faec064c33e740fae5ffb1f4a45add169"
+    },
+    {
+      "id": "gaps-unadapted-success",
+      "source_path": "raw_docs/extracted/locomotion/replay 5.mp4",
+      "domain": "terrain",
+      "method": "unadapted",
+      "outcome": "success",
+      "title": {
+        "en": "Gaps · without policy notes",
+        "zh": "沟隙 · 未加载策略文档"
+      },
+      "caption": {
+        "en": "Successful traversal.",
+        "zh": "成功通过。"
+      },
+      "video": "media/joint/gaps-unadapted-success.mp4",
+      "poster": "media/joint/gaps-unadapted-success.jpg",
+      "duration": 6.66,
+      "width": 960,
+      "height": 540,
+      "source_sha256": "af0bd819f388a72d8d3f71a9ebc1df16ca9bfbfc868c1fc8a865a5136bff01f1",
+      "sha256": "8e448eceacf5f9ae7889417ebe6ea8c5cb4cb05e300d7473abe399581a5056c3"
+    },
+    {
+      "id": "gaps-unadapted-failure",
+      "source_path": "raw_docs/extracted/locomotion/replay 1.mp4",
+      "domain": "terrain",
+      "method": "unadapted",
+      "outcome": "failure",
+      "title": {
+        "en": "Gaps · without policy notes",
+        "zh": "沟隙 · 未加载策略文档"
+      },
+      "caption": {
+        "en": "Astra plans gap traversal from the initial instructions; this rollout ends in failure.",
+        "zh": "Astra 根据初始指令规划沟隙跨越；本次 rollout 未能通过。"
+      },
+      "video": "media/joint/gaps-unadapted-failure.mp4",
+      "poster": "media/joint/gaps-unadapted-failure.jpg",
+      "duration": 4.92,
+      "width": 960,
+      "height": 540,
+      "source_sha256": "383eca2afc0de09c34b1931613870def4d69563c43d9b97c302466a92bf0b482",
+      "sha256": "860a13506055d082f6194c3f36fdf8165c66225758934926e7bebcecf46180ae"
+    }
+  ]
+}

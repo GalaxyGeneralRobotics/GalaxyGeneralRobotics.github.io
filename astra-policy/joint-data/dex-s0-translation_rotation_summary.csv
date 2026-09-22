@@ -1,0 +1,4 @@
+evaluation,controller,steps,mean_duration_s,full_cases,drop_cases,mean_final_position_error_mm,mean_final_rotation_error_deg,final_position_success_cases,final_rotation_success_cases,final_success_cases
+native executed window,Astra Direct,668,6.6800,0/5,0/5,47.3532,32.7157,0/5,0/5,0/5
+matched Astra window,RL,668,6.6800,0/5,0/5,16.2159,8.3149,5/5,4/5,4/5
+full 15 s horizon,RL,1500,15.0000,5/5,0/5,16.0794,3.4876,5/5,5/5,5/5

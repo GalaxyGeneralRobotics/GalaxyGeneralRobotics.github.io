@@ -1,0 +1,167 @@
+{
+ "source": "RoboDojo (models) and RoboLab (robolab) result tables for the ten selected tasks of each benchmark.",
+ "models": [
+  {
+   "name": "DM0.5",
+   "display": "DM0.5",
+   "origin": "official",
+   "overall_score": 24.9,
+   "score": 31.8206,
+   "sr": 22.0404,
+   "score_n": null
+  },
+  {
+   "name": "GalaxeaVLA (G0.5)",
+   "display": "GalaxeaVLA (G0.5)",
+   "origin": "official",
+   "overall_score": 20.23,
+   "score": 38.2608,
+   "sr": 30.9464,
+   "score_n": null
+  },
+  {
+   "name": "Xiaomi-Robotics-1",
+   "display": "Xiaomi-Robotics-1",
+   "origin": "official",
+   "overall_score": 20.07,
+   "score": 33.9746,
+   "sr": 25.5072,
+   "score_n": null
+  },
+  {
+   "name": "OpenWAM-α",
+   "display": "OpenWAM-α",
+   "origin": "official",
+   "overall_score": 17.18,
+   "score": 32.7322,
+   "sr": 23.0662,
+   "score_n": null
+  },
+  {
+   "name": "Meituan-Robotics-0",
+   "display": "Meituan-Robotics-0",
+   "origin": "official",
+   "overall_score": 14.95,
+   "score": 28.328599999999998,
+   "sr": 17.8796,
+   "score_n": null
+  },
+  {
+   "name": "Hy-Embodied-0.5-VLA",
+   "display": "Hy-Embodied-0.5-VLA",
+   "origin": "official",
+   "overall_score": 13.07,
+   "score": 21.1594,
+   "sr": 13.935,
+   "score_n": null
+  },
+  {
+   "name": "Spatial Forcing",
+   "display": "Spatial Forcing",
+   "origin": "official",
+   "overall_score": 12.38,
+   "score": 24.9644,
+   "sr": 17.1458,
+   "score_n": null
+  },
+  {
+   "name": "Pi-05",
+   "display": "π0.5",
+   "origin": "official",
+   "overall_score": 11.41,
+   "score": 24.43,
+   "sr": 15.6666,
+   "score_n": null
+  },
+  {
+   "name": "InternVLA-A1.5",
+   "display": "InternVLA-A1.5",
+   "origin": "official",
+   "overall_score": 11.15,
+   "score": 21.7398,
+   "sr": 15.0268,
+   "score_n": null
+  },
+  {
+   "name": "StarVLA-PI_v3",
+   "display": "StarVLA-PI_v3",
+   "origin": "official",
+   "overall_score": 10.81,
+   "score": 22.3636,
+   "sr": 16.1734,
+   "score_n": null
+  },
+  {
+   "name": "mix",
+   "display": "π0.5 + GPT",
+   "origin": "local",
+   "score": 62.6,
+   "sr": 48,
+   "score_n": 50
+  },
+  {
+   "name": "gpt",
+   "display": "GPT-only",
+   "origin": "local",
+   "score": 37.8125,
+   "sr": 26,
+   "score_n": 48
+  }
+ ],
+ "robolab": [
+  {
+   "id": "pi05_only",
+   "label": "π₀.₅",
+   "successes": 18,
+   "episodes": 50,
+   "color": "#e9a150",
+   "source_kind": "historical",
+   "source_run": "robolab120_pi05_jointpos_specific_10ep_20260603",
+   "source_sha256": "02c28bfe20c14fae5fe41ed92e5c06be03d7159523de1056375852bad710bf2d",
+   "name": "Pi-05",
+   "sr": 36.0
+  },
+  {
+   "id": "astra_pi05",
+   "label": "π₀.₅ + GPT 6 Astra",
+   "successes": 46,
+   "episodes": 50,
+   "color": "#3478f6",
+   "name": "mix",
+   "sr": 92.0
+  },
+  {
+   "id": "pure_astra",
+   "label": "GPT 6 Astra Direct",
+   "successes": 49,
+   "episodes": 50,
+   "color": "#56b5a4",
+   "name": "gpt",
+   "sr": 98.0
+  },
+  {
+   "id": "cosmos_nano_policy",
+   "label": "Cosmos3-Nano-Policy",
+   "color": "#9270c4",
+   "successes": 18,
+   "episodes": 50,
+   "source_kind": "historical",
+   "source_run": "robolab120_cosmos3_official_specific_10ep_20260603",
+   "source_sha256": "a4e7ab29d53eff05f61e42c03c267f86dfca2afe23c71f9e325639770d2818de",
+   "name": "Cosmos3-Nano-Policy",
+   "sr": 36.0
+  },
+  {
+   "id": "dreamzero",
+   "label": "DreamZero",
+   "color": "#7791a8",
+   "successes": 17,
+   "episodes": 50,
+   "source_kind": "historical",
+   "source_run": "robolab120_dreamzero_specific_10ep_torchattn_20260603",
+   "source_sha256": "e2e8b70be9d934df9ca75d6c6ef1c8beb21486c4296f0d1be2d065c9d542ef3f",
+   "name": "DreamZero",
+   "sr": 34.0
+  }
+ ]
+}

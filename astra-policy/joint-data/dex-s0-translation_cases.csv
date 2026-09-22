@@ -1,0 +1,11 @@
+sample,controller,steps,final_position_error_mm,final_success,dropped
+000,Astra Direct,300,74.7300,false,false
+000,RL,300,10.0231,true,false
+001,Astra Direct,300,19.1292,true,false
+001,RL,300,31.1240,false,false
+002,Astra Direct,300,61.6692,false,false
+002,RL,300,9.8376,true,false
+003,Astra Direct,300,37.6755,false,false
+003,RL,300,14.9890,true,false
+004,Astra Direct,300,102.0575,false,false
+004,RL,300,20.4982,true,false

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "supplement-passage",
+    "source_path": "raw_docs/extracted/lianyunrui/Astra For Humanoid from lianyunrui/Astra For Humanoid/图片和附件/Easy_011.mp4",
+    "video": "media/joint/supplement-passage.mp4",
+    "poster": "media/joint/supplement-passage.jpg",
+    "width": 1920,
+    "height": 1080,
+    "duration": 16.216667,
+    "source_sha256": "f6d71e878be642d3c2afe520aea35447d51a8925a3b45c1c33082208bfb6a4eb",
+    "sha256": "f6d71e878be642d3c2afe520aea35447d51a8925a3b45c1c33082208bfb6a4eb"
+  },
+  {
+    "id": "supplement-astra-clutter",
+    "source_path": "raw_docs/extracted/lianyunrui/Astra For Humanoid from lianyunrui/Astra For Humanoid/图片和附件/video 1.mp4",
+    "video": "media/joint/supplement-astra-clutter.mp4",
+    "poster": "media/joint/supplement-astra-clutter.jpg",
+    "width": 960,
+    "height": 540,
+    "duration": 9.84,
+    "source_sha256": "dba7acb04b82cfe4d76d0de00669453672a5ace7661261e2a4f52d08de84860a",
+    "sha256": "dba7acb04b82cfe4d76d0de00669453672a5ace7661261e2a4f52d08de84860a"
+  },
+  {
+    "id": "supplement-humanoid-1",
+    "source_path": "raw_docs/extracted/lianyunrui/Astra For Humanoid from lianyunrui/Astra For Humanoid/图片和附件/ScreenRecording_09-16-2026 13-01-46_1.mp4",
+    "video": "media/joint/supplement-humanoid-1.mp4",
+    "poster": "media/joint/supplement-humanoid-1.jpg",
+    "width": 1206,
+    "height": 750,
+    "duration": 38.073333,
+    "source_sha256": "7cee32c4db0967d9cc655703427f19a9d003a19026c9f9cd18f50ca215be2fb6",
+    "sha256": "f652fc2a4cf049bdcb16f94c54d3bfae91f9ddc9330368a0ee881644c062bfaa"
+  },
+  {
+    "id": "supplement-humanoid-2",
+    "source_path": "raw_docs/extracted/lianyunrui/Astra For Humanoid from lianyunrui/Astra For Humanoid/图片和附件/d0f65b101cc3a5438cd47abf93e28545_raw.mp4",
+    "video": "media/joint/supplement-humanoid-2.mp4",
+    "poster": "media/joint/supplement-humanoid-2.jpg",
+    "width": 1280,
+    "height": 800,
+    "duration": 15,
+    "source_sha256": "74d65551102de6efe3dc2b94aa77085d108d96ac73c3025bc8dd0607984948a6",
+    "sha256": "74d65551102de6efe3dc2b94aa77085d108d96ac73c3025bc8dd0607984948a6"
+  },
+  {
+    "id": "supplement-humanoid-3",
+    "source_path": "raw_docs/extracted/lianyunrui/Astra For Humanoid from lianyunrui/Astra For Humanoid/图片和附件/c1c1359f11503225a88ca86cdd0b8415.mp4",
+    "video": "media/joint/supplement-humanoid-3.mp4",
+    "poster": "media/joint/supplement-humanoid-3.jpg",
+    "width": 1280,
+    "height": 800,
+    "duration": 59.567,
+    "source_sha256": "35c644686413bdadb6b3ace5dddab148a473b42a7c4748259b17fe8fde3298a3",
+    "sha256": "35c644686413bdadb6b3ace5dddab148a473b42a7c4748259b17fe8fde3298a3"
+  }
+]

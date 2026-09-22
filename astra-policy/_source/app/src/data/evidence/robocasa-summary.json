@@ -1,0 +1,30 @@
+[
+  {
+    "group": "atomic_seen",
+    "n": 25,
+    "pi05_only": 13,
+    "direct": 7,
+    "pi05_skill": 13
+  },
+  {
+    "group": "composite_seen",
+    "n": 25,
+    "pi05_only": 3,
+    "direct": 4,
+    "pi05_skill": 7
+  },
+  {
+    "group": "composite_unseen",
+    "n": 25,
+    "pi05_only": 1,
+    "direct": 14,
+    "pi05_skill": 9
+  },
+  {
+    "group": "all",
+    "n": 75,
+    "pi05_only": 17,
+    "direct": 25,
+    "pi05_skill": 29
+  }
+]

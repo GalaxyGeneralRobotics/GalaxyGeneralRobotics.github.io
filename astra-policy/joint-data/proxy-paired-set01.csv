@@ -1,0 +1,3 @@
+interface,episodes,strict_pass,arrive_hold,falls,final_error_m,travel_m,mean_peak_contact_n,mean_nonfoot_contact_n,fivepoint_rmse_m
+Five-point,12,0,4,1,3.441,5.745,1853,644,0.161
+14-point,12,0,3,4,5.334,3.866,2293,1562,0.197

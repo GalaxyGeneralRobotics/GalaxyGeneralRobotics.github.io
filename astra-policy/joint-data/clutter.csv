@@ -1,0 +1,7 @@
+method,end,sim_s,progress_m,final_error_m,path_m,contact_steps,fall,arrival
+Passage,goal_reached,13.18,8.622,0.495,9.061,0,False,True
+GPT attempt 1,fall,9.8,1.561,7.556,3.471,95,True,False
+GPT attempt 2,stationary_timeout,20.28,-0.024,9.141,,,False,False
+GPT attempt 3,stationary_timeout,8.0,0.012,9.104,0.434,0,False,False
+GPT attempt 4,stationary_timeout,8.48,0.159,8.958,0.586,0,False,False
+GPT attempt 5,max_steps,30.0,2.598,6.519,3.833,0,False,False

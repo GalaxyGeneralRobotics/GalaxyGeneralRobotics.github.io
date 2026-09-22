@@ -1,0 +1,7 @@
+terrain,method,successes,episodes,sim_s,wall_s,tokens_per_scene,tokens_per_call,calls,adaptation_tokens
+stairs,adapted,4,6,33.51,1707.87,9820852,126720,465,34871202
+stairs,unadapted,0,6,,,495959,35425,14,
+stairs,baseline,6,6,6.24,0.79,,,,
+gaps,adapted,3,6,8.39,439.18,767654,,99,4294705
+gaps,unadapted,1,6,6.64,437.9,286246,,60,
+gaps,baseline,6,6,4.29,0.44,0,,0,

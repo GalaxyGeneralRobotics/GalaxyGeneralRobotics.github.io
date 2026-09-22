@@ -1,0 +1,255 @@
+{
+  "checked_on": "2026-09-18",
+  "selection": "Representative navigation policies and foundation models from the Qwen-RobotNav comparison, plus the locally evaluated LightNav-0. This is not an exhaustive SOTA ranking.",
+  "scope_note": "Published validation-split results are full-benchmark references as reported by the papers, not new replications. Authors do not enumerate exact episode counts for every row; no exact coverage is inferred. Local results use only 50 fixed episodes per dataset.",
+  "sources": {
+    "qwen": {
+      "citation": "qwenrobotnav2026",
+      "url": "https://arxiv.org/html/2606.18112v1",
+      "tables": "Table 1 (VLN-CE); Table 4 (closed-vocabulary ObjectNav)",
+      "scope": "Reported benchmark validation splits; per-row episode counts not explicitly listed. Excludes the 500-episode interface ablation.",
+      "notes": "VLN has separate monocular/panoramic settings. ObjectNav Table 4 identifies HM3D v2 for Qwen, and v1 for most earlier baselines. Closed-vocabulary camera count is not explicit in Section 5.2.2; retain RGB without inventing a view count."
+    },
+    "lightnav": {
+      "citation": "wang2026lightnav",
+      "url": "https://arxiv.org/html/2608.30935v1",
+      "tables": "Table III (VLN-CE); Table IV (ObjectNav)",
+      "scope": "Main benchmark results on validation splits; exact per-row episode counts not enumerated.",
+      "notes": "Single RGB, same checkpoint; HM3D v1, v2, and OVON kept separate."
+    },
+    "navfom": {
+      "citation": "zhang2025navfom",
+      "url": "https://arxiv.org/html/2509.12129v2",
+      "tables": "Table 1",
+      "scope": "VLN-CE Val-Unseen splits, Section 4.1; exact episode counts not enumerated.",
+      "notes": "Single-view and four-view configurations. ObjectNav results are HM3D-OVON, excluded from closed-vocabulary HM3D v2."
+    },
+    "uninavid": {
+      "citation": "zhang2025uninavid",
+      "url": "https://arxiv.org/html/2412.06224v2",
+      "tables": "Tables II and III",
+      "scope": "VLN-CE Val-Unseen splits, default benchmark settings.",
+      "notes": "Published HM3D ObjectNav 73.7/37.1 is v1 (also identified by Qwen Table 4); do not transfer it to the v2 column."
+    },
+    "omninav": {
+      "citation": "xue2025omninav",
+      "url": "https://arxiv.org/html/2509.25687v1",
+      "tables": "Table 1",
+      "scope": "R2R-CE/RxR-CE validation benchmarks under paper protocol.",
+      "notes": "Original paper checked directly. Published system is distinct from the local discrete Flow adaptation. Table 2 is HM3D-OVON, excluded from v2 closed-vocabulary."
+    },
+    "cognav": {
+      "citation": "cao2024cognav",
+      "url": "https://arxiv.org/html/2412.10439v2",
+      "tables": "Table 1; Section 4.1",
+      "scope": "MP3D validation benchmark: paper describes 1.8K episodes, 11 scenes, 20 categories.",
+      "notes": "RGB-D plus pose; source coverage differs from local MP3D pool (2195 episodes, 21 categories). HM3D is v1 and is excluded from v2 column."
+    }
+  },
+  "rows": [
+    {
+      "task": "vln",
+      "model": "Uni-NaVid",
+      "observation": "1 RGB",
+      "source": "uninavid",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "r2r": {
+          "sr": 47,
+          "spl": 42.7
+        },
+        "rxr": {
+          "sr": 48.7,
+          "spl": 40.9
+        }
+      }
+    },
+    {
+      "task": "vln",
+      "model": "NavFoM",
+      "observation": "1 RGB",
+      "source": "navfom",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "r2r": {
+          "sr": 56.2,
+          "spl": 51.2
+        },
+        "rxr": {
+          "sr": 57.4,
+          "spl": 49.4
+        }
+      }
+    },
+    {
+      "task": "vln",
+      "model": "LightNav-0",
+      "observation": "1 RGB",
+      "source": "lightnav",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "r2r": {
+          "sr": 68.5,
+          "spl": 62.8
+        },
+        "rxr": {
+          "sr": 73.6,
+          "spl": 64.5
+        }
+      }
+    },
+    {
+      "task": "vln",
+      "model": "Qwen-RobotNav-4B",
+      "observation": "1 RGB",
+      "source": "qwen",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "r2r": {
+          "sr": 66.9,
+          "spl": 60.5
+        },
+        "rxr": {
+          "sr": 71.3,
+          "spl": 61.5
+        }
+      }
+    },
+    {
+      "task": "vln",
+      "model": "Qwen-RobotNav-8B",
+      "observation": "1 RGB",
+      "source": "qwen",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "r2r": {
+          "sr": 65.7,
+          "spl": 59.6
+        },
+        "rxr": {
+          "sr": 73.4,
+          "spl": 63.5
+        }
+      }
+    },
+    {
+      "task": "vln",
+      "model": "NavFoM",
+      "observation": "4 RGB",
+      "source": "navfom",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "r2r": {
+          "sr": 61.7,
+          "spl": 55.3
+        },
+        "rxr": {
+          "sr": 64.4,
+          "spl": 56.2
+        }
+      }
+    },
+    {
+      "task": "vln",
+      "model": "OmniNav",
+      "observation": "Multi-view RGB",
+      "source": "omninav",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "r2r": {
+          "sr": 69.5,
+          "spl": 66.1
+        },
+        "rxr": {
+          "sr": 73.6,
+          "spl": 62.0
+        }
+      }
+    },
+    {
+      "task": "vln",
+      "model": "Qwen-RobotNav-8B",
+      "observation": "Panoramic RGB",
+      "source": "qwen",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "r2r": {
+          "sr": 72.1,
+          "spl": 66.6
+        },
+        "rxr": {
+          "sr": 76.5,
+          "spl": 65.7
+        }
+      }
+    },
+    {
+      "task": "objectnav",
+      "model": "CogNav",
+      "observation": "RGB-D + pose",
+      "source": "cognav",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "mp3d": {
+          "sr": 46.6,
+          "spl": 16.1
+        },
+        "hm3d_v2": {
+          "sr": null,
+          "spl": null
+        }
+      }
+    },
+    {
+      "task": "objectnav",
+      "model": "LightNav-0",
+      "observation": "1 RGB",
+      "source": "lightnav",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "mp3d": {
+          "sr": 53.3,
+          "spl": 21.2
+        },
+        "hm3d_v2": {
+          "sr": 79.5,
+          "spl": 43.7
+        }
+      }
+    },
+    {
+      "task": "objectnav",
+      "model": "Qwen-RobotNav-4B",
+      "observation": "RGB",
+      "source": "qwen",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "mp3d": {
+          "sr": 52.2,
+          "spl": 16.0
+        },
+        "hm3d_v2": {
+          "sr": 75.6,
+          "spl": 30.6
+        }
+      }
+    },
+    {
+      "task": "objectnav",
+      "model": "Qwen-RobotNav-8B",
+      "observation": "RGB",
+      "source": "qwen",
+      "evaluation_scope": "paper_reported_validation_split",
+      "metrics": {
+        "mp3d": {
+          "sr": 48.8,
+          "spl": 17.7
+        },
+        "hm3d_v2": {
+          "sr": 71.2,
+          "spl": 33.0
+        }
+      }
+    }
+  ]
+}

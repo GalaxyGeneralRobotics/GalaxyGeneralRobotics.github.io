@@ -1,0 +1,10 @@
+{
+  "accepted_policy_steps": 72095,
+  "astra_authored_steps": 58454,
+  "policy_proposals": 6185,
+  "accepted_proposals": 3621,
+  "astra_authored_segments": 2941,
+  "episodes_with_rewritten_instruction": 66,
+  "episodes": 75,
+  "proposals_with_rewritten_instruction": 4491
+}

@@ -1,0 +1,11 @@
+sample,controller,window,steps,duration_s,full_horizon,dropped,final_position_error_mm,final_rotation_error_deg,final_position_success,final_rotation_success,final_joint_success
+000,Astra Direct,executed,153,7.6500,False,False,51.2229,38.7715,False,False,False
+001,Astra Direct,executed,129,6.4500,False,False,38.1172,28.5624,False,False,False
+002,Astra Direct,executed,134,6.7000,False,False,49.6769,35.1619,False,False,False
+003,Astra Direct,executed,120,6.0000,False,False,50.6035,27.4115,False,False,False
+004,Astra Direct,executed,132,6.6000,False,False,47.1456,33.6712,False,False,False
+000,RL,full,300,15.0000,True,False,19.3700,3.3911,True,True,True
+001,RL,full,300,15.0000,True,False,15.3750,3.5542,True,True,True
+002,RL,full,300,15.0000,True,False,20.9395,5.7134,True,True,True
+003,RL,full,300,15.0000,True,False,11.2649,1.8713,True,True,True
+004,RL,full,300,15.0000,True,False,13.4475,2.9078,True,True,True

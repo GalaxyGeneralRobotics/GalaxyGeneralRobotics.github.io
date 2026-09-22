@@ -1,0 +1,74 @@
+[
+  {
+    "id": "direct-failure-1",
+    "video": "media/dexterous/direct-failure-1.mp4",
+    "poster": "media/dexterous/direct-failure-1.jpg",
+    "width": 1440,
+    "height": 656,
+    "duration": 8.118,
+    "codec": "h264",
+    "sha256": "c3c4af8bbab90553b193befdaa0251b56d5d62f5e715c9bc3b718e88a27a1bdc",
+    "reviewTimes": [
+      0.16236,
+      1.6236000000000002,
+      3.2472000000000003,
+      4.8708,
+      6.494400000000001,
+      7.95564
+    ]
+  },
+  {
+    "id": "direct-failure-2",
+    "video": "media/dexterous/direct-failure-2.mp4",
+    "poster": "media/dexterous/direct-failure-2.jpg",
+    "width": 1440,
+    "height": 656,
+    "duration": 5.973,
+    "codec": "h264",
+    "sha256": "68901b3de11385d4d1cb7cb3b53f573f7922d929246f5f2207166125e41494cd",
+    "reviewTimes": [
+      0.11946,
+      1.1946,
+      2.3892,
+      3.5837999999999997,
+      4.7784,
+      5.85354
+    ]
+  },
+  {
+    "id": "hybrid-correction-1",
+    "video": "media/dexterous/hybrid-correction-1.mp4",
+    "poster": "media/dexterous/hybrid-correction-1.jpg",
+    "width": 1440,
+    "height": 656,
+    "duration": 18.767,
+    "codec": "h264",
+    "sha256": "8893b61a482d564af6562ed0df4c3494f98e3cc00e21029b25dad72261c29379",
+    "reviewTimes": [
+      0.37534,
+      3.7534,
+      7.5068,
+      11.2602,
+      15.0136,
+      18.391659999999998
+    ]
+  },
+  {
+    "id": "hybrid-correction-2",
+    "video": "media/dexterous/hybrid-correction-2.mp4",
+    "poster": "media/dexterous/hybrid-correction-2.jpg",
+    "width": 1440,
+    "height": 656,
+    "duration": 22.967,
+    "codec": "h264",
+    "sha256": "b6d9bcefe4023d253964a77517492261d952c863e54cbf732cf4bacde2dcdc8f",
+    "reviewTimes": [
+      0.45933999999999997,
+      4.5934,
+      9.1868,
+      13.780199999999999,
+      18.3736,
+      22.507659999999998
+    ]
+  }
+]

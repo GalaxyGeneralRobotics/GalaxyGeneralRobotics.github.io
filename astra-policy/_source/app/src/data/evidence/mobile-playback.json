@@ -1,0 +1,338 @@
+{
+  "r2r-680": {
+    "duration": 6.1,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "r2r-314": {
+    "duration": 6.4,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "r2r-1472": {
+    "duration": 13.3,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "rxr-6022": {
+    "duration": 19.9,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "rxr-3852": {
+    "duration": 12.2,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "rxr-1622": {
+    "duration": 18.5,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "mp3d-82bab0c34ef7e4466c33febc": {
+    "duration": 8.5,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "mp3d-752a407317bb31624789056a": {
+    "duration": 29,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "hm3d-d3862628202d6451c79b325a": {
+    "duration": 17.2,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "hm3d-ed6f0f0e011888329e7a27ef": {
+    "duration": 14.9,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "r2r-552": {
+    "duration": 11.5,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "r2r-1639": {
+    "duration": 11.3,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "r2r-444": {
+    "duration": 11.2,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "r2r-518": {
+    "duration": 9.7,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "r2r-913": {
+    "duration": 8.1,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "r2r-802": {
+    "duration": 7.2,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "rxr-2682": {
+    "duration": 16.6,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "rxr-7796": {
+    "duration": 17.2,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "rxr-1124": {
+    "duration": 19,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "rxr-8156": {
+    "duration": 12.8,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "rxr-8632": {
+    "duration": 15.4,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "rxr-1024": {
+    "duration": 19.9,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "mp3d-bb16cafc25611c30552523a2": {
+    "duration": 7.8,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "mp3d-d85d14e6f78f570f4ef30dc1": {
+    "duration": 26.2,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "mp3d-33c5aeeec866328f56f08494": {
+    "duration": 10.6,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "mp3d-a31411f9e9b786354e28f764": {
+    "duration": 51.6,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "hm3d-dd7aa17effe4a51d6f41c21d": {
+    "duration": 10.6,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "hm3d-083de1a97fc102f2f2094c63": {
+    "duration": 7.5,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "hm3d-869e9dd3566a14d1c7ed6d3f": {
+    "duration": 51.6,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "hm3d-80e1ccbe1d71f9dececa8662": {
+    "duration": 19.8,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-DeliverStraw-02": {
+    "duration": 22,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-DeliverStraw-02-comparison": {
+    "duration": 33.5,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-DeliverStraw-02-comparison.jpg"
+  },
+  "robocasa-PackIdenticalLunches-03": {
+    "duration": 35.8,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-SearingMeat-01": {
+    "duration": 20,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-PackIdenticalLunches-03-comparison": {
+    "duration": 50.4,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-PackIdenticalLunches-03-comparison.jpg"
+  },
+  "robocasa-SearingMeat-01-comparison": {
+    "duration": 56,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-SearingMeat-01-comparison.jpg"
+  },
+  "robocasa-PickPlaceSinkToCounter-00": {
+    "duration": 11,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-PickPlaceSinkToCounter-00-comparison": {
+    "duration": 12.9,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-PickPlaceSinkToCounter-00-comparison.jpg"
+  },
+  "robocasa-MakeIceLemonade-00": {
+    "duration": 24.9,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-MakeIceLemonade-00-comparison": {
+    "duration": 39.1,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-MakeIceLemonade-00-comparison.jpg"
+  },
+  "robocasa-KettleBoiling-00": {
+    "duration": 19.7,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-KettleBoiling-00-comparison": {
+    "duration": 20.4,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-KettleBoiling-00-comparison.jpg"
+  },
+  "robocasa-RecycleBottlesByType-01": {
+    "duration": 14.5,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-RecycleBottlesByType-01-comparison": {
+    "duration": 37.3,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-RecycleBottlesByType-01-comparison.jpg"
+  },
+  "robocasa-CoffeeSetupMug-03": {
+    "duration": 9.1,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-CoffeeSetupMug-03-comparison": {
+    "duration": 9.1,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-CoffeeSetupMug-03-comparison.jpg"
+  },
+  "robocasa-GatherTableware-02": {
+    "duration": 24.5,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-GatherTableware-02-comparison": {
+    "duration": 29.8,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-GatherTableware-02-comparison.jpg"
+  },
+  "robocasa-BreadSelection-03": {
+    "duration": 12.9,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-BreadSelection-03-comparison": {
+    "duration": 26,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-BreadSelection-03-comparison.jpg"
+  },
+  "robocasa-HeatKebabSandwich-03": {
+    "duration": 28.2,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-HeatKebabSandwich-03-comparison": {
+    "duration": 35.4,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-HeatKebabSandwich-03-comparison.jpg"
+  },
+  "robocasa-PickPlaceDrawerToCounter-04": {
+    "duration": 7.5,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264"
+  },
+  "robocasa-PickPlaceDrawerToCounter-04-comparison": {
+    "duration": 11,
+    "width": 1280,
+    "height": 720,
+    "codec": "h264",
+    "poster": "media/joint/robocasa-PickPlaceDrawerToCounter-04-comparison.jpg"
+  }
+}

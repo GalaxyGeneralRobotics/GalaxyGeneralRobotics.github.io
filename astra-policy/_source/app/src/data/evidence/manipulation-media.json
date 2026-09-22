@@ -1,0 +1,40 @@
+[
+ {
+  "id": "mix__fold_clothes__standard__g0__l0",
+  "domain": "manipulation",
+  "benchmark": "RoboDojo",
+  "method": "hybrid",
+  "outcome": "success",
+  "title": {
+   "en": "Fold clothes · Astra + π₀.₅",
+   "zh": "叠衣服 · Astra + π₀.₅"
+  },
+  "caption": {
+   "en": "Fold the clothes neatly. | fold_clothes__standard__g0__l0 | Native Score (0–1): 1.0",
+   "zh": "向内折袖子，再向上折下摆，形成符合要求的折叠形状，最后归位双臂。 | fold_clothes__standard__g0__l0 | 原生 Score（0–1）： 1.0"
+  },
+  "video": "media/rollouts/mix__fold_clothes__standard__g0__l0.mp4",
+  "poster": "media/posters/mix__fold_clothes__standard__g0__l0.jpg",
+  "duration": 12.0,
+  "paired": "gallery.html?id=mix__fold_clothes__standard__g0__l0"
+ },
+ {
+  "id": "gpt__classify_objects__standard__g0__l0",
+  "domain": "manipulation",
+  "benchmark": "RoboDojo",
+  "method": "gpt",
+  "outcome": "success",
+  "title": {
+   "en": "Classify objects · Astra",
+   "zh": "物体分类 · Astra"
+  },
+  "caption": {
+   "en": "Sort the objects by category into the three baskets. | classify_objects__standard__g0__l0 | Native Score (0–1): 1.0",
+   "zh": "把全部物体按类别分入三个篮子，最后归位双臂。 | classify_objects__standard__g0__l0 | 原生 Score（0–1）： 1.0"
+  },
+  "video": "media/rollouts/gpt__classify_objects__standard__g0__l0.mp4",
+  "poster": "media/posters/gpt__classify_objects__standard__g0__l0.jpg",
+  "duration": 29.52,
+  "paired": "gallery.html?id=gpt__classify_objects__standard__g0__l0"
+ }
+]
