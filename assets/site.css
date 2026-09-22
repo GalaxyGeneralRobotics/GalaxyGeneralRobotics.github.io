@@ -62,10 +62,11 @@ p{margin:0}
 .nav{display:flex;flex:1 1 12rem;flex-wrap:wrap;gap:8px 16px;min-width:0;font-size:13.5px;color:var(--fg-3)}
 .nav a{white-space:nowrap}
 .nav a:hover{color:var(--fg)}
-.top-links{display:flex;gap:16px;font-size:13px;color:var(--fg-2);flex:0 0 auto}
+.top-end{margin-left:auto;display:flex;align-items:center;gap:16px;flex:0 0 auto}
+.top-links{display:flex;gap:16px;font-size:13px;color:var(--fg-2)}
 .top-links a{border-bottom:1px solid transparent}
 .top-links a:hover{color:var(--accent-2);border-bottom-color:currentColor}
-.lang-switch{display:inline-flex;margin-left:auto;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--bg-2);gap:2px}
+.lang-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--bg-2);gap:2px}
 .lang-switch button{border:0;background:transparent;color:var(--fg-4);padding:5px 9px;border-radius:999px;font:500 11px/1 var(--sans);cursor:pointer}
 .lang-switch button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
 
@@ -147,6 +148,7 @@ p.en,p.zh{color:var(--fg-2);font-size:14.5px;line-height:1.55}
 html[lang="zh-CN"] .en{display:none}
 html[lang="zh-CN"] p.zh{display:block}
 html[lang="zh-CN"] span.zh{display:inline}
+html[lang="zh-CN"] p.paper.zh{color:var(--fg-3);font-size:13.5px;line-height:1.45}
 .links{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:auto;padding-top:8px}
 .links a{
   font-size:13px;font-weight:500;color:var(--accent-text);
@@ -172,8 +174,9 @@ html[lang="zh-CN"] span.zh{display:inline}
   text-transform:uppercase;
   color:var(--fg-3);
 }
-.card .paper{display:block;margin-top:6px}
-.card p.en,.card p.zh{margin-top:10px}
+.card p.paper.en,.feature p.paper.en,html[lang="zh-CN"] .card p.paper.zh,html[lang="zh-CN"] .feature p.paper.zh{display:block;margin-top:6px;color:var(--fg-3);font-size:13.5px;line-height:1.45}
+html[lang="zh-CN"] .card p.paper.en,html[lang="zh-CN"] .feature p.paper.en{display:none}
+.card p.en:not(.paper),.card p.zh:not(.paper){margin-top:10px}
 .card .links{margin-top:14px}
 
 .foot{
