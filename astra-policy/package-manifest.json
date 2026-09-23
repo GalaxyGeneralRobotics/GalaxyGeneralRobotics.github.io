@@ -1,8 +1,8 @@
 {
-  "createdAt": "2026-09-23T10:55:36.529669+00:00",
+  "createdAt": "2026-09-23T12:20:37.421608+00:00",
   "description": "Built bilingual report, complete source and referenced website media. Manifest excludes itself.",
-  "totalFiles": 990,
-  "totalBytes": 852519235,
+  "totalFiles": 991,
+  "totalBytes": 852527950,
   "files": [
     {
       "path": ".gitattributes",
@@ -126,8 +126,8 @@
     },
     {
       "path": "_source/app/src/data/domain-overviews.js",
-      "bytes": 6940,
-      "sha256": "b520cd89e6a4e9885c572c50c59e0f452d906ef4fbb77f95de0f1ec59fb71a50"
+      "bytes": 6952,
+      "sha256": "53d7adf6f5764236edca5c94cb7bea7a7c604f707c2beb04e2c11a2671f575ce"
     },
     {
       "path": "_source/app/src/data/ego-navigation.js",
@@ -195,6 +195,11 @@
       "sha256": "522b2f2960bdd45627dd6f727a7dfb05498f1228c6d818509bf763341f8c09ed"
     },
     {
+      "path": "_source/app/src/data/evidence/navigation-update-0923.json",
+      "bytes": 2486,
+      "sha256": "0ea64ffad3f1f88b1af01f5ae36bb656b53f51fe779bb4aa7e8d1ab433fe2e9d"
+    },
+    {
       "path": "_source/app/src/data/evidence/published-navigation.json",
       "bytes": 7282,
       "sha256": "7bf0c2329b529ba9f62cf8ef029c74db731101dc039d78134a60457c94c57c04"
@@ -251,8 +256,8 @@
     },
     {
       "path": "_source/app/src/data/mobile.js",
-      "bytes": 5376,
-      "sha256": "9dfb47489c2f759dfeb39258259d29cc51455b53d4970052815fa9df9018d36d"
+      "bytes": 5587,
+      "sha256": "92ac2499f292a133a6d66169f9a03225f3d8743134cf2aefb1e53ff250bf936c"
     },
     {
       "path": "_source/app/src/data/navigation-mobile-failures.js",
@@ -296,8 +301,8 @@
     },
     {
       "path": "_source/app/src/data/token-usage.js",
-      "bytes": 456,
-      "sha256": "580855f0a4396110a486ea1864d5433ccc0284990b62889cf81d23816ceeadf4"
+      "bytes": 894,
+      "sha256": "a1a3e951c398365b736f4bc7c40ec7114e22f06b33bc44ccf1ed666b75dbd8f4"
     },
     {
       "path": "_source/app/src/domains/ClutterInterfaces.jsx",
@@ -356,13 +361,13 @@
     },
     {
       "path": "_source/app/src/domains/VisualNavigation.jsx",
-      "bytes": 12078,
-      "sha256": "0663ae7350cebf30e101bd7c0f7827e866a6863fd3d681819331151e2165817a"
+      "bytes": 13017,
+      "sha256": "9d0ce5fa1847b660574c004385c8c8d7ecb110acd8465775b03bd628dbad6f80"
     },
     {
       "path": "_source/app/src/domains/index.jsx",
-      "bytes": 6215,
-      "sha256": "e838a9567bb9b04a455d30e59e2bb1b0cd23e92f6229b188f4b51ec015959f85"
+      "bytes": 6226,
+      "sha256": "ec822b8c9afa5fc57f903c8f3918ce2a03c1a51ffe62da60fdc6231afadd682c"
     },
     {
       "path": "_source/app/src/i18n.jsx",
@@ -406,8 +411,8 @@
     },
     {
       "path": "_source/app/src/pages/LeadingResults.jsx",
-      "bytes": 12277,
-      "sha256": "fc528889cfade887cf4100767c2842c15a390f93c8585d54b7193509bb986bfa"
+      "bytes": 13098,
+      "sha256": "635c140047ffa971c093b33cc9cfc0980b44abb889ee5b638033acfe464cfa0d"
     },
     {
       "path": "_source/app/src/references.jsx",
@@ -682,7 +687,7 @@
     {
       "path": "index.html",
       "bytes": 897,
-      "sha256": "1cd418eb4395cd41568959b37f438af878167829b1b8e177b0c12b6c3003f288"
+      "sha256": "6576f5e3a5f84b2e0057c935105cb50b252576b0649d00c4379410139547fc39"
     },
     {
       "path": "joint-data/clutter.csv",
@@ -4610,9 +4615,9 @@
       "sha256": "bf0c937df8b63918c19fd1eb5f5204ca2da6796e766afdecd0b012e89cc927a8"
     },
     {
-      "path": "report-assets/GalleryPage-CN6njOEM.js",
+      "path": "report-assets/GalleryPage-Di_4XsI1.js",
       "bytes": 250372,
-      "sha256": "acf33c4b71cb06a66644b3283a9c3ccc20130a5896711ffa9249c002dabd7bb4"
+      "sha256": "0c1abda617d1e5cf77944989cd037d2adb150064ded4c0b75aeb6e30eb53c82e"
     },
     {
       "path": "report-assets/galbot-logo-CcmptP_L.png",
@@ -4625,9 +4630,9 @@
       "sha256": "7ed6227a5219a6d4e11ef02cc923c033caed69acfa1f3d507b6589cf554e3788"
     },
     {
-      "path": "report-assets/index-zu1vL1qY.js",
-      "bytes": 619024,
-      "sha256": "90860eec1fe6aee51e084d72c0d4f9608e6eb45e681913974ebb6f75b7cee542"
+      "path": "report-assets/index-yyEtyUUH.js",
+      "bytes": 622638,
+      "sha256": "870adfda8e53ed2b16a9dc703c8cf16ecbab7cd97542e3eea1951ba53e38500a"
     },
     {
       "path": "report-assets/poppins-400-latin-BwTUGeWf.woff2",
@@ -4671,8 +4676,8 @@
     },
     {
       "path": "sources/navigation-mobile/data/navigation-summary.csv",
-      "bytes": 1338,
-      "sha256": "53496b9cb2d3b8736c3a7d06e9afbb76d7702e013f793067722e3ccf59aaa0d1"
+      "bytes": 1521,
+      "sha256": "a04297f3c3badd1de5f5c567b14798fa526e262620ef0c83dd083a39ab16caf3"
     },
     {
       "path": "sources/navigation-mobile/data/robocasa-paired.csv",

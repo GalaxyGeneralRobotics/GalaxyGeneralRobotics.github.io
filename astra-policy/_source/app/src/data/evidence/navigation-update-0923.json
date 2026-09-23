@@ -1,0 +1,105 @@
+{
+  "received_on": "2026-09-23",
+  "sources": [
+    {
+      "file": "add_on_report/nav rollout 0923 2010 from liujiahang/img_v3_0215q_62ef83e7-c1ed-409c-88d6-0120f07fa8fg.jpg",
+      "sha256": "6db253bd750d20c35818fc1f9e3a84a4ac1632a7f5befbd8da97908eaf54dc73"
+    },
+    {
+      "file": "add_on_report/nav rollout 0923 2010 from liujiahang/img_v3_0215q_ea5c13d0-7200-4d11-a9d0-0e4de38e85eg.jpg",
+      "sha256": "182e30a9717086a3734869b185c32c0fdb2bd2cf5e96a3d54a4d2b85cd2ff849"
+    },
+    {
+      "file": "add_on_report/nav rollout 0923 2010 from liujiahang for token/img_v3_0215q_42deff4d-54e6-4a57-9912-56e5db8b99fg.jpg",
+      "sha256": "e05f38958f5cb9f6ef2d8f20fc4cd36b6d0042e11ed147646e4a827c58f859f2"
+    }
+  ],
+  "local_results": [
+    {
+      "model": "spannav",
+      "dataset": "r2r",
+      "n": 50,
+      "successes": 35,
+      "sr_pct": 70,
+      "spl_pct": 61.71
+    },
+    {
+      "model": "spannav",
+      "dataset": "rxr",
+      "n": 50,
+      "successes": 36,
+      "sr_pct": 72,
+      "spl_pct": 56.19
+    },
+    {
+      "model": "navfom",
+      "dataset": "r2r",
+      "n": 50,
+      "successes": 22,
+      "sr_pct": 44,
+      "spl_pct": 40.04
+    },
+    {
+      "model": "navfom",
+      "dataset": "rxr",
+      "n": 50,
+      "successes": 29,
+      "sr_pct": 58,
+      "spl_pct": 51.79
+    },
+    {
+      "model": "navfom",
+      "dataset": "mp3d",
+      "n": 50,
+      "successes": 9,
+      "sr_pct": 18,
+      "spl_pct": 13.01
+    },
+    {
+      "model": "navfom",
+      "dataset": "hm3d",
+      "n": 50,
+      "successes": 21,
+      "sr_pct": 42,
+      "spl_pct": 30.38
+    }
+  ],
+  "token_usage": [
+    {
+      "benchmark": "r2r",
+      "method": "astra",
+      "trajectories": 50,
+      "mean_total_tokens_per_trajectory": 760203
+    },
+    {
+      "benchmark": "rxr",
+      "method": "astra",
+      "trajectories": 50,
+      "mean_total_tokens_per_trajectory": 1114121
+    },
+    {
+      "benchmark": "mp3d",
+      "method": "astra",
+      "trajectories": 50,
+      "mean_total_tokens_per_trajectory": 2092024
+    },
+    {
+      "benchmark": "hm3d",
+      "method": "astra",
+      "trajectories": 50,
+      "mean_total_tokens_per_trajectory": 1566005
+    },
+    {
+      "benchmark": "robocasa",
+      "method": "direct",
+      "trajectories": 75,
+      "mean_total_tokens_per_trajectory": 3894386
+    },
+    {
+      "benchmark": "robocasa",
+      "method": "pi05_skill",
+      "trajectories": 75,
+      "mean_total_tokens_per_trajectory": 5550144
+    }
+  ]
+}

@@ -1,16 +1,18 @@
 // Editorial labels are handwritten. Numerical data and captions come from the
 // supplied structured records; the full source package is retained unchanged.
-import navigation from './evidence/navigation-summary.json';
+import initialNavigation from './evidence/navigation-summary.json';
+import navigationUpdate from './evidence/navigation-update-0923.json';
 import groups from './evidence/robocasa-summary.json';
 import actionSources from './evidence/robocasa-action-sources.json';
 import published from './evidence/published-navigation.json';
 import media from './mobile-gallery.json';
 import playback from './evidence/mobile-playback.json';
-export {navigation,groups,actionSources,published};
+export const navigation=[...initialNavigation,...navigationUpdate.local_results];
+export {groups,actionSources,published};
 export const mobileRoot='sources/navigation-mobile/';
 const posterUrl=path=>path?'media/joint/mobile-posters/'+path.split('/').pop().replace(/\.[^.]+$/,'.webp'):undefined;
 export const datasetNames={r2r:'R2R',rxr:'RxR',mp3d:'MP3D',hm3d:'HM3D v2'};
-export const navMethods=[['astra','Astra','#5b7cff'],['lightnav','LightNav-0','#5a6280'],['uninavid','Uni-NaVid 7B','#4b5370'],['omninav','OmniNav Flow · 3 RGB','#3f4659']];
+export const navMethods=[['astra','Astra','#5b7cff'],['lightnav','LightNav-0','#5a6280'],['uninavid','Uni-NaVid 7B','#4b5370'],['omninav','OmniNav Flow · 3 RGB','#3f4659'],['spannav','SpanNav','#626b82'],['navfom','NavFoM','#525d72']];
 export const taskGroups={atomic_seen:['Atomic seen','原子 · 已见'],composite_seen:['Composite seen','复合 · 已见'],composite_unseen:['Composite unseen','复合 · 未见'],all:['All tasks','全部任务']};
 export const controlMethods=[['pi05_only','π₀.₅','baseline'],['direct','Astra','gpt'],['pi05_skill','Astra + π₀.₅','hybrid']];
 // Manually reconciled against the 15-row task CSV and the manuscript heatmap.

@@ -46,8 +46,8 @@ export const domainOverviews={
  },
  navigation:{
   overview:{
-   en:'Using a single RGB view, Astra follows long instructions and searches for objects, outperforming the three evaluated policies in success rate and SPL on all four local subsets; RxR success reaches 92%. Failures mainly involve inefficient search and premature stopping.',
-   zh:'Astra 仅凭单目 RGB 即可执行长路线指令与物体搜索，在四个本地子集上的成功率和 SPL 均高于所测三种策略，RxR 成功率达 92%。主要失败来自低效搜索与提前停止。'
+   en:'Using a single RGB view, Astra follows long instructions and searches for objects, outperforming the evaluated baselines in success rate and SPL on each of the four local subsets; RxR success reaches 92%. Failures mainly involve inefficient search and premature stopping.',
+   zh:'Astra 仅凭单目 RGB 即可执行长路线指令与物体搜索，在四个本地子集上的成功率和 SPL 均高于各子集内所测的策略，RxR 成功率达 92%。主要失败来自低效搜索与提前停止。'
   },
   overviewClips:[featured(mobileClip('rxr-2682'),'Astra · following a long route instruction','Astra · 执行长路线指令'),featured(mobileClip('r2r-802'),'Astra · stopping outside the goal region','Astra · 在目标区域外停止')]
  },
