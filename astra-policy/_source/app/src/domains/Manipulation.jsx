@@ -8,9 +8,29 @@ import {viewHref} from '../site.js';
 import {Section,Figure,Bars,Details,DataTable,Setup,Conclusion,number} from '../ui.jsx';
 import {MediaCard} from '../media.jsx';
 import {robolabRows,robodojoRows,publicReferences} from '../data/manipulation.js';
+import {roboLabUsage} from '../data/token-usage.js';
 import {ManipulationWorkflow} from './ManipulationWorkflow.jsx';
 
 const publishedModelRefs={'DM0.5':'dm05','GalaxeaVLA (G0.5)':'g05','Xiaomi-Robotics-1':'xiaomi1','OpenWAM-α':'openwam','Meituan-Robotics-0':'meituan0','Hy-Embodied-0.5-VLA':'hy-vla','Spatial Forcing':'spatial-forcing','InternVLA-A1.5':'internvla15','StarVLA-PI_v3':'starvla-pi3','Pi-05':'pi05'};
+
+function RoboLabTokenUsage(){
+ const c=useCopy(),{language}=useLanguage(),{hybrid,astra}=roboLabUsage.methods;
+ const tasks=roboLabUsage.tasks.map(row=>[row.task[language],...['hybrid_total_m','astra_total_m','hybrid_mean_m','astra_mean_m'].map(key=>number(row[key],3))]);
+ tasks.push([c('All tasks · 50 trajectories per method','全部任务 · 每种方法 50 条轨迹'),...[hybrid.total_m,astra.total_m,hybrid.mean_total_m,astra.mean_total_m].map(value=>number(value,3))]);
+ const breakdown=[
+  [c('Input tokens','输入 token'),'input_m',3,'M'],
+  [c('Of which: cached input','其中：缓存输入'),'cached_input_m',3,'M'],
+  [c('Output tokens','输出 token'),'output_m',3,'M'],
+  [c('Non-cached input + output','非缓存输入＋输出'),'noncached_input_plus_output_m',3,'M'],
+  [c('Non-cached input + output · mean per trajectory','非缓存输入＋输出 · 单条平均'),'mean_noncached_input_plus_output_k',2,'K']
+ ];
+ return <Details title={c('RoboLab · token usage and cached input','RoboLab · token 消耗与缓存输入')}>
+  <p>{c('The statistics cover ten tasks with five trajectories per task, giving 50 trajectories per method. Total tokens are input plus output; cached input is included in input and counted once. Repeated history context accounts for most of the recorded usage. M denotes one million tokens and K denotes one thousand.','统计覆盖十项任务，每项五条轨迹，共每种方法 50 条。总量为输入与输出之和，缓存输入属于输入的一部分，仅计一次。用量主要来自反复输入的历史上下文。M 表示百万 token，K 表示千 token。')}</p>
+  <DataTable caption={c('RoboLab token usage by task · M tokens','RoboLab 逐任务 token 消耗 · 单位 M')} headers={[c('Task','任务'),'Astra + π₀.₅ · '+c('total','合计'),'Astra · '+c('total','合计'),'Astra + π₀.₅ · '+c('mean / traj.','单条平均'),'Astra · '+c('mean / traj.','单条平均')]} rows={tasks}/>
+  <DataTable caption={c('Usage breakdown · all 50 trajectories per method','用量拆分 · 每种方法全部 50 条轨迹')} headers={[c('Usage','用量'),'Astra + π₀.₅','Astra']} rows={breakdown.map(([label,key,decimals,unit])=>[label,number(hybrid[key],decimals)+unit,number(astra[key],decimals)+unit])}/>
+  <p className="note">{c('Task-level values, totals and means are rounded independently to the displayed precision.','逐任务数值、合计与均值分别按显示精度四舍五入。')}</p>
+ </Details>;
+}
 
 // The two featured RoboDojo rollouts; full records live in data/robodojo-robolab-gallery.json.
 export const manipulationClips=[
@@ -46,6 +66,7 @@ export function Manipulation(){
    <Figure title="RoboLab" subtitle={c('Success rate · %','成功率 · %')}><Bars rows={robolabRows} decimals={0}/></Figure>
   </div>
   <p className="note">{c('RoboDojo: success n = 50 per method; Score n = 48 for Astra and 50 for Astra + π₀.₅. † Published references use separate evaluation runs, reweighted to the ten selected tasks. RoboLab: 50 trials per policy; the three learned-policy baselines are historical runs on the same task subset.','RoboDojo：每种方法的成功率样本量为 50；Score 的样本量为 Astra 48、Astra + π₀.₅ 50。† 公开策略来自独立评测，按所选十项任务重加权。RoboLab：每策略 50 次；三种 learned policy baseline 均来自同一任务子集上的历史运行。')}</p>
+  <RoboLabTokenUsage/>
   <p>{c('A supplemental Qwen3.8-max + π₀.₅ hybrid batch provides an additional RoboDojo reference: it completes 11 of 49 exported complete trajectories (22.45%) and reaches a task-weighted mean Score of 30.90, compared with 24.43 for π₀.₅ on the same task subset. Its strongest task-level results are putting bottles into a dustbin (4/5, 80%, Score 88.00), building a tower (2/5, 40%, 50.00), and organizing the table (1/5, 20%, 45.00); packing objects and making a Kong remain difficult. One of the 50 planned cases is pending audit, the export is not finally certified, and its model/effort and 600+180-second deadline differ from the historical Astra runs, so we treat it as a supplementary reference rather than a directly protocol-matched headline result.','新增的一批 Qwen3.8-max + π₀.₅ hybrid 结果可作为 RoboDojo 的补充参考：49 条已导出的完整轨迹中完成 11 条，成功率为 22.45%，同任务子集的 task-weighted 平均 Score 为 30.90，高于 π₀.₅ 的 24.43。按任务看，瓶子入垃圾桶（4/5，80%，Score 88.00）、搭塔（2/5，40%，50.00）和整理桌面（1/5，20%，45.00）表现较好；装箱和麻将杠牌仍较困难。原计划 50 条中有 1 条待审核，导出尚未最终认证，且模型/推理 effort 与 600+180 秒时限不同于历史 Astra 实验，因此这里将其作为补充结果阅读，不与主结果作完全同协议的直接比较。')}</p>
   <Details title={c('All ten published RoboDojo references','RoboDojo 全部十种公开策略参考')}><DataTable headers={[c('Policy','策略'),c('Success · %','成功率 · %'),'Score']} rows={publicReferences.map(r=>[<span>{r.name==='Pi-05'?'π₀.₅':r.name}<Cite ids={publishedModelRefs[r.name]}/></span>,number(r.sr,2),number(r.score,2)])}/></Details>
   <div className="prose"><p>{c('The two benchmarks show that the value of learned action priors depends on the task distribution. Astra + π₀.₅ achieves 48% success on RoboDojo, compared with 26% for Astra, while the standalone Astra condition reaches 98% on RoboLab versus 92% for the combination. Rollouts help explain this difference: the task-finetuned policy supplies useful interaction patterns on RoboDojo, and Astra revises actions when the intended object, contact or task stage is misaligned. We observe four recurring patterns.','两个基准表明，learned action prior 的作用取决于任务分布。RoboDojo 上，Astra + π₀.₅ 的成功率为 48%，Astra 为 26%；RoboLab 上，Astra 单独运行达到 98%，组合方法为 92%。执行过程有助于理解这一差异：任务微调策略为 RoboDojo 提供了适用的交互动作，Astra 则在物体选择、接触位置或任务进度偏离目标时修正动作。我们观察到以下四点。')}</p><ul>

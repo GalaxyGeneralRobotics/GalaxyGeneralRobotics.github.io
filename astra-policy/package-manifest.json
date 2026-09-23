@@ -1,8 +1,8 @@
 {
-  "createdAt": "2026-09-23T14:49:32.229470+00:00",
+  "createdAt": "2026-09-23T15:58:25.307761+00:00",
   "description": "Built bilingual report, complete source and referenced website media. Manifest excludes itself.",
-  "totalFiles": 992,
-  "totalBytes": 852535065,
+  "totalFiles": 993,
+  "totalBytes": 852546829,
   "files": [
     {
       "path": ".gitattributes",
@@ -220,6 +220,11 @@
       "sha256": "853c9c346d144b170c8ce923ff793ec6a7d38510944f6f1ee393ca9ccee4cca8"
     },
     {
+      "path": "_source/app/src/data/evidence/robolab-token-usage.json",
+      "bytes": 2913,
+      "sha256": "7cd8653fe3904c0aa0dc1f70c983558ea699ac7284ba492932d99d7654e3a636"
+    },
+    {
       "path": "_source/app/src/data/evidence/s0-media.json",
       "bytes": 3541,
       "sha256": "6d858f1349f861295d8bba70c4e2acba7fcfe8e9de6a144c37f51abce99549b0"
@@ -306,8 +311,8 @@
     },
     {
       "path": "_source/app/src/data/token-usage.js",
-      "bytes": 1176,
-      "sha256": "e1dec442e47d497a285bea83fc4724f92f00347743b3835c8e13919e7307fda7"
+      "bytes": 1491,
+      "sha256": "631f4fe3c1b8bb6f7bc5e165e0222c8a01f394edd38c2d43fb6e5ddf4bde6d26"
     },
     {
       "path": "_source/app/src/domains/ClutterInterfaces.jsx",
@@ -331,8 +336,8 @@
     },
     {
       "path": "_source/app/src/domains/Manipulation.jsx",
-      "bytes": 15233,
-      "sha256": "a4b1b94ea1012a0e422af0e6931974f6966f6ec5d193989c03ce79c67fd88c83"
+      "bytes": 17805,
+      "sha256": "9a754acfb433bd02a32a7c35b230b6a5cfbf2bd98383d0936a0ede7da5fcb799"
     },
     {
       "path": "_source/app/src/domains/ManipulationWorkflow.jsx",
@@ -416,8 +421,8 @@
     },
     {
       "path": "_source/app/src/pages/LeadingResults.jsx",
-      "bytes": 14532,
-      "sha256": "4671bb0822fbd54ffb5672d87cd9b3763e0f7bb5150895b38489d5ef875617e4"
+      "bytes": 15099,
+      "sha256": "f2e554e52940950c8982070edc148df48d56fd030da66987680193646b7984f8"
     },
     {
       "path": "_source/app/src/references.jsx",
@@ -692,7 +697,7 @@
     {
       "path": "index.html",
       "bytes": 897,
-      "sha256": "b4438c7c53f31214ed0e4f30ff3557e525f835df004b785285de95b5898783eb"
+      "sha256": "b0c169c2d1c764d9ee896a1f06fc764346b47658d63554e58883be7c89ad4075"
     },
     {
       "path": "joint-data/clutter.csv",
@@ -4620,9 +4625,9 @@
       "sha256": "bf0c937df8b63918c19fd1eb5f5204ca2da6796e766afdecd0b012e89cc927a8"
     },
     {
-      "path": "report-assets/GalleryPage-B_hPkIVs.js",
+      "path": "report-assets/GalleryPage-CYEXiKKK.js",
       "bytes": 250372,
-      "sha256": "c98a102f2fc694a59d8947f7246815b02e1b05c51237fbefc36964af97ae3535"
+      "sha256": "8d1959b31db31815bb4929caadc698c9e8e38607cdf6ae8b21f580e0325a862a"
     },
     {
       "path": "report-assets/galbot-logo-CcmptP_L.png",
@@ -4630,9 +4635,9 @@
       "sha256": "760f9afbd645287eae72e67665b8e290f137ed7032c4171be071aa8e559fa9ba"
     },
     {
-      "path": "report-assets/index-CzVeNxAc.js",
-      "bytes": 625857,
-      "sha256": "dc14c00e08d0916052476dc9c758d18c183ee7bd78b02c56cddb5ce3c14fcaf6"
+      "path": "report-assets/index-DPjCX1_x.js",
+      "bytes": 631254,
+      "sha256": "60aad737fb220e1ab06e226f1d57e4a8212df565841fd8e7dcbec01c8fbd6406"
     },
     {
       "path": "report-assets/index-lLS7x3m7.css",

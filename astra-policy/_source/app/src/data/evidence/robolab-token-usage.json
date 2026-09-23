@@ -1,0 +1,39 @@
+{
+  "source": "Author-supplied RoboLab token-usage summary.",
+  "unit": "M tokens (one million tokens)",
+  "accounting": "Total = input + output. Cached input is included in input and is not added again. Each method covers 10 tasks with 5 trajectories per task. Reported task values and aggregates are rounded independently.",
+  "methods": {
+    "hybrid": {
+      "trajectories": 50,
+      "total_m": 375.024,
+      "mean_total_m": 7.500,
+      "input_m": 374.048,
+      "cached_input_m": 364.325,
+      "output_m": 0.976,
+      "noncached_input_plus_output_m": 10.699,
+      "mean_noncached_input_plus_output_k": 213.98
+    },
+    "astra": {
+      "trajectories": 50,
+      "total_m": 502.333,
+      "mean_total_m": 10.047,
+      "input_m": 501.391,
+      "cached_input_m": 490.292,
+      "output_m": 0.942,
+      "noncached_input_plus_output_m": 12.041,
+      "mean_noncached_input_plus_output_k": 240.83
+    }
+  },
+  "tasks": [
+    {"task":{"zh":"方块入箱","en":"Place blocks in a bin"},"trajectories_per_method":5,"hybrid_total_m":78.224,"astra_total_m":143.168,"hybrid_mean_m":15.645,"astra_mean_m":28.634},
+    {"task":{"zh":"杂物中南瓜入箱","en":"Retrieve pumpkins from clutter into a bin"},"trajectories_per_method":5,"hybrid_total_m":106.252,"astra_total_m":87.686,"hybrid_mean_m":21.250,"astra_mean_m":17.537},
+    {"task":{"zh":"黄油放到葡萄干盒上","en":"Place butter on a raisin box"},"trajectories_per_method":5,"hybrid_total_m":12.480,"astra_total_m":15.985,"hybrid_mean_m":2.496,"astra_mean_m":3.197},
+    {"task":{"zh":"指定顺序叠方块","en":"Stack blocks in the specified order"},"trajectories_per_method":5,"hybrid_total_m":58.261,"astra_total_m":93.476,"hybrid_mean_m":11.652,"astra_mean_m":18.695},
+    {"task":{"zh":"红杯调整姿态","en":"Reorient a red mug"},"trajectories_per_method":5,"hybrid_total_m":37.702,"astra_total_m":32.477,"hybrid_mean_m":7.540,"astra_mean_m":6.495},
+    {"task":{"zh":"大葡萄干盒入箱","en":"Place the larger raisin box in a bin"},"trajectories_per_method":5,"hybrid_total_m":16.883,"astra_total_m":32.814,"hybrid_mean_m":3.377,"astra_mean_m":6.563},
+    {"task":{"zh":"酱料瓶入木箱","en":"Place sauce bottles in a wooden crate"},"trajectories_per_method":5,"hybrid_total_m":17.294,"astra_total_m":34.022,"hybrid_mean_m":3.459,"astra_mean_m":6.804},
+    {"task":{"zh":"罐头入箱","en":"Place canned food in a bin"},"trajectories_per_method":5,"hybrid_total_m":29.451,"astra_total_m":24.026,"hybrid_mean_m":5.890,"astra_mean_m":4.805},
+    {"task":{"zh":"酸奶入碗","en":"Place yogurt in a bowl"},"trajectories_per_method":5,"hybrid_total_m":11.056,"astra_total_m":19.498,"hybrid_mean_m":2.211,"astra_mean_m":3.900},
+    {"task":{"zh":"魔方入碗","en":"Place a Rubik’s cube in a bowl"},"trajectories_per_method":5,"hybrid_total_m":7.422,"astra_total_m":19.183,"hybrid_mean_m":1.484,"astra_mean_m":3.837}
+  ]
+}
