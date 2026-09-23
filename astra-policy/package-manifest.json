@@ -1,8 +1,8 @@
 {
-  "createdAt": "2026-09-23T12:20:37.421608+00:00",
+  "createdAt": "2026-09-23T12:29:16.832947+00:00",
   "description": "Built bilingual report, complete source and referenced website media. Manifest excludes itself.",
   "totalFiles": 991,
-  "totalBytes": 852527950,
+  "totalBytes": 852528516,
   "files": [
     {
       "path": ".gitattributes",
@@ -411,8 +411,8 @@
     },
     {
       "path": "_source/app/src/pages/LeadingResults.jsx",
-      "bytes": 13098,
-      "sha256": "635c140047ffa971c093b33cc9cfc0980b44abb889ee5b638033acfe464cfa0d"
+      "bytes": 13423,
+      "sha256": "5a6865b072e9fe4a690e9b4e9bf77954ead2e06346919116868bad5b0ba78cc4"
     },
     {
       "path": "_source/app/src/references.jsx",
@@ -687,7 +687,7 @@
     {
       "path": "index.html",
       "bytes": 897,
-      "sha256": "6576f5e3a5f84b2e0057c935105cb50b252576b0649d00c4379410139547fc39"
+      "sha256": "79df058bac4469608c015baa2f7c7ab86e7e6889b0d823b99c68c73db6b52a6e"
     },
     {
       "path": "joint-data/clutter.csv",
@@ -4615,9 +4615,9 @@
       "sha256": "bf0c937df8b63918c19fd1eb5f5204ca2da6796e766afdecd0b012e89cc927a8"
     },
     {
-      "path": "report-assets/GalleryPage-Di_4XsI1.js",
+      "path": "report-assets/GalleryPage-DjtmSnE_.js",
       "bytes": 250372,
-      "sha256": "0c1abda617d1e5cf77944989cd037d2adb150064ded4c0b75aeb6e30eb53c82e"
+      "sha256": "c3ffa0d558adb107064454e807ec627ff0467f52ce51498e0158640d1ef7aa31"
     },
     {
       "path": "report-assets/galbot-logo-CcmptP_L.png",
@@ -4625,14 +4625,14 @@
       "sha256": "760f9afbd645287eae72e67665b8e290f137ed7032c4171be071aa8e559fa9ba"
     },
     {
+      "path": "report-assets/index-UOunuWiP.js",
+      "bytes": 622879,
+      "sha256": "5e421916a688271d25015e25cf916388ef8041e963b6e048d96469da52ef2801"
+    },
+    {
       "path": "report-assets/index-lLS7x3m7.css",
       "bytes": 48440,
       "sha256": "7ed6227a5219a6d4e11ef02cc923c033caed69acfa1f3d507b6589cf554e3788"
-    },
-    {
-      "path": "report-assets/index-yyEtyUUH.js",
-      "bytes": 622638,
-      "sha256": "870adfda8e53ed2b16a9dc703c8cf16ecbab7cd97542e3eea1951ba53e38500a"
     },
     {
       "path": "report-assets/poppins-400-latin-BwTUGeWf.woff2",

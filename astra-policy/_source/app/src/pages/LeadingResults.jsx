@@ -33,7 +33,10 @@ function leadingRows(c){
  const navTraining={
   lightnav:{note:c('Navigation SFT, DAgger and RL; training sources include R2R, RxR, MP3D and HM3D. Evaluation uses a shared checkpoint without further benchmark-specific finetuning.','经过导航 SFT、DAgger 与 RL；训练来源包括 R2R、RxR、MP3D 和 HM3D。评测使用统一 checkpoint，不再逐基准微调。')},
   uninavid:{note:c('Multitask navigation finetuning includes R2R/RxR and HM3D ObjectNav. This does not establish training on MP3D ObjectNav or the HM3D v2 evaluation split.','经过多任务导航微调，包含 R2R/RxR 与 HM3D ObjectNav；不据此推定训练过 MP3D ObjectNav 或 HM3D v2 评测划分。')},
-  omninav:{note:c('Navigation post-training includes R2R/RxR and HM3D-OVON. This does not establish training on the closed-vocabulary MP3D/HM3D v2 evaluation tasks.','导航后训练包含 R2R/RxR 与 HM3D-OVON；不据此推定训练过闭词表 MP3D/HM3D v2 评测任务。')}
+  omninav:{note:c('Navigation post-training includes R2R/RxR and HM3D-OVON. This does not establish training on the closed-vocabulary MP3D/HM3D v2 evaluation tasks.','导航后训练包含 R2R/RxR 与 HM3D-OVON；不据此推定训练过闭词表 MP3D/HM3D v2 评测任务。')},
+  // Finetuning / post-training confirmed by the report author on 2026-09-23.
+  spannav:{note:c('SpanNav uses navigation finetuning / post-training.','SpanNav 经过导航任务微调／后训练。')},
+  navfom:{note:c('NavFoM uses navigation finetuning / post-training.','NavFoM 经过导航任务微调／后训练。')}
  };
  // HumanoidBench § V and Table V (arXiv:2403.10506): task-specific RL,
  // not necessarily finetuning from a pretrained checkpoint.
