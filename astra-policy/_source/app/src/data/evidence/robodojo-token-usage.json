@@ -1,0 +1,32 @@
+{
+  "source": "https://anonymous-report-421.github.io/public-website/?view=1",
+  "data_source": "https://raw.githubusercontent.com/anonymous-report-421/GPT-as-Policy/HEAD/report_web/data.json",
+  "retrieved_at": "2026-09-23",
+  "results_sha256": "a200ce90aa19ee13ab83794f6b7885190dbfb3c87f0ebfe628156d4f8c7207d6",
+  "scope": "Selected RoboDojo run instances; includes successful, failed and incomplete runs; excludes earlier retries.",
+  "accounting": "total_tokens = input_tokens + output_tokens. Cached input is included in input; reasoning output is included in output and is not added again. Counts are token usage, not monetary charges.",
+  "methods": {
+    "astra": {
+      "runs": 50,
+      "successes": 13,
+      "failures": 35,
+      "incomplete": 2,
+      "total_tokens": 1132343772,
+      "input_tokens": 1130257208,
+      "cached_input_tokens": 1107349760,
+      "output_tokens": 2086564,
+      "reasoning_output_tokens": 873464
+    },
+    "hybrid": {
+      "runs": 50,
+      "successes": 24,
+      "failures": 26,
+      "incomplete": 0,
+      "total_tokens": 624762828,
+      "input_tokens": 623457803,
+      "cached_input_tokens": 607555840,
+      "output_tokens": 1305025,
+      "reasoning_output_tokens": 380541
+    }
+  }
+}

@@ -1,6 +1,12 @@
 # 探索 GPT-6 Astra 作为策略的综合能力 · 网页交付包
 
-2026-09-20 版本。包含完整构建的中英文报告、rollout gallery，以及可重新构建的全部网页源码。图片、图表、CSV 和本地视频按网页引用保留。
+2026-09-23 发布版本。包含完整构建的中英文报告、rollout gallery，以及可重新构建的全部网页源码。图片、图表、CSV 和本地视频按网页引用保留。
+
+## 发布位置
+
+本报告发布于 `https://galaxygeneralrobotics.github.io/astra-policy/`。部署时仅同步 `astra-policy/` 子目录；仓库根目录的 `index.html`、`assets/` 及其他站点文件保持不变。构建使用相对资源路径，支持直接打开子目录及带 `view`、`lang` 参数的页面。
+
+视频发布版本使用 H.264 / yuv420p 和 faststart；重新编码时保留原分辨率、帧率、帧数与时长。来源与发布文件的校验值见 `publication-manifest.json`。原始视频在编辑工作区保留。
 
 ## 直接查看
 
@@ -22,14 +28,14 @@ node serve.mjs
 
 | 子页面 | URL | 内容 |
 | --- | --- | --- |
-| 操作 | `?view=manipulation` | RoboDojo、RoboLab、RoboCasa365 |
-| 灵巧手 | `?view=dexterous` | 10 项灵巧操作任务、Sharpa 与 Allegro 手内控制 |
-| 视觉导航 | `?view=navigation` | VLN-CE R2R / RxR、ObjectNav MP3D / HM3D v2 |
-| 人形控制 | `?view=humanoid` | HumanoidBench 30 项任务（Unitree G1） |
-| 运动与地形 | `?view=locomotion` | LAFAN1 运动追踪、平地运动、楼梯与沟隙 |
-| 避障 | `?view=obstacles` | 杂乱场景避障、五点与 14-point 接口 |
+| 夹爪操作 · Gripper Manipulation | `?view=gripper-manipulation` | RoboDojo、RoboLab |
+| 灵巧手操作 · DexHand Manipulation | `?view=dexhand-manipulation` | 10 项灵巧操作任务、Sharpa 与 Allegro 手内控制 |
+| 移动操作 · Mobile Manipulation | `?view=mobile-manipulation` | RoboCasa365 的 15 项厨房任务 |
+| 导航 · Navigation | `?view=navigation` | VLN-CE R2R / RxR、ObjectNav MP3D / HM3D v2 |
+| 运动控制 · Locomotion | `?view=locomotion` | LAFAN1 追踪、平地控制、楼梯与沟隙、杂乱场景避障、五点与 14-point 接口 |
+| 运动与操作协同 · Loco Manipulation | `?view=loco-manipulation` | HumanoidBench 完整 30 项任务（Unitree G1）及人形交互补充演示 |
 
-`lang=zh` 与 `view=` 可组合使用，例如 `index.html?lang=zh&view=navigation`。
+`lang=zh` 与 `view=` 可组合使用，例如 `index.html?lang=zh&view=navigation`。原有 `manipulation`、`dexterous`、`humanoid` 和 `obstacles` 页面链接仍可访问，自动对应到新分类；视频库也采用相同的六类，具体实验仍可按任务筛选。
 
 ## 编辑和重新构建
 
@@ -57,7 +63,10 @@ node serve.mjs
 | `src/motion.js` | 滚动入场动画（IntersectionObserver + Web Animations）与章节导航的滚动高亮；`prefers-reduced-motion` 下自动关闭 |
 | `src/references.jsx` | 文内引用 `<Cite>` 与按页编号的参考文献列表、BibTeX 引用块 |
 | `src/pages/` | `Landing`、`LeadingResults`（FIG. 00）、`Insights`、`DomainPage`、`GalleryPage` |
-| `src/domains/index.jsx` | 六个领域的注册表：名称、导语、关键数字、首页图表、精选视频、所属章节 |
+| `src/domains/index.jsx` | 六个领域的注册表：名称、导语、关键数字、精选视频、所属章节 |
+| `src/data/domain-overviews.js` | 首页六类任务的简短概述与成功、失败视频 |
+| `src/data/dexterous-s1.js`、`src/data/evidence/dexterous-s1-0920.json` | 灵巧操作补充报告：72 条三方法配对回放、精选案例、8 张初态图索引与来源记录 |
+| `src/FailureAnalysis.jsx`、`src/data/*-failures.js` | 夹爪、导航、移动操作及地形的失败案例分析：任务与结果、失效过程、能力边界、视频与关键帧 |
 | `src/domains/<Section>.jsx` | 各评测章节的正文、图表与视频；每个组件带 `meta = {id, title}` 供章节导航使用 |
 | `src/data/` | 数据模块与 `evidence/` 下的结构化记录、gallery 索引、参考文献、BibTeX |
 | `src/assets/` | Poppins 400/500/600 Latin 子集（OFL，见 `Poppins-OFL.txt`）、Galbot 标识及其许可说明 |
@@ -81,4 +90,4 @@ node serve.mjs
 
 ## English quick start
 
-This package contains the built bilingual website and its complete editable source. With Node.js 22.12+, run `node serve.mjs`, then open <http://localhost:4178/index.html>. The landing page carries the headline comparison and six domain summaries; each domain links to its own page via `?view=manipulation`, `?view=dexterous`, `?view=navigation`, `?view=humanoid`, `?view=locomotion` or `?view=obstacles`, and `?view=gallery` opens the rollout gallery. To rebuild, run `npm --prefix _source/app install` and `npm --prefix _source/app run build`. RoboLab rollout videos in the gallery retain their GitHub Release URLs and require an internet connection.
+This package contains the built bilingual website and its complete editable source. With Node.js 22.12+, run `node serve.mjs`, then open <http://localhost:4178/index.html>. The landing page carries the headline comparison and six domain summaries; each domain links to its own page via `?view=gripper-manipulation`, `?view=dexhand-manipulation`, `?view=mobile-manipulation`, `?view=navigation`, `?view=locomotion` or `?view=loco-manipulation`, and `?view=gallery` opens the rollout gallery. To rebuild, run `npm --prefix _source/app install` and `npm --prefix _source/app run build`. RoboLab rollout videos in the gallery retain their GitHub Release URLs and require an internet connection.

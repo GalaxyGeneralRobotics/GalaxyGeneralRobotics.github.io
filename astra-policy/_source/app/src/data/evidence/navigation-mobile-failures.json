@@ -1,0 +1,128 @@
+{
+  "source_report": "add_on_report/Astra 失败案例复盘：导航与移动操作/Astra 失败案例复盘：导航与移动操作.md",
+  "source_sha256": "28524527d1164dc1540f08a96e562cc2f6338fc9a8035130850c5be6399d64ac",
+  "cases": [
+    {
+      "code": "F1",
+      "image": "media/failure-analysis/navigation-mobile/F1.png",
+      "source_image_sha256": "141048b2f52363399dd77f053cc3446d70af39ec7ebde9478104087d9b683c00",
+      "video": "media/failure-analysis/navigation-mobile/F1.mp4",
+      "poster": "media/failure-analysis/navigation-mobile/F1.jpg",
+      "duration": 33.5,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "sha256": "e530b574402015625878d2084098be9b8a98d5cbd16b3220b3fc2d1f952e7945",
+      "source_file": "add_on_report/Astra 失败案例复盘：导航与移动操作/图片和附件/F1｜弱地标线索被当作到达依据.mp4"
+    },
+    {
+      "code": "F2",
+      "image": "media/failure-analysis/navigation-mobile/F2.png",
+      "source_image_sha256": "0cb0e4ae87d8abc10458ceda6c664a480361115989a307e8c22a2e7eed8e9b15",
+      "video": "media/failure-analysis/navigation-mobile/F2.mp4",
+      "poster": "media/failure-analysis/navigation-mobile/F2.jpg",
+      "duration": 10.6,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "sha256": "4783b78ef3af99340ee4f7356b0adc1c524021c030ac9b97d0f0a53e68186c7e",
+      "source_file": "add_on_report/Astra 失败案例复盘：导航与移动操作/图片和附件/F2｜把中间平台认作楼梯终点.mp4"
+    },
+    {
+      "code": "F3",
+      "image": "media/failure-analysis/navigation-mobile/F3.png",
+      "source_image_sha256": "6f7a1001910474840d6ea92f93630a8cccdb51c82ab402a0cfc27fad34a7bb36",
+      "video": "media/failure-analysis/navigation-mobile/F3.mp4",
+      "poster": "media/failure-analysis/navigation-mobile/F3.jpg",
+      "duration": 51.6,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "sha256": "6fb0507094952e15c438b8e917911bc84c6dc699c4ebf33ecd1cc155358d750a",
+      "source_file": "add_on_report/Astra 失败案例复盘：导航与移动操作/图片和附件/F3｜目标已识别仍反复接近失败.mp4"
+    },
+    {
+      "code": "F4",
+      "image": "media/failure-analysis/navigation-mobile/F4.png",
+      "source_image_sha256": "aba44dd2b76a6197a7effe9ca9b35285c7191c2b12aef342497c7ab3d4468897",
+      "video": "media/failure-analysis/navigation-mobile/F4.mp4",
+      "poster": "media/failure-analysis/navigation-mobile/F4.jpg",
+      "duration": 51.6,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "sha256": "debb2b12e86b1c43329feb04d8183dccabddd158c60a36767cd77036c5f6f878",
+      "source_file": "add_on_report/Astra 失败案例复盘：导航与移动操作/图片和附件/F4｜重复尝试耗尽搜索预算.mp4"
+    },
+    {
+      "code": "M1",
+      "image": "media/failure-analysis/navigation-mobile/M1.png",
+      "source_image_sha256": "a9279eeb4660c178a9733c10cf10194e389f5d130aa9a37c924fb413167d4541",
+      "video": "media/failure-analysis/navigation-mobile/M1.mp4",
+      "poster": "media/failure-analysis/navigation-mobile/M1.jpg",
+      "duration": 9.1,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "sha256": "08ddc4b2100dab04f588f10a61b4ba9d62752f0588e7d463cea6e04a754d793b",
+      "source_file": "add_on_report/Astra 失败案例复盘：导航与移动操作/图片和附件/M1｜反复空抓未能抓稳杯子.mp4"
+    },
+    {
+      "code": "M2",
+      "image": "media/failure-analysis/navigation-mobile/M2.png",
+      "source_image_sha256": "7ac03b0504e508d8b3b66ec8356df288ad851cf78d5d90ce85e2dd9d5c0980bd",
+      "video": "media/failure-analysis/navigation-mobile/M2.mp4",
+      "poster": "media/failure-analysis/navigation-mobile/M2.jpg",
+      "duration": 7.3,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "sha256": "aa5fa791349b81cf1adf5961b1e01f4c14095aaabc0176ee59c849a503150888",
+      "source_file": "add_on_report/Astra 失败案例复盘：导航与移动操作/图片和附件/M2｜机头短暂抬起后失去接触.mp4"
+    },
+    {
+      "code": "M3",
+      "image": "media/failure-analysis/navigation-mobile/M3.png",
+      "source_image_sha256": "8a0d09c0a64374c781aee72650648ef0d8f01f1d9c35ee80681547afb584b23d",
+      "video": "media/failure-analysis/navigation-mobile/M3.mp4",
+      "poster": "media/failure-analysis/navigation-mobile/M3.jpg",
+      "duration": 33.5,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "sha256": "9f36dc0041c21b76901843defbab7ebefed8ebda419d740d479e415e272753c6",
+      "source_file": "add_on_report/Astra 失败案例复盘：导航与移动操作/图片和附件/M3｜吸管多次落在杯外.mp4"
+    },
+    {
+      "code": "M4",
+      "image": "media/failure-analysis/navigation-mobile/M4.png",
+      "source_image_sha256": "f5587ed9f523e32fa010ba6b359b506990c12c49e676ed5c8182541b1b0bb86f",
+      "video": "media/failure-analysis/navigation-mobile/M4.mp4",
+      "poster": "media/failure-analysis/navigation-mobile/M4.jpg",
+      "duration": 50.4,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "sha256": "d9e4cad66f7d6d3de68540a74d556400b36aff57f70f3e273a9218e26adc6bca",
+      "source_file": "add_on_report/Astra 失败案例复盘：导航与移动操作/图片和附件/M4｜携物丢失与狭窄空间恢复失败.mp4"
+    },
+    {
+      "code": "M5",
+      "image": "media/failure-analysis/navigation-mobile/M5.png",
+      "source_image_sha256": "af248d90a09db7748de53d17f6b9fb0de832e1d949545294604b02f71981c747",
+      "video": "media/failure-analysis/navigation-mobile/M5.mp4",
+      "poster": "media/failure-analysis/navigation-mobile/M5.jpg",
+      "duration": 20.4,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "sha256": "68eca2e6731e0a4b11c52d325bc376c23a5ba1a1e36fcc9dd0eb887f4813b87f",
+      "source_file": "add_on_report/Astra 失败案例复盘：导航与移动操作/图片和附件/M5｜水壶与点燃炉头不对应.mp4"
+    },
+    {
+      "code": "M6",
+      "image": "media/failure-analysis/navigation-mobile/M6.png",
+      "source_image_sha256": "5e3c9bb319b70b24ee2c98c8b35b3f4be2c2d903072cbe690c5c4668a8ff3638"
+    }
+  ]
+}

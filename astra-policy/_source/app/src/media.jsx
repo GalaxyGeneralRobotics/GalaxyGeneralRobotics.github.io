@@ -8,14 +8,18 @@ export const useOpenMedia=()=>useContext(MediaContext);
 
 // How each recording family was rendered; shown under the player.
 const playbackNotes={
+ 'robodojo-excerpt':['Excerpt at simulation speed, 25 control steps per second; model waiting is omitted. The full trajectory is available through the paired-comparison link.','按仿真原速播放的轨迹节选，每秒 25 个控制步，省略模型等待；配对对照链接可查看完整轨迹。'],
  humanoidbench:['Simulation-time replay of a held-out evaluation episode; model waiting is omitted.','留出评测 episode 的仿真时间回放，省略模型等待。'],
  'ego-navigation':['Replay at simulation speed, with model waiting omitted.','按仿真原速回放，省略模型等待时间。'],
  's0-continuation':['Simulation-time replay; model waiting is omitted. The red-banner tail restores the terminal state and holds the last target with no new Astra calls. It is excluded from evaluation.','按仿真时间回放，省略模型等待。红条后段从终止状态保持最后目标续演，无新 Astra 调用，不计入评测。'],
  s0:['Simulation-time replay with inference waiting omitted. Native termination and any later diagnostic footage are identified in the caption.','按仿真时间回放，省略推理等待；原生终止时刻及之后的诊断片段见说明。'],
  'dex-s0':['Synchronized Astra / RL comparison in simulation time, with model waiting omitted. Each evaluated trajectory ends at its recorded termination; the comparison holds its last frame while the other continues.','按仿真时间同步展示 Astra／RL，省略模型等待。各评测轨迹截至各自记录的终止时刻；先结束的一组保持末帧，另一组继续播放。'],
  dexterous:['Simulation-time replay with model waiting omitted. Astra clips hold the final frame for 1.5 s.','按仿真时间回放，省略模型等待；Astra 录像末尾定格 1.5 秒。'],
+ 'dex-s1-rerender':['Re-rendering of a recorded evaluation trajectory from stored robot and object states.','根据已记录的机器人与物体状态重新渲染评测轨迹。'],
+ 'dex-s1-hybrid':['Recorded hybrid rollout with head and wrist views; the dashboard displays policy proposals and Astra interventions.','组合策略的头部与手腕视角回放；仪表盘展示策略提议与 Astra 干预。'],
  'nav-primitives':['Source playback: 10 recorded actions/s. Model waiting is omitted. Maps are evaluator-only.','源视频每秒播放 10 个记录动作，省略模型等待；地图仅用于评测后展示。'],
  robocasa:['Source playback: 4× simulator time; model waiting is omitted. Comparisons align simulator time and hold terminal frames. Auxiliary views may hold their last observation. File playback at 1× retains this source acceleration.','源视频为仿真时间 4 倍速，省略模型等待。对照按仿真时间对齐，结束后保持末帧；辅助视角可能保持最近观测。文件以 1× 播放时仍保留上述加速。']
+ ,'qwen38-pi05':['Controller-generated debug rollout from the supplementary Qwen3.8-max + π₀.₅ batch. The exported file preserves the batch render and is provided for qualitative inspection.','补充 Qwen3.8-max + π₀.₅ 批次生成的控制器 debug 回放。导出文件保留该批次的渲染结果，用于定性检查。']
 };
 const modeName=mode=>mode==='pi05_only'?'π₀.₅':mode==='direct'?'Astra':'Astra + π₀.₅';
 const sourceFor=(clip,view)=>view==='ego'?clip.ego:view==='comparison'?clip.comparison:clip.video;
@@ -25,8 +29,9 @@ function ClipCaption({value,className=''}){
  const [description,record,score]=value.split(' | ');
  if(!record)return <p className={className}>{value}</p>;
  const trial=record.match(/^Trial (\d+)$/);
+ const hundredScale=score?.includes('0–100');
  return <div className={'clip-caption '+className}><p>{description}</p><dl className="clip-meta">
-  {score&&<div><dt>{c('Native Score (0–1)','原生 Score（0–1）')}</dt><dd>{score.split(/[:：]/).at(-1).trim()}</dd></div>}
+  {score&&<div><dt>{hundredScale?c('Score (0–100)','Score（0–100）'):c('Native Score (0–1)','原生 Score（0–1）')}</dt><dd>{score.split(/[:：]/).at(-1).trim()}</dd></div>}
   <div><dt>{trial?c('Trial','试次'):c('Run ID','运行 ID')}</dt><dd>{trial?trial[1]:record}</dd></div>
  </dl></div>;
 }

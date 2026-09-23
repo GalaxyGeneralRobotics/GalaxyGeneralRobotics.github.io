@@ -58,7 +58,7 @@ export function DexterousS0(){
    '固定目标平移中，两种方法在五组初态下均未掉落物体。Astra 成功一组，RL 成功四组，平均终点位置误差分别为 59.05 mm 和 17.29 mm。Astra 成功的案例具有最短初始位移，最终误差为 19.13 mm，展示了有效的局部重新定位。',
    '同时要求位置与旋转时，手指协调的要求进一步增加。Astra 在用完 120 次决策预算时，五组均未满足任一终点容差；RL 在相同控制步数下有四组同时满足两项容差，15 秒时五组全部成功。综合四项任务，Astra 能保持接触，并在部分初态下完成局部目标；专用策略在协调手指接触、追踪或到达要求的物体运动方面更稳定。'
   ])}/>
-  <div className="sec-links"><a href="joint-data/dex-s0-task_summary.csv" download>{c('Four-task summary · CSV ↓','四项任务汇总 · CSV ↓')}</a><a href="joint-data/dex-s0-translation_cases.csv" download>{c('Translation endpoints · CSV ↓','平移终点数据 · CSV ↓')}</a><a href="joint-data/dex-s0-translation_rotation_matched_windows.csv" download>{c('Matched endpoints · CSV ↓','联合任务配对终点 · CSV ↓')}</a><a href="joint-data/dex-s0-translation_rotation_cases.csv" download>{c('Combined-task endpoints · CSV ↓','联合任务终点数据 · CSV ↓')}</a><a href={viewHref('gallery',language,{setting:'dexterous',level:'s0'})}>{c('All 20 comparison videos ↗','全部 20 段对照视频 ↗')}</a></div>
+  <div className="sec-links"><a href="joint-data/dex-s0-task_summary.csv" download>{c('Four-task summary · CSV ↓','四项任务汇总 · CSV ↓')}</a><a href="joint-data/dex-s0-translation_cases.csv" download>{c('Translation endpoints · CSV ↓','平移终点数据 · CSV ↓')}</a><a href="joint-data/dex-s0-translation_rotation_matched_windows.csv" download>{c('Matched endpoints · CSV ↓','联合任务配对终点 · CSV ↓')}</a><a href="joint-data/dex-s0-translation_rotation_cases.csv" download>{c('Combined-task endpoints · CSV ↓','联合任务终点数据 · CSV ↓')}</a><a href={viewHref('gallery',language,{setting:'dexhand-manipulation',level:'s0'})}>{c('All 20 comparison videos ↗','全部 20 段对照视频 ↗')}</a></div>
  </Section>;
 }
 DexterousS0.meta={id:'dexterous-s0',title:{en:'In-hand Manipulation',zh:'手内操作'}};

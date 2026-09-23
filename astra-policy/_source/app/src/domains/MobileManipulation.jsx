@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import {Cite} from '../references.jsx';
 import {useCopy} from '../i18n.jsx';
+import {FailureAnalysis} from '../FailureAnalysis.jsx';
+import {mobileFailureIntro,mobileFailureCases} from '../data/navigation-mobile-failures.js';
 import {Section,Figure,Bars,Toggle,Details,DataTable,Note,Setup,Conclusion,number} from '../ui.jsx';
 import {MediaCard,ImageFigure} from '../media.jsx';
 import {groups,actionSources,tasks,taskGroups,controlMethods,mobileRoot,mobileClip} from '../data/mobile.js';
@@ -37,7 +39,8 @@ export function MobileManipulation(){
    <p>{c('The comparison covers 15 tasks with five seeds each. Conditions share task, seed, physical initial state, controller, horizon and success test. Context compaction, prefetching and feedback guards evolved during the experiment; each condition includes a different mix of harness versions. Results summarize these evaluated system configurations.','对照覆盖十五项任务、每任务五个 seed。各条件共享任务、seed、物理初始状态、控制器、时长上限和成功测试。实验中上下文压缩、预取与反馈保护机制逐步更新，各条件包含的执行框架版本组合有所不同；结果汇总这些受测系统配置的表现。')}</p>
    <ImageFigure src="media/joint/robocasa-cases-astra.png" alt={c('Matched initial and terminal scenes in three RoboCasa control conditions','三种 RoboCasa 控制条件下的配对初始与终止画面')} caption={c('Matched initial and terminal views for the three control conditions. Episode outcomes use the benchmark’s success test.','三种控制条件的配对初始与终止画面；episode 结果按基准成功判据统计。')}/>
   </Details>
-  <Conclusion paragraphs={c(["Across the 75 task–seed pairs, π₀.₅, Astra and Astra + π₀.₅ succeed in 17, 25 and 29 episodes, respectively. The benefit of combining the models depends on the task group: Astra + π₀.₅ is stronger on atomic seen tasks, while Astra is stronger on composite unseen tasks.","The case results show complementary strengths. π₀.₅ completes coffee preparation and lettuce washing episodes missed by both Astra configurations; Astra completes all five bottle-recycling episodes. Astra + π₀.₅ has the highest overall success rate in this evaluation, while π₀.₅ retains an advantage on some familiar kitchen interactions."],["在 75 组任务与 seed 配对中，π₀.₅、Astra 和 Astra + π₀.₅ 分别成功 17、25 和 29 次。组合方法的收益随任务组变化：Astra + π₀.₅ 在已见原子任务上更好，Astra 在未见复合任务上更好。","逐任务结果体现了不同方法的互补性。π₀.₅ 完成了两种 Astra 配置均未完成的咖啡准备与生菜清洗案例；Astra 则完成了全部五次瓶子分类回收。Astra + π₀.₅ 在这组评测中取得最高总体成功率，π₀.₅ 在部分熟悉的厨房交互上仍保有优势。"])}/>
+  <FailureAnalysis id="mobile-failures" intro={mobileFailureIntro} cases={mobileFailureCases}/>
+  <Conclusion paragraphs={c(["Across the 75 task–seed pairs, π₀.₅, Astra and Astra + π₀.₅ succeed in 17, 25 and 29 episodes, respectively. The combined system therefore has the highest overall success in this evaluation, while its benefit depends on the task group: Astra + π₀.₅ is stronger on atomic seen tasks, while Astra is stronger on composite unseen tasks.","The case results show complementary strengths. π₀.₅ completes coffee preparation and lettuce washing episodes missed by both Astra configurations; Astra completes all five bottle-recycling episodes. The result supports an S2-plus-embodied-policy architecture: Astra can select and correct behavior, while π₀.₅ supplies action patterns that fit familiar interactions."],["在 75 组任务与 seed 配对中，π₀.₅、Astra 和 Astra + π₀.₅ 分别成功 17、25 和 29 次。在这组评测中，组合系统取得最高总体成功率，但收益取决于任务组：Astra + π₀.₅ 在已见原子任务上更好，Astra 在未见复合任务上更好。","逐任务结果体现了不同方法的互补性。π₀.₅ 完成了两种 Astra 配置均未完成的咖啡准备与生菜清洗案例；Astra 则完成了全部五次瓶子分类回收。这支持一种 S2 加具身策略的架构：Astra 负责选择和修正行为，π₀.₅ 为适配熟悉交互的任务提供动作模式。"])}/>
   <div className="sec-links"><a href={mobileRoot+'data/robocasa-paired.csv'} download>{c('75 three-condition pairs · CSV ↓','75 组三条件配对记录 · CSV ↓')}</a><a href={mobileRoot+'data/robocasa-tasks.csv'} download>{c('Task results · CSV ↓','任务结果 · CSV ↓')}</a></div>
  </Section>;
 }

@@ -1,5 +1,0 @@
-scene,method,control_level,control_steps,simulation_time_s,model_calls,end_reason,success,fall,initial_distance_m,final_distance_m,path_length_m,contact_duration_control_s,absolute_mechanical_work_J,model_wait_wall_s
-g_motion,Astra + 5-point BFM,S1,497,9.94,100,stationary_timeout,false,false,3.3286633954186473,3.250593449860766,0.6225341573517653,4.199999999999998,329.6250906829833,8853.989680462284
-stair_duck,Astra + 5-point BFM,S1,517,10.34,104,stationary_timeout,false,false,3.7420448980823604,3.9858226323454655,0.7811744493228616,0,479.1832952270507,6923.768224481028
-race,Astra + 5-point BFM,S1,596,11.92,100,stationary_timeout,false,false,9.116866111755371,9.094444274902344,1.0328631734046212,0,575.2806056518554,9459.033403307549
-race,Astra + Passage,S2,1200,24,19,stop,false,false,9.116866111755371,1.6281970739364624,8.899192477540055,0.4000000000000001,1344.5885032749181,579.5530945338542

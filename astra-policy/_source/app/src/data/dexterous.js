@@ -1,17 +1,17 @@
-// Scores manually checked against raw_docs/humanoid_resule.png (2026-09-20).
+// Scores checked against dexterous_s1_0920.zip / dexterous_s1.tex (2026-09-23).
 // Captions remain tied to the original handoff's recorded episodes.
 import media from './evidence/dexterous-media.json';
 export const dexterousTasks=[
- {task:'Lift and stably hold a pot',zh:'提起并稳定握持锅具',pi05:40,direct:44,hybrid:62,initial:'01_grasp_pot'},
- {task:'Place headphones in a box',zh:'将耳机放入盒中',pi05:42,direct:22,hybrid:42,initial:'02_pack_headset'},
- {task:'Remove a toy from a box',zh:'从盒中取出玩具',pi05:100,direct:22,hybrid:100,initial:'03_grasp_from_bin_toy'},
- {task:'Hang a mug on a rack',zh:'将杯子挂上杯架',pi05:62,direct:4,hybrid:82,initial:'04_hang_cup_on_rack'},
- {task:'Place two mahjong tiles in a basket',zh:'将两块麻将牌放入篮中',pi05:48,direct:18,hybrid:88,initial:'05_mahjong_into_basket'},
- {task:'Place two bottles in the left basket and two cans in the right basket',zh:'将两个瓶子放入左篮、两个罐子放入右篮',pi05:72,direct:14,hybrid:100,initial:'06_sort_bottles_cans'},
- {task:'Place an egg upright in an egg tray',zh:'将鸡蛋直立放入蛋托',pi05:6,direct:12,hybrid:38,initial:'07_egg_into_tray'},
- {task:'Stack two bowls on a coaster',zh:'在垫子上叠放两个碗',pi05:46,direct:20,hybrid:52},
- {task:'Insert two bread slices into separate slots',zh:'将两片面包分别插入两个槽中',pi05:10,direct:8,hybrid:28,initial:'09_bread_into_slots'},
- {task:'Arrange nesting dolls by size',zh:'将套娃按大小排列',pi05:16,direct:2,hybrid:26,initial:'10_sort_nesting_dolls'}
+ {id:'01_grasp_pot',task:'Lift and stably hold a pot',zh:'提起并稳定握持锅具',pi05:40,direct:44,hybrid:62,initial:'01_grasp_pot'},
+ {id:'02_pack_headset',task:'Place headphones in a box',zh:'将耳机放入盒中',pi05:42,direct:22,hybrid:42,initial:'02_pack_headset'},
+ {id:'03_grasp_from_bin_toy',task:'Remove a toy from a box',zh:'从盒中取出玩具',pi05:100,direct:22,hybrid:100,initial:'03_grasp_from_bin_toy'},
+ {id:'04_hang_cup_on_rack',task:'Hang a mug on a rack',zh:'将杯子挂上杯架',pi05:62,direct:4,hybrid:82,initial:'04_hang_cup_on_rack'},
+ {id:'05_mahjong_into_basket',task:'Place two mahjong tiles in a basket',zh:'将两块麻将牌放入篮中',pi05:48,direct:18,hybrid:88,initial:'05_mahjong_into_basket'},
+ {id:'06_sort_bottles_cans',task:'Place two bottles in the left basket and two cans in the right basket',zh:'将两个瓶子放入左篮、两个罐子放入右篮',pi05:72,direct:14,hybrid:100,initial:'06_sort_bottles_cans'},
+ {id:'07_egg_into_tray',task:'Place an egg upright in an egg tray',zh:'将鸡蛋直立放入蛋托',pi05:6,direct:12,hybrid:38,initial:'07_egg_into_tray'},
+ {id:'08_stack_bowls_on_coaster',task:'Stack two bowls on a coaster',zh:'在垫子上叠放两个碗',pi05:46,direct:20,hybrid:52},
+ {id:'09_bread_into_slots',task:'Insert two bread slices into separate slots',zh:'将两片面包分别插入两个槽中',pi05:10,direct:8,hybrid:28,initial:'09_bread_into_slots'},
+ {id:'10_sort_nesting_dolls',task:'Arrange nesting dolls by size',zh:'将套娃按大小排列',pi05:16,direct:2,hybrid:24,initial:'10_sort_nesting_dolls'}
 ];
 export const dexterousMeans=Object.fromEntries(['pi05','direct','hybrid'].map(method=>[method,dexterousTasks.reduce((sum,task)=>sum+task[method],0)/dexterousTasks.length]));
 const labels={

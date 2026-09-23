@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import results from '../data/results.json';
 import {useCopy} from '../i18n.jsx';
+import {FailureAnalysis} from '../FailureAnalysis.jsx';
+import {terrainFailureIntro,terrainFailureCases} from '../data/terrain-failures.js';
 import {Section,Figure,Bars,Note,Details,DataTable,Toggle,Setup,Conclusion,number} from '../ui.jsx';
 import {MediaCard} from '../media.jsx';
 
@@ -22,7 +24,7 @@ export function Terrain(){
     </Figure>
     <div className="toolbar"><h3>{c('Traversal rollouts','地形通过回放')}</h3><Toggle label={c('Terrain videos and data','地形视频与数据')} value={terrain} onChange={setTerrain} options={[[ 'stairs',c('Stairs','楼梯')],['gaps',c('Gaps','沟隙')]]}/></div>
     <div className={'media-grid'+(terrain==='stairs'?'':' is-three')}>{(terrain==='stairs'?['stairs-unadapted','stairs-baseline']:['gaps-unadapted-success','gaps-adapted-success','gaps-baseline-1']).map(id=><MediaCard key={id} clip={get(id)}/>)}</div>
-    <Note>{terrain==='stairs'?c('Colored trajectories show planned motion; white trajectories show the robot’s actual five-point motion.','彩色轨迹表示规划运动；白色轨迹表示机器人实际五点运动。'):c('The gap videos above are successful examples. Failed adapted and unadapted runs are also available in the rollout gallery.','上方沟隙视频为成功示例；gallery 同时收录加载与未加载文档时的失败轨迹。')}</Note>
+    <Note>{terrain==='stairs'?c('Colored trajectories show planned motion; white trajectories show the robot’s actual five-point motion.','彩色轨迹表示规划运动；白色轨迹表示机器人实际五点运动。'):c('The gap videos above show successful traversals; the failure analysis below examines unsuccessful support transfers.','上方沟隙视频展示成功通过；下方失败分析进一步展示未完成的支撑转移。')}</Note>
     <Figure title={c('Simulation time and wall-clock time','仿真时间与实际耗时')} subtitle={terrain==='stairs'?c('Stair climbing · mean over all six scenes','楼梯攀爬 · 全部六个场景的均值'):c('Gap traversal','沟隙通过')} caption={c('Physics pauses during GPT inference. Simulation time measures executed motion; wall time includes inference and the evaluation pipeline. Stair times average all six scenes; gap times average successful episodes. Tokens per scene average all six test scenes in both tasks.','GPT 推理时物理暂停。仿真时间统计实际执行的运动；实际耗时包含推理与评测流程。楼梯时间取全部六个场景均值，沟隙时间取成功 episode 均值；两类任务的每场景 token 均值都覆盖全部六个测试场景。')}>
       <DataTable headers={[c('Method','方法'),c('Simulation (s)','仿真（秒）'),c('Wall clock (s)','实际耗时（秒）'),c('Tokens / scene','每场景 tokens')]} rows={rows.map(r=>[labels[r.method],number(r.sim_s,2),number(r.wall_s,2),number(r.tokens_per_scene)])}/>
     </Figure>
@@ -33,12 +35,13 @@ export function Terrain(){
         [c('Gap test tokens · total','沟隙测试 tokens · 总计'),'—','—','4,605,926','1,717,473']
       ]}/><p>{c('Token means include failed test episodes and count input plus output, including cached input. Stair tokens per call are 126,720 with notes and 35,425 without. Gap document adaptation spans 12 rounds.','token 均值包含失败测试 episode，统计输入与输出并包含缓存输入。楼梯每次调用分别为 126,720（加载文档）与 35,425（未加载）。沟隙文档适应共 12 轮。')}</p>
     </Details>
+  <FailureAnalysis id="terrain-failures" intro={terrainFailureIntro} cases={terrainFailureCases}/>
     <Conclusion paragraphs={c([
  'Supplying the control document raises stair success from 0/6 to 4/6 and gap success from 1/6 to 3/6 with the same Astra model and frozen tracker. This improvement comes from accumulated textual guidance used during planning; the learned-policy baseline completes all six scenes in both tasks.',
  'Traversal also requires substantially more elapsed time with Astra. Averaged over all six stair scenes, the document-guided configuration uses 33.51 s of simulation and 1707.87 s of wall-clock time, compared with 6.24 s and 0.79 s for the learned policy. The results show progress from rollout-based adaptation, together with a continuing gap in traversal reliability and planning latency.'
  ],[
  '在相同 Astra 模型与冻结 tracker 下，加入控制经验文档后，楼梯成功数由 0/6 提升至 4/6，沟隙由 1/6 提升至 3/6。改善来自规划时利用累计文本经验；learned policy 在两类任务中均完成全部六个场景。',
- 'Astra 的地形通过也需要更多实际时间。按全部六个楼梯场景取均值，使用文档的配置为 33.51 秒仿真时间、1707.87 秒实际耗时，learned policy 分别为 6.24 秒与 0.79 秒。Rollout 适应带来了进展，通过可靠性与规划延迟仍存在差距。'
+ 'Astra 的地形通过也需要更多实际时间。按全部六个楼梯场景取均值，使用文档的配置为 33.51 秒仿真时间、1707.87 秒实际耗时，learned policy 分别为 6.24 秒与 0.79 秒。Rollout 适应带来了进展，但在通过可靠性与规划延迟上仍存在差距。'
  ])}/>
   <div className="sec-links"><a href="joint-data/terrain.csv" download>{c('Terrain data CSV ↓','地形数据 CSV ↓')}</a></div>
   </Section>;

@@ -5,30 +5,28 @@ import original from './robodojo-robolab-gallery.json';
 import {mobileVideos} from './mobile.js';
 import {humanoidSupplement} from './humanoid-supplement.js';
 import {humanoidBenchVideos} from './humanoidbench.js';
-import {dexterousVideos,dexterousTasks} from './dexterous.js';
+import {dexterousTasks} from './dexterous.js';
+import {dexS1Videos} from './dexterous-s1.js';
 import {s0Videos} from './s0.js';
 import {dexS0Videos} from './dex-s0.js';
 import {egoNavigationVideos} from './ego-navigation.js';
+import {qwen38Videos} from './qwen38-hybrid.js';
+import {navigationMobileFailureVideos} from './navigation-mobile-failures.js';
+import {domainCategories,canonicalView} from '../site.js';
 
 export const settings=[
- ['all','All settings','全部场景'],['manipulation','Manipulation','操作'],
- ['dexterous','Dexterous manipulation','灵巧操作'],['visual-navigation','Visual navigation','视觉导航'],
- ['mobile-manipulation','Mobile manipulation','移动操作'],['humanoid','Humanoid','人形'],
- ['obstacles','Obstacles','避障'],['terrain','Terrain','地形'],['flat','Flat-ground locomotion','平地运动控制'],
- ['tracking','Motion tracking','运动追踪'],['proxy','Motion generators','轨迹生成器']
+ ['all','All domains','全部领域'],...domainCategories.map(r=>[r.id,r.en,r.zh])
 ];
+const settingAliases={'visual-navigation':'navigation',terrain:'locomotion',flat:'locomotion',tracking:'locomotion',proxy:'locomotion'};
+const canonicalSetting=setting=>settingAliases[setting]||canonicalView(setting);
 export const levels=[['all','All levels','全部层级'],['s0','S0 · Motor control','S0 · 运动控制'],['s1','S1 · Action generation','S1 · 动作生成'],['s2','S2 · Task decisions','S2 · 任务决策']];
 export const methods=[
- ['all','All methods','全部方法'],['pi05','π₀.₅','π₀.₅'],['pi05-gpt','Astra + π₀.₅','Astra + π₀.₅'],['gpt-only','Astra','Astra'],
+ ['all','All methods','全部方法'],['pi05','π₀.₅','π₀.₅'],['pi05-gpt','Astra + π₀.₅','Astra + π₀.₅'],['qwen38-pi05','Qwen3.8-max + π₀.₅','Qwen3.8-max + π₀.₅'],['gpt-only','Astra','Astra'],
  ['rl','RL','RL'],['gpt-tracker','Astra + tracker','Astra + 追踪器'],['passage','Passage','Passage'],['gpt-passage','Astra + Passage','Astra + Passage'],
  ['terrain-policy','Learned policy','learned policy'],['gpt-skills','Astra + motor skills','Astra + 运动技能'],
  ['generator','Astra-authored generator','Astra 编写的生成器'],['demo','Supplementary demos','补充演示']
 ];
 const task=(id,en,zh,group)=>({id,label:{en,zh},group});
-const dexTasks={
- 'dex-direct-failure-1':dexterousTasks[0], 'dex-direct-failure-2':dexterousTasks[5],
- 'dex-hybrid-correction-1':dexterousTasks[6], 'dex-hybrid-correction-2':dexterousTasks[4]
-};
 const flatTasks={
  'flat-stand':['stand','Stand','站立'], 'flat-walk':['walk','Walk','直行'], 'flat-turn':['turn','Right turn','右转'],
  's0-l2':['walk','Walk','直行'], 's0-l3':['walk','Walk','直行'], 's0-l4':['turn','Right turn','右转']
@@ -37,6 +35,7 @@ const mobileTasks={
  DeliverStraw:['Deliver a straw','递送吸管'],PackIdenticalLunches:['Pack identical lunches','打包两份相同的午餐'],
  SearingMeat:['Sear meat','煎肉'],PickPlaceSinkToCounter:['Sink to counter','从水槽转移到台面'],
  MakeIceLemonade:['Make ice lemonade','制作冰柠檬水'],KettleBoiling:['Boil water in a kettle','水壶烧水'],
+ OpenStandMixerHead:['Open the mixer head','打开厨师机机头'],
  RecycleBottlesByType:['Sort bottles by material','按材质分类瓶子'],CoffeeSetupMug:['Set up a coffee mug','摆放咖啡杯'],
  GatherTableware:['Gather tableware','收集餐具'],BreadSelection:['Select bread','选择面包'],
  HeatKebabSandwich:['Heat a kebab sandwich','加热烤肉三明治'],PickPlaceDrawerToCounter:['Drawer to counter','从抽屉转移到台面']
@@ -50,7 +49,7 @@ function classify(r){
   t=task(r.benchmark+':'+id,r.title.en.split(' · ')[0],r.title.zh.split(' · ')[0],r.benchmark);
   level='s1';methodIds=[policyMethod[r.method]];
  }else if(r.domain==='dexterous'){
-  const row=dexTasks[r.id];t=task('dex:'+row.initial,row.task,row.zh,'Dexterous manipulation');
+  const row=dexterousTasks.find(t=>t.id===r.taskId);t=task('dex:'+row.id,row.task,row.zh,'Dexterous manipulation');
   level='s1';methodIds=[policyMethod[r.method]];
  }else if(r.domain==='dexterous-s0'){
   const id=r.id.includes('translation_rotation')?'translation-rotation':r.id.includes('translation')?'translation':r.id.includes('cylinder')?'cylinder-rotation':'cuboid-rotation';
@@ -87,11 +86,12 @@ function classify(r){
   level=null;methodIds=['demo'];
  }
  if(!t||!methodIds?.length||methodIds.some(id=>!methods.some(m=>m[0]===id)))throw Error('Unclassified gallery clip: '+r.id);
- return {...r,setting,level,methodIds,task:t};
+ return {...r,setting:canonicalSetting(setting),level,methodIds,task:t};
 }
-const featureIds=['rxr-2682','robocasa-KettleBoiling-00','gaps-adapted-success','dex-hybrid-correction-1','robocasa-CoffeeSetupMug-03'];
-const added=[...data.videos,...mobileVideos,...humanoidSupplement,...humanoidBenchVideos,...dexterousVideos,...s0Videos,...dexS0Videos,...egoNavigationVideos];
+const featureIds=['rxr-2682','robocasa-KettleBoiling-00','gaps-adapted-success','robocasa-CoffeeSetupMug-03'];
+const added=[...data.videos,...mobileVideos,...navigationMobileFailureVideos,...humanoidSupplement,...humanoidBenchVideos,...dexS1Videos,...s0Videos,...dexS0Videos,...egoNavigationVideos];
 export const galleryVideos=[...featureIds.map(id=>added.find(r=>r.id===id)),...added.filter(r=>!featureIds.includes(r.id)),...original].map(classify);
+galleryVideos.push(...qwen38Videos.map(r=>({...r,setting:canonicalSetting(r.setting)})));
 
 export function clipOutcome(clip,method){
  const mode=Object.keys(modeMethod).find(key=>modeMethod[key]===method);
@@ -116,6 +116,7 @@ export function parseGalleryFilters(search){
  const p=new URLSearchParams(search),f={...defaultFilters};
  f.setting=p.get('setting')||p.get('domain')||'all';f.level=p.get('level')||'all';
  if(f.setting==='dexterous-s0'){f.setting='dexterous';f.level='s0';}
+ f.setting=canonicalSetting(f.setting);
  for(const key of ['method','task','outcome'])f[key]=p.get(key)||'all';f.query=p.get('q')||'';
  for(const [key,options] of [['setting',settings],['level',levels],['method',methods]])if(!options.some(o=>o[0]===f[key]))f[key]='all';
  if(!['all','success','failure','demo'].includes(f.outcome))f.outcome='all';

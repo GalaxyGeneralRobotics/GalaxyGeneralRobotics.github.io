@@ -38,6 +38,15 @@ export function GalleryPage(){
   update(next);
  };
  const filtered=useMemo(()=>galleryVideos.filter(r=>matchesGallery(r,filters)),[filters]);
+ const comparisons=useMemo(()=>{
+  if(!filtered.length||filters.method!=='all'||filters.outcome!=='all'||filtered.some(r=>r.collection!=='dex-s1-0920'))return null;
+  const groups=new Map();
+  for(const clip of filtered){
+   if(!groups.has(clip.paired))groups.set(clip.paired,[]);
+   groups.get(clip.paired).push(clip);
+  }
+  return [...groups.values()].every(group=>group.length===3)?[...groups.values()]:null;
+ },[filtered,filters.method,filters.outcome]);
  const scoped=useMemo(()=>galleryVideos.filter(r=>matchesGallery(r,filters,{ignoreTask:true,ignoreText:true})),[filters]);
  const availableMethods=useMemo(()=>{
   const pool=galleryVideos.filter(r=>(filters.setting==='all'||r.setting===filters.setting)&&(filters.level==='all'||r.level===filters.level));
@@ -73,7 +82,7 @@ export function GalleryPage(){
 
   <div className="band" id="rollouts">
    <div className="filters">
-    <FilterRow name="setting" label={c('Setting','实验场景')} options={settings} value={filters.setting} onChange={changeSetting}/>
+    <FilterRow name="setting" label={c('Domain','评测领域')} options={settings} value={filters.setting} onChange={changeSetting}/>
     <FilterRow name="level" label={c('Control level','控制层级')} options={levels} value={filters.level} onChange={changeLevel}/>
     <FilterRow name="method" label={c('Method / baseline','方法 / 基线')} options={availableMethods} value={filters.method} onChange={changeMethod}/>
    </div>
@@ -94,10 +103,15 @@ export function GalleryPage(){
      </div>
      <div className="gallery-count-row"><p className="gallery-count" aria-live="polite">{c('Showing '+Math.min(count,filtered.length)+' of '+filtered.length+' cases','显示 '+Math.min(count,filtered.length)+' / '+filtered.length+' 个案例')}{selectedTask&&<span> · {selectedTask}</span>}</p>
       {isFiltered&&<button className="text-button" type="button" onClick={()=>{update({...defaultFilters});setTasksOpen(false);}}>{c('Reset filters','重置筛选')}</button>}</div>
-     <div className="gallery-grid">{filtered.slice(0,count).map(clip=><div key={clip.id} className="gallery-card">
+     {comparisons?<div className="gallery-comparisons">{comparisons.slice(0,count/3).map(group=><section className="gallery-comparison" key={group[0].paired}>
+      <h3>{group[0].task.label[language]} <span>Seed {group[0].seed}</span></h3>
+      <div className="gallery-grid gallery-comparison-grid">{group.map(clip=><div key={clip.id} className="gallery-card">
+       <MediaCard clip={clip} previewTitle={methods.find(m=>m[0]===clip.methodIds[0])[language==='zh'?2:1]}/>
+      </div>)}</div>
+     </section>)}</div>:<div className="gallery-grid">{filtered.slice(0,count).map(clip=><div key={clip.id} className="gallery-card">
       <div className="gallery-card-meta"><span>{clip.level?.toUpperCase()||c('Demo','演示')} · {clip.benchmark||clip.task.group}</span><span>{clip.methodIds.map(id=>{const m=methods.find(m=>m[0]===id);return c(m[1],m[2]);}).join(' / ')}{clip.methodIds.length>1?c(' · comparison',' · 对照'):''}</span></div>
       <MediaCard clip={galleryClip(clip,filters.method)}/>
-     </div>)}</div>
+     </div>)}</div>}
      {filtered.length===0&&<p className="empty">{c('No videos match these filters. Change the task or reset the filters.','没有符合条件的视频，请切换任务或重置筛选。')}</p>}
      {count<filtered.length&&<div className="gallery-more"><button className="button" type="button" onClick={()=>setCount(n=>n+PAGE)}>{c('Show more videos','显示更多视频')} ↓</button></div>}
     </div>

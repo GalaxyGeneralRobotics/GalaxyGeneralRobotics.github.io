@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import {Cite} from '../references.jsx';
 import {useCopy} from '../i18n.jsx';
+import {FailureAnalysis} from '../FailureAnalysis.jsx';
+import {navigationFailureIntro,navigationFailureCases} from '../data/navigation-mobile-failures.js';
 import {Section,Figure,Bars,Toggle,DataTable,Note,Setup,Conclusion,number} from '../ui.jsx';
 import {MediaCard,ImageFigure} from '../media.jsx';
 import {navigation,datasetNames,navMethods,published,mobileRoot,mobileClip} from '../data/mobile.js';
@@ -40,11 +42,12 @@ export function VisualNavigation(){
   <ImageFigure src={mobileRoot+'assets/figures/navigation-cases.png'} alt={c('Navigation observations and reconstructed trajectories','导航观测与重建轨迹')} caption={c('Route-following and object-search examples, including a search that exhausts the action budget. The maps reconstruct recorded trajectories after evaluation; Astra navigates from RGB observations.','路线跟随与物体搜索示例，包括一条耗尽动作预算的搜索轨迹。地图在评测后根据记录重建，Astra 使用 RGB 观测导航。')}/>
   <div className="media-grid">{['rxr-2682','r2r-802','mp3d-bb16cafc25611c30552523a2','hm3d-869e9dd3566a14d1c7ed6d3f'].map(id=><MediaCard key={id} clip={mobileClip(id)}/>)}</div>
   <Note>{c('Replays show recorded primitives at 10 actions/s, with model waiting time omitted. Habitat maps visualize the trajectories after evaluation.','回放按每秒 10 个基础动作播放，省略模型等待时间；Habitat 地图用于评测后的轨迹可视化。')}</Note>
+  <FailureAnalysis id="navigation-failures" intro={navigationFailureIntro} cases={navigationFailureCases}/>
   <Conclusion paragraphs={c([
-   'On the four local subsets, Astra has higher SR and SPL than the three evaluated navigation policies. It follows long instructions across multiple rooms and searches for object categories from a single RGB view. The 92% success rate on RxR is the strongest route-following result in this evaluation.',
+   'As an S2 navigator, Astra has higher SR and SPL than the three evaluated navigation policies on the four local subsets. It follows long instructions across multiple rooms and searches for object categories from a single RGB view. The 92% success rate on RxR is the strongest route-following result in this evaluation; this result reflects high-level navigation decisions rather than low-level motor control.',
    'The remaining errors involve both search efficiency and stopping. In MP3D, 12 of 50 runs stop outside the goal region and 10 exhaust the action budget. R2R route fidelity is slightly below LightNav-0 despite higher task success. Successful arrival, efficient movement and faithful instruction following therefore capture different aspects of navigation capability.'
   ],[
-   '在四个本地子集上，Astra 的 SR 和 SPL 均高于所测三种导航策略。它能基于单个 RGB 视角跨房间执行较长指令，并搜索指定类别物体；RxR 的成功率达到 92%，是本次路线跟随评测中最突出的表现。',
+   '作为 S2 导航器，Astra 在四个本地子集上的 SR 和 SPL 均高于所测三种导航策略。它能基于单个 RGB 视角跨房间执行较长指令，并搜索指定类别物体；RxR 的成功率达到 92%，是本次路线跟随评测中最突出的表现。这一结果体现的是高层导航决策能力，不等同于底层运动控制能力。',
    '剩余问题同时涉及搜索效率与停止判断。MP3D 的 50 次运行中，12 次在目标区域外停止，10 次耗尽动作预算；R2R 虽有较高成功率，路线一致性仍略低于 LightNav-0。到达目标、缩短行走路径与准确遵循路线指令，反映了不同的导航能力。'
   ])}/>
   <div className="sec-links"><a href={mobileRoot+'data/navigation-episodes.csv'} download>{c('800 episode records · CSV ↓','800 条 episode 记录 · CSV ↓')}</a><a href={mobileRoot+'data/navigation-summary.csv'} download>{c('Summary · CSV ↓','汇总 · CSV ↓')}</a></div>
