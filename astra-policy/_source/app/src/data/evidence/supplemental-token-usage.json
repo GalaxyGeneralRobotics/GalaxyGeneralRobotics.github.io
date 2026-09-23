@@ -1,0 +1,25 @@
+{
+  "source": "Collaborator usage statistics supplied and confirmed by the report author.",
+  "dexterous_manipulation": {
+    "unit": "mean total tokens per trajectory",
+    "direct": 4980000,
+    "hybrid": 8490000
+  },
+  "obstacle_65d": {
+    "configuration": "GPT-25×65D",
+    "passage_mean_planner_latency_s": 0.080,
+    "astra_attempt": 5,
+    "astra_mean_turn_latency_s": 39.86,
+    "astra_max_turn_latency_s": 721.86,
+    "simulation_duration_s": 30,
+    "simulation_paused_during_inference": true,
+    "audit": {
+      "scope": "entire experiment",
+      "counter": "app-server audit",
+      "approximate_total_tokens": 763400000,
+      "approximate_cached_input_tokens": 740700000,
+      "approximate_output_tokens": 2467000,
+      "is_api_billing_count": false
+    }
+  }
+}

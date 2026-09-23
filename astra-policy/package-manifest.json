@@ -1,8 +1,8 @@
 {
-  "createdAt": "2026-09-23T12:29:16.832947+00:00",
+  "createdAt": "2026-09-23T14:37:22.072728+00:00",
   "description": "Built bilingual report, complete source and referenced website media. Manifest excludes itself.",
-  "totalFiles": 991,
-  "totalBytes": 852528516,
+  "totalFiles": 992,
+  "totalBytes": 852534822,
   "files": [
     {
       "path": ".gitattributes",
@@ -225,6 +225,11 @@
       "sha256": "6d858f1349f861295d8bba70c4e2acba7fcfe8e9de6a144c37f51abce99549b0"
     },
     {
+      "path": "_source/app/src/data/evidence/supplemental-token-usage.json",
+      "bytes": 783,
+      "sha256": "4a11b5d4c24a52cf40ac87466db78d1a902d6c29247b63bab6551f3f461bdf4e"
+    },
+    {
       "path": "_source/app/src/data/gallery.js",
       "bytes": 10385,
       "sha256": "96b4e29d2162f63af4a010f3a64ffbde3db08599dbbde63f6cc07de7cb6ab097"
@@ -301,8 +306,8 @@
     },
     {
       "path": "_source/app/src/data/token-usage.js",
-      "bytes": 894,
-      "sha256": "a1a3e951c398365b736f4bc7c40ec7114e22f06b33bc44ccf1ed666b75dbd8f4"
+      "bytes": 1176,
+      "sha256": "e1dec442e47d497a285bea83fc4724f92f00347743b3835c8e13919e7307fda7"
     },
     {
       "path": "_source/app/src/domains/ClutterInterfaces.jsx",
@@ -351,8 +356,8 @@
     },
     {
       "path": "_source/app/src/domains/Obstacles.jsx",
-      "bytes": 11026,
-      "sha256": "b1bda79704b45b9484e405847927e672cf446a32e702088e2ec3f0225c553086"
+      "bytes": 12423,
+      "sha256": "d5eee64e69edc2b9f90b7953ffc214e618ce76b9a490f84b5c7e06e21f7d3bde"
     },
     {
       "path": "_source/app/src/domains/Terrain.jsx",
@@ -411,8 +416,8 @@
     },
     {
       "path": "_source/app/src/pages/LeadingResults.jsx",
-      "bytes": 13423,
-      "sha256": "5a6865b072e9fe4a690e9b4e9bf77954ead2e06346919116868bad5b0ba78cc4"
+      "bytes": 14421,
+      "sha256": "2bc185e60d7c629d1215e414993f62cee849133b1d801738341672608aba0ab1"
     },
     {
       "path": "_source/app/src/references.jsx",
@@ -687,7 +692,7 @@
     {
       "path": "index.html",
       "bytes": 897,
-      "sha256": "79df058bac4469608c015baa2f7c7ab86e7e6889b0d823b99c68c73db6b52a6e"
+      "sha256": "4145aeafd660887a0b66fcf6e9f9a2ac1f97a353c04a0f4f17e87021024f8a77"
     },
     {
       "path": "joint-data/clutter.csv",
@@ -4615,9 +4620,9 @@
       "sha256": "bf0c937df8b63918c19fd1eb5f5204ca2da6796e766afdecd0b012e89cc927a8"
     },
     {
-      "path": "report-assets/GalleryPage-DjtmSnE_.js",
+      "path": "report-assets/GalleryPage-DZYm5vm4.js",
       "bytes": 250372,
-      "sha256": "c3ffa0d558adb107064454e807ec627ff0467f52ce51498e0158640d1ef7aa31"
+      "sha256": "90fdb6e809d7ecc153c74f1d07b5abdab1ea690718326e7fbcaf7f8ec7b56727"
     },
     {
       "path": "report-assets/galbot-logo-CcmptP_L.png",
@@ -4625,9 +4630,9 @@
       "sha256": "760f9afbd645287eae72e67665b8e290f137ed7032c4171be071aa8e559fa9ba"
     },
     {
-      "path": "report-assets/index-UOunuWiP.js",
-      "bytes": 622879,
-      "sha256": "5e421916a688271d25015e25cf916388ef8041e963b6e048d96469da52ef2801"
+      "path": "report-assets/index-DIStYWhy.js",
+      "bytes": 625725,
+      "sha256": "6644f7251210f1aca10a9efbff2fa343c0904a9c398fb5f9787e39d423393e36"
     },
     {
       "path": "report-assets/index-lLS7x3m7.css",
