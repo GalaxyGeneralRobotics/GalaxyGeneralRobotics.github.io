@@ -12,7 +12,6 @@ import {roboDojoMeanTokens,navigationMeanTokens,roboCasaMeanTokens,dexterousMean
 const bar=(label,value,kind,training=null,tokens=null)=>({label,value,kind,training,tokens});
 const bestBy=(rows,predicate)=>rows.filter(predicate).reduce((a,b)=>b.value>a.value?b:a);
 const nav=(model,dataset)=>navigation.find(r=>r.model===model&&r.dataset===dataset).sr_pct;
-const bestNav=dataset=>navigation.filter(r=>r.model!=='astra'&&r.dataset===dataset).reduce((a,b)=>b.sr_pct>a.sr_pct?b:a);
 const navName={lightnav:'LightNav-0',uninavid:'Uni-NaVid 7B',omninav:'OmniNav Flow',spannav:'SpanNav',navfom:'NavFoM'};
 const humanoid=task=>results.humanoid.find(r=>r.task===task);
 
@@ -54,11 +53,12 @@ function leadingRows(c){
  const all=groups.find(r=>r.group==='all');
  const maze=humanoid('Maze'),reach=humanoid('Reach');
  const navRow=(dataset,name)=>{
-  const other=bestNav(dataset);
-  const learned=navigation.filter(r=>r.dataset===dataset&&r.model!=='astra');
+  const learned=navigation.filter(r=>r.dataset===dataset&&r.model!=='astra')
+   .sort((a,b)=>b.sr_pct-a.sr_pct||b.spl_pct-a.spl_pct).slice(0,2);
+  const bestSuccess=learned[0].sr_pct;
   return {benchmark:name,metric:c('Success rate · %','成功率 · %'),max:100,unit:'%',decimals:0,
    tokenNote:c('Mean total tokens per trajectory over all 50 evaluated trajectories in this dataset.','该数据集全部 50 条评测轨迹的平均总 token 消耗。'),
-   bars:[bar('Astra',nav('astra',dataset),'gpt',null,navigationMeanTokens[dataset]),...learned.map(r=>bar(navName[r.model],r.sr_pct,r.sr_pct===other.sr_pct?'sota':'embodied',navTraining[r.model]))]};
+   bars:[bar('Astra',nav('astra',dataset),'gpt',null,navigationMeanTokens[dataset]),...learned.map(r=>bar(navName[r.model],r.sr_pct,r.sr_pct===bestSuccess?'sota':'embodied',navTraining[r.model]))]};
  };
  return [
   {benchmark:'RoboDojo',metric:c('10 bimanual tasks · success · %','10 项双臂任务 · 成功率 · %'),max:100,unit:'%',decimals:1,
@@ -127,7 +127,7 @@ export function LeadingResults(){
   </div>
   <div className="lead-rows">{rows.map((row,i)=><Row key={row.benchmark} row={row} index={i}/>)}</div>
   <figcaption>
-   {c('Each row uses its own metric and scale. Bars are shown only when the corresponding record exists: GPT, GPT + embodied policy, a standalone embodied policy and the strongest available learned-policy reference. RoboDojo and RoboLab use 10 tasks × 5 trials per policy; RoboCasa365 uses 15 tasks × 5 seeds. Dexterous Score is mean subgoal completion over 10 tasks. Navigation uses 50 fixed episodes per local system and dataset. † Published RoboDojo references are reweighted to the ten selected tasks. ‡ HumanoidBench baselines are published H1 results under their own robot and training protocols.','各行使用各自的指标与尺度。只有已有对应记录时才展示柱条：GPT、GPT + 具身策略、单独具身策略，以及现有记录中最强的 learned-policy 参考。RoboDojo 与 RoboLab 为每策略 10 个任务 × 5 次；RoboCasa365 为 15 个任务 × 5 个 seed。灵巧 Score 为 10 项任务的平均子目标完成度。导航使用各本地系统、各数据集 50 个固定 episode。† RoboDojo 公开参考按所选十项任务重加权。‡ HumanoidBench baseline 为公开 H1 结果，沿用各自的机器人与训练协议。')}
+   {c('Each row uses its own metric and scale. Bars are shown only when the corresponding record exists: GPT, GPT + embodied policy, a standalone embodied policy and the strongest available learned-policy reference. RoboDojo and RoboLab use 10 tasks × 5 trials per policy; RoboCasa365 uses 15 tasks × 5 seeds. Dexterous Score is mean subgoal completion over 10 tasks. Navigation uses 50 fixed episodes per local system and dataset; the overview retains the two baselines with the highest SR, breaking ties by SPL. † Published RoboDojo references are reweighted to the ten selected tasks. ‡ HumanoidBench baselines are published H1 results under their own robot and training protocols.','各行使用各自的指标与尺度。只有已有对应记录时才展示柱条：GPT、GPT + 具身策略、单独具身策略，以及现有记录中最强的 learned-policy 参考。RoboDojo 与 RoboLab 为每策略 10 个任务 × 5 次；RoboCasa365 为 15 个任务 × 5 个 seed。灵巧 Score 为 10 项任务的平均子目标完成度。导航使用各本地系统、各数据集 50 个固定 episode；总览仅保留 SR 最高的两个具身策略，SR 并列时按 SPL 排序。† RoboDojo 公开参考按所选十项任务重加权。‡ HumanoidBench baseline 为公开 H1 结果，沿用各自的机器人与训练协议。')}
    <span className="lead-token-note">{c('Token figures below baseline names are mean total tokens per trajectory; M denotes one million. Navigation averages all 50 trajectories per dataset; RoboCasa365 averages all 75 trajectories per configuration (15 tasks × 5 seeds). RoboDojo averages all 50 selected trajectories per method, including failures and two incomplete Astra runs; input and output tokens are summed, with cached input and reasoning output included once. Earlier retries are excluded. ','Baseline 名称下的 token 数值为每条轨迹的平均总消耗，M 表示百万。导航按每个数据集全部 50 条轨迹取均值；RoboCasa365 按每个配置全部 75 条轨迹（15 项任务 × 5 个 seed）取均值。RoboDojo 按每种方法全部 50 条选定轨迹取均值，包含失败及 Astra 的 2 条未完成记录；统计输入与输出，缓存输入与推理输出不重复计数，不含此前重试。')}<a href={roboDojoUsage.source} target="_blank" rel="noreferrer">{c('RoboDojo source ↗','RoboDojo 统计来源 ↗')}</a></span>
    <span className="lead-token-note">{c(`65D obstacle avoidance · approximately ${auditTotal} tokens across the full experiment (app-server audit count, not a per-trajectory mean or API billing count). `,`65D 避障补充实验：全实验累计约 ${auditTotal} tokens（app-server 审计量，非每条轨迹均值，也非 API 计费口径）。`)}<a href={viewHref('locomotion',language)+'#obstacle-compute'}>{c('Timing and accounting details ↗','时序与统计口径 ↗')}</a></span>
   </figcaption>

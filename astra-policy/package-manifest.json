@@ -1,8 +1,8 @@
 {
-  "createdAt": "2026-09-23T14:37:22.072728+00:00",
+  "createdAt": "2026-09-23T14:49:32.229470+00:00",
   "description": "Built bilingual report, complete source and referenced website media. Manifest excludes itself.",
   "totalFiles": 992,
-  "totalBytes": 852534822,
+  "totalBytes": 852535065,
   "files": [
     {
       "path": ".gitattributes",
@@ -416,8 +416,8 @@
     },
     {
       "path": "_source/app/src/pages/LeadingResults.jsx",
-      "bytes": 14421,
-      "sha256": "2bc185e60d7c629d1215e414993f62cee849133b1d801738341672608aba0ab1"
+      "bytes": 14532,
+      "sha256": "4671bb0822fbd54ffb5672d87cd9b3763e0f7bb5150895b38489d5ef875617e4"
     },
     {
       "path": "_source/app/src/references.jsx",
@@ -692,7 +692,7 @@
     {
       "path": "index.html",
       "bytes": 897,
-      "sha256": "4145aeafd660887a0b66fcf6e9f9a2ac1f97a353c04a0f4f17e87021024f8a77"
+      "sha256": "b4438c7c53f31214ed0e4f30ff3557e525f835df004b785285de95b5898783eb"
     },
     {
       "path": "joint-data/clutter.csv",
@@ -4620,9 +4620,9 @@
       "sha256": "bf0c937df8b63918c19fd1eb5f5204ca2da6796e766afdecd0b012e89cc927a8"
     },
     {
-      "path": "report-assets/GalleryPage-DZYm5vm4.js",
+      "path": "report-assets/GalleryPage-B_hPkIVs.js",
       "bytes": 250372,
-      "sha256": "90fdb6e809d7ecc153c74f1d07b5abdab1ea690718326e7fbcaf7f8ec7b56727"
+      "sha256": "c98a102f2fc694a59d8947f7246815b02e1b05c51237fbefc36964af97ae3535"
     },
     {
       "path": "report-assets/galbot-logo-CcmptP_L.png",
@@ -4630,9 +4630,9 @@
       "sha256": "760f9afbd645287eae72e67665b8e290f137ed7032c4171be071aa8e559fa9ba"
     },
     {
-      "path": "report-assets/index-DIStYWhy.js",
-      "bytes": 625725,
-      "sha256": "6644f7251210f1aca10a9efbff2fa343c0904a9c398fb5f9787e39d423393e36"
+      "path": "report-assets/index-CzVeNxAc.js",
+      "bytes": 625857,
+      "sha256": "dc14c00e08d0916052476dc9c758d18c183ee7bd78b02c56cddb5ce3c14fcaf6"
     },
     {
       "path": "report-assets/index-lLS7x3m7.css",
