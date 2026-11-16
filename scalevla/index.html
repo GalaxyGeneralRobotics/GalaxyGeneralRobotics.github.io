@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScaleVLA</title>
+<meta name="description" content="ScaleVLA connects a 552B frontier vision-language backbone to a trainable action DiT and compares VLM backbones from 2B to 552B for robot control.">
+<meta property="og:title" content="ScaleVLA: Scaling the Vision-Language Backbone to 552B for Robot Control">
+<meta property="og:description" content="Frontier VLM representations as the foundation of a robot policy: sample efficiency, generalization and precise manipulation.">
+<meta property="og:image" content="media/fig/teaser.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --ink: #1d1d1f;          /* primary text */
+  --muted: #6e6e73;        /* secondary text */
+  --faint: #86868b;
+  --line: #d2d2d7;
+  --band: #f5f5f7;         /* light grey section band / cards */
+  --card: #ffffff;
+  --green: #0A6847;        /* Galbot green: ScaleVLA */
+  --green-tint: #e6f2ec;
+  --fail: #5c636b;
+  --radius: 18px;
+  --w: 1080px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+body {
+  margin: 0; background: #fff; color: var(--ink);
+  font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img, video { display: block; max-width: 100%; }
+
+/* navigation */
+nav.top {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,.82); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+nav.top .in { max-width: var(--w); margin: 0 auto; padding: 0 22px; height: 52px; display: flex; align-items: center; gap: 28px; }
+nav.top .brand { font-weight: 600; font-size: 17px; color: var(--ink); margin-right: auto; }
+nav.top a.l { font-size: 13px; color: var(--ink); opacity: .8; }
+nav.top a.l:hover { opacity: 1; text-decoration: none; }
+@media (max-width: 760px) { nav.top a.l { display: none; } }
+
+.wrap { max-width: var(--w); margin: 0 auto; padding: 0 22px; }
+section { padding: 88px 0; }
+section.band { background: var(--band); }
+.eyebrow { font-size: 15px; font-weight: 600; color: var(--green); margin: 0 0 10px; letter-spacing: .01em; }
+h2 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.08; letter-spacing: -.02em; font-weight: 700; margin: 0 0 18px; }
+h3 { font-size: 22px; letter-spacing: -.01em; font-weight: 600; margin: 48px 0 12px; }
+.lead { font-size: 21px; line-height: 1.45; color: var(--muted); max-width: 820px; margin: 0 0 36px; }
+p { margin: 0 0 16px; }
+.small { font-size: 14px; color: var(--muted); }
+
+/* hero */
+header.hero { text-align: center; padding: 96px 0 40px; }
+header.hero h1 { font-size: clamp(52px, 9vw, 96px); line-height: 1; letter-spacing: -.035em; font-weight: 700; margin: 0 0 18px; }
+header.hero h1 span { color: var(--green); }
+header.hero .sub { font-size: clamp(22px, 3vw, 30px); line-height: 1.25; letter-spacing: -.015em; font-weight: 600; max-width: 820px; margin: 0 auto 34px; }
+.authors { font-size: 17px; max-width: 860px; margin: 0 auto 10px; line-height: 1.8; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 16px; }
+.authors span { white-space: nowrap; }
+sup { font-size: .62em; color: var(--muted); margin-left: 1px; }
+.affil { font-size: 14px; color: var(--muted); margin: 0 auto 4px; }
+.buttons { display: flex; justify-content: center; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 980px; font-size: 15px; font-weight: 500; background: var(--ink); color: #fff; }
+.btn:hover { text-decoration: none; background: #000; }
+.btn.ghost { background: transparent; color: var(--green); border: 1px solid var(--green); }
+.btn.off { background: var(--band); color: var(--faint); cursor: default; }
+
+/* media */
+.card { background: var(--card); border-radius: var(--radius); overflow: hidden; }
+.band .card { background: #fff; }
+.fig { margin: 0; }
+.fig img { width: 100%; border-radius: var(--radius); }
+.fig figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+.fig figcaption b { color: var(--ink); font-weight: 600; }
+.vid { position: relative; background: #000; border-radius: 14px; overflow: hidden; }
+.vid video { width: 100%; height: auto; }
+.tag { position: absolute; top: 10px; left: 10px; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 980px; background: rgba(255,255,255,.9); color: var(--ink); }
+.tag.speed { left: auto; right: 10px; background: rgba(0,0,0,.55); color: #fff; font-weight: 500; }
+.res { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; color: #fff; font-size: 12px; margin-left: 6px; vertical-align: -4px; }
+.res.ok { background: var(--green); }
+.res.no { background: var(--fail); }
+.vlabel { display: flex; align-items: center; justify-content: space-between; font-size: 15px; font-weight: 600; margin: 18px 2px 8px; }
+.vlabel.ours { color: var(--green); }
+.vlabel .note { font-weight: 400; font-size: 13px; color: var(--muted); }
+.cams { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 12px; color: var(--faint); text-align: center; margin: 6px 0 0; }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 46px 0 0; }
+.stat { background: var(--band); border-radius: var(--radius); padding: 24px 22px; text-align: left; }
+.stat .k { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+.stat .v { font-size: 38px; font-weight: 700; letter-spacing: -.02em; color: var(--green); line-height: 1.05; }
+.stat .d { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+@media (max-width: 860px) { .stats { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .stat .v { font-size: 30px; } .stat { padding: 18px 16px; } .authors { font-size: 15px; gap: 0 12px; } }
+
+/* grids */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 760px) { .g2, .g3 { grid-template-columns: 1fr; } }
+.pair { background: var(--band); border-radius: var(--radius); padding: 18px; }
+.pair h4 { margin: 0 0 2px; font-size: 16px; font-weight: 600; }
+.pair .instr { font-size: 13px; color: var(--muted); margin: 0 0 12px; font-style: italic; }
+.pair .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pair .two .vid { border-radius: 10px; }
+.pair .two .cap { font-size: 12px; margin-top: 6px; color: var(--muted); display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+.pair .two .cap .res { margin-left: 2px; width: 16px; height: 16px; font-size: 10px; vertical-align: 0; }
+.pair .two .cap.ours { color: var(--green); font-weight: 600; }
+
+/* segmented controls */
+.seg { display: inline-flex; background: var(--band); border-radius: 980px; padding: 3px; gap: 2px; flex-wrap: wrap; }
+.band .seg { background: #e8e8ed; }
+.seg button { border: 0; background: transparent; font: inherit; font-size: 14px; padding: 7px 16px; border-radius: 980px; color: var(--ink); cursor: pointer; }
+.seg button.on { background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.06); font-weight: 600; }
+.seg button.on.ours { color: var(--green); }
+.controls { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 16px; }
+
+/* tables */
+.tabs { margin: 18px 0 14px; }
+.tablewrap { overflow-x: auto; background: #fff; border-radius: var(--radius); padding: 8px 18px 12px; }
+section:not(.band) .tablewrap { background: var(--band); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; font-variant-numeric: tabular-nums; }
+th, td { padding: 9px 10px; text-align: right; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+thead th { font-size: 12.5px; font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--line); }
+thead tr.grp th { border-bottom: 0; padding-bottom: 0; text-align: center; }
+tbody tr + tr td { border-top: 1px solid #ececf0; }
+tbody tr.sep td { border-top: 1px solid var(--line); }
+tr.ours td { color: var(--green); font-weight: 600; background: var(--green-tint); }
+tr.pub td { color: var(--muted); }
+td b { font-weight: 700; }
+td.o { color: var(--green); background: var(--green-tint); }
+.tnote { font-size: 13px; color: var(--muted); margin: 10px 2px 0; }
+
+/* text blocks */
+.cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 30px; }
+.cols div { background: #fff; border-radius: var(--radius); padding: 24px; }
+.cols h4 { margin: 0 0 8px; font-size: 17px; }
+.cols p { font-size: 15px; color: var(--muted); margin: 0; }
+@media (max-width: 860px) { .cols { grid-template-columns: 1fr; } }
+.abstract { font-size: 18px; line-height: 1.65; max-width: 860px; }
+pre.bib { background: var(--band); border-radius: var(--radius); padding: 22px; font: 13.5px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-x: auto; margin: 0; }
+footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align: center; }
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="in">
+  <a class="brand" href="#top">ScaleVLA</a>
+  <a class="l" href="#overview">Overview</a>
+  <a class="l" href="#method">Method</a>
+  <a class="l" href="#simulation">Simulation</a>
+  <a class="l" href="#real">Real Robot</a>
+  <a class="l" href="#efficiency">Efficiency</a>
+  <a class="l" href="#bibtex">BibTeX</a>
+</div></nav>
+
+<header class="hero wrap" id="top">
+  <h1>Scale<span>VLA</span></h1>
+  <div class="sub">Scaling the Vision-Language Backbone to 552B for Robot Control</div>
+  <div class="authors">
+    <span>Ruixi Yu<sup>1,4,*</sup></span><span>Dairu Liu<sup>2,4,*</sup></span><span>Xuchuan Chen<sup>1,4,*</sup></span><span>Zekun Qi<sup>1,4,*,‡</sup></span>
+    <span>Zekai Li<sup>1,4</sup></span><span>Zhuo Cao<sup>1,4</sup></span><span>Luyang Niu<sup>2,4</sup></span><span>Yingsheng Zhang<sup>1,4</sup></span>
+    <span>Sikai Liang<sup>3,4</sup></span><span>Ke Fan<sup>3,4</sup></span><span>He Wang<sup>2,4,†</sup></span><span>Li Yi<sup>1,4,†</sup></span>
+  </div>
+  <div class="affil"><sup>1</sup>Tsinghua University &nbsp; <sup>2</sup>Peking University &nbsp; <sup>3</sup>Shanghai Jiao Tong University &nbsp; <sup>4</sup>Galbot</div>
+  <div class="affil"><sup>*</sup>Equal contribution &nbsp; <sup>‡</sup>Project leader &nbsp; <sup>†</sup>Corresponding authors</div>
+  <div class="buttons">
+    <span class="btn off">Paper · coming soon</span>
+    <a class="btn ghost" href="#bibtex">BibTeX</a>
+  </div>
+</header>
+
+<!-- hero comparison: same start layout, same action head, data and training budget -->
+<div class="wrap" style="padding-bottom: 20px">
+  <div class="vlabel"><span>Cosmos-Reason2-2B + Action Head<span class="res no">✕</span></span><span class="note">Plug In Charger · same start layout</span></div>
+  <div class="vid"><video data-src="media/real/p12_cosmos.mp4" poster="media/real/p12_cosmos.jpg" muted loop playsinline preload="none"></video><span class="tag speed">4×</span></div>
+  <div class="vlabel ours"><span>ScaleVLA (552B)<span class="res ok">✓</span></span></div>
+  <div class="vid"><video data-src="media/real/p12_scalevla.mp4" poster="media/real/p12_scalevla.jpg" muted loop playsinline preload="none"></video><span class="tag speed">4×</span></div>
+  <div class="cams"><span>Head camera</span><span>Left wrist</span><span>Right wrist</span></div>
+  <p class="small" style="margin-top:14px">Both policies share the action head, training data and training budget; only the vision-language backbone differs. Both grasp and hand over the charger; ScaleVLA aligns and inserts the plug.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="k">Sample efficiency</div><div class="v">87.8%</div><div class="d">LIBERO-Goal with 10 demos per task, vs 85.6% for a 2B backbone with 50.</div></div>
+    <div class="stat"><div class="k">Generalization</div><div class="v">45.1%</div><div class="d">LIBERO-PRO mean success, vs at most 31.3% for smaller backbones.</div></div>
+    <div class="stat"><div class="k">Precise manipulation</div><div class="v">9/10</div><div class="d">Real-robot charger insertion, vs 4/10 for Cosmos-Reason2-2B.</div></div>
+    <div class="stat"><div class="k">Latency</div><div class="v">216 ms</div><div class="d">Median per action chunk on RoboCasa, with 276× the parameters of a 2B backbone.</div></div>
+  </div>
+</div>
+
+<section id="overview">
+  <div class="wrap">
+    <p class="eyebrow">Overview</p>
+    <h2>Can a frontier VLM be the foundation of a robot policy?</h2>
+    <figure class="fig" style="margin: 30px 0 40px">
+      <img src="media/fig/teaser.jpg" alt="ScaleVLA overview" loading="lazy">
+    </figure>
+    <div class="abstract">
+      <p>Frontier Vision-Language Models (VLMs) such as GPT-6 Astra have demonstrated remarkable capabilities in robot control, suggesting that broad pretraining provides knowledge valuable for physical action. Yet most Vision-Language-Action (VLA) policies still rely on much smaller VLM backbones, leaving this potential largely untapped. We ask whether frontier-scale representations can provide a stronger foundation for robot learning.</p>
+      <p>We introduce <b>ScaleVLA</b>, which connects a 552B DeepSeek-V4.1-Flash backbone to a trainable action DiT, and systematically compare VLMs from 2B to 552B under a shared training setup. We evaluate three fundamental capabilities of robot foundation models. In <i>sample efficiency</i>, just 10 demonstrations outperform a 2B backbone trained with 50 (87.8% vs. 85.6%). In <i>generalization</i>, LIBERO-PRO success reaches 45.1%, compared with at most 31.3% for smaller backbones. In <i>precise manipulation</i>, real-world charger insertion improves from 4/10 to 9/10 successes, with gains concentrated in contact-sensitive alignment. Despite its scale, ScaleVLA achieves 216 ms median latency per action chunk.</p>
+      <p>Our findings suggest that frontier VLMs can serve not only as reasoning agents, but also as powerful representational foundations for efficient and generalizable robot policies.</p>
+    </div>
+  </div>
+</section>
+
+<section id="method" class="band">
+  <div class="wrap">
+    <p class="eyebrow">Method</p>
+    <h2>A 552B backbone, read once per action chunk.</h2>
+    <p class="lead">ScaleVLA does not reason in text. It reads the representations of a frontier vision-language backbone and maps them directly to continuous actions with a flow-matching action head trained from scratch.</p>
+    <figure class="fig"><img src="media/fig/architecture.jpg" alt="ScaleVLA architecture" loading="lazy"></figure>
+    <div class="cols">
+      <div><h4>Vision-language backbone</h4><p>DeepSeek-V4.1-Flash-1017, a 552B mixture-of-experts model. We run its 20-layer causal encoder on the camera images and instruction and read every visual and text token (5120 dimensions). The decoder never runs.</p></div>
+      <div><h4>Action head</h4><p>A GR00T N1.7-style head: a feature adapter, state and action encoders, a 32-layer diffusion transformer that cross-attends to the backbone features, and an action decoder, all trained on robot demonstrations.</p></div>
+      <div><h4>A controlled comparison</h4><p>Backbones from 2B to 552B share the action head architecture, its random initialization, the training data and the training budget. Only the input width of the feature adapter follows the backbone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="simulation">
+  <div class="wrap">
+    <p class="eyebrow">Simulation</p>
+    <h2>Four benchmarks, one recipe.</h2>
+    <p class="lead">LIBERO tests tabletop manipulation, LIBERO-PRO perturbs its objects and scenes, RoboCasa tests kitchen tasks in out-of-distribution scenes, and DexJoCo tests five tasks that require coordinating two dexterous hands.</p>
+    <figure class="fig"><img src="media/fig/tasks.jpg" alt="Simulation tasks" loading="lazy"></figure>
+
+    <h3>Results</h3>
+    <div class="seg tabs" data-group="simtab">
+      <button class="on" data-show="t-libero">LIBERO</button>
+      <button data-show="t-pro">LIBERO-PRO</button>
+      <button data-show="t-robocasa">RoboCasa</button>
+      <button data-show="t-dexjoco">DexJoCo</button>
+      <button data-show="t-lowdata">Sample efficiency</button>
+    </div>
+
+    <div class="pane" id="t-libero">
+      <div class="tablewrap"><table>
+        <thead><tr><th>Model</th><th>Spatial</th><th>Object</th><th>Goal</th><th>Long</th><th>Average</th></tr></thead>
+        <tbody>
+          <tr class="pub"><td>π<sub>0</sub></td><td>96.8</td><td>98.8</td><td>95.8</td><td>85.2</td><td>94.2</td></tr>
+          <tr class="pub"><td>OpenVLA</td><td>84.7</td><td>88.4</td><td>79.2</td><td>53.7</td><td>76.5</td></tr>
+          <tr class="pub"><td>CoT-VLA</td><td>87.5</td><td>91.6</td><td>87.6</td><td>69.0</td><td>83.9</td></tr>
+          <tr class="sep"><td>Qwen3-VL-2B</td><td>98.4</td><td>98.2</td><td>90.4</td><td>77.8</td><td>91.2</td></tr>
+          <tr><td>Cosmos-Reason2-2B</td><td>98.8</td><td>97.6</td><td>83.2</td><td>83.2</td><td>90.7</td></tr>
+          <tr><td>Cosmos-Reason2-8B</td><td><b>99.8</b></td><td>99.0</td><td>88.6</td><td>87.2</td><td>93.7</td></tr>
+          <tr><td>Qwen3-VL-32B</td><td>98.8</td><td><b>99.4</b></td><td>93.2</td><td>83.0</td><td>93.6</td></tr>
+          <tr><td>Cosmos-Reason2-32B</td><td>98.4</td><td>98.4</td><td>95.2</td><td>83.8</td><td>94.0</td></tr>
+          <tr class="ours"><td>ScaleVLA (552B)</td><td>98.6</td><td>98.6</td><td><b>96.8</b></td><td><b>90.2</b></td><td><b>96.1</b></td></tr>
+        </tbody></table></div>
+      <p class="tnote">Success rates (%). The first three rows are published results. Our policies train on the full demonstration set of each suite.</p>
+    </div>
+
+    <div class="pane" id="t-pro" hidden>
+      <div class="tablewrap"><table>
+        <thead><tr class="grp"><th></th><th colspan="2">Goal</th><th>Object</th><th></th></tr>
+        <tr><th>Backbone</th><th>Env.</th><th>Obj.</th><th>Env.</th><th>Mean</th></tr></thead>
+        <tbody>
+          <tr><td>Qwen3-VL-2B</td><td>24.2</td><td>38.4</td><td>25.2</td><td>29.3</td></tr>
+          <tr><td>Cosmos-Reason2-2B</td><td>20.6</td><td>37.6</td><td>11.8</td><td>23.3</td></tr>
+          <tr><td>Cosmos-Reason2-8B</td><td>32.6</td><td>37.6</td><td>23.6</td><td>31.3</td></tr>
+          <tr><td>Qwen3-VL-32B</td><td>11.6</td><td>44.2</td><td>12.6</td><td>22.8</td></tr>
+          <tr><td>Cosmos-Reason2-32B</td><td>19.2</td><td>38.8</td><td><b>32.4</b></td><td>30.1</td></tr>
+          <tr class="ours"><td>ScaleVLA (552B)</td><td><b>47.8</b></td><td><b>56.4</b></td><td>31.2</td><td><b>45.1</b></td></tr>
+        </tbody></table></div>
+      <p class="tnote">Success rates (%). The LIBERO policies are tested under environment (Env.) and object (Obj.) perturbations without retraining.</p>
+    </div>
+
+    <div class="pane" id="t-robocasa" hidden>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Backbone</th><th>Gen-30</th><th>Gen-100</th></tr></thead>
+        <tbody>
+          <tr><td>Qwen3-VL-2B</td><td>22.4</td><td>45.2</td></tr>
+          <tr><td>Cosmos-Reason2-2B</td><td>23.2</td><td>42.8</td></tr>
+          <tr><td>Cosmos-Reason2-8B</td><td>25.6</td><td>45.6</td></tr>
+          <tr><td>Qwen3-VL-32B</td><td>25.5</td><td>43.3</td></tr>
+          <tr class="ours"><td>ScaleVLA (552B)</td><td><b>30.7</b></td><td><b>54.9</b></td></tr>
+        </tbody></table></div>
+      <p class="tnote">Success rates (%) with 30 and 100 generated demonstrations per task, tested in out-of-distribution kitchens.</p>
+    </div>
+
+    <div class="pane" id="t-dexjoco" hidden>
+      <div class="tablewrap"><table>
+        <thead><tr class="grp"><th></th><th>DP-T</th><th>π<sub>0.5</sub></th><th colspan="2">Qwen3-VL-2B</th><th colspan="2">Cosmos-Reason2-2B</th><th colspan="2">Cosmos-Reason2-8B</th><th colspan="2">Qwen3-VL-32B</th><th colspan="2" style="color:var(--green)">ScaleVLA (552B)</th></tr>
+        <tr><th>Task</th><th>Obj.</th><th>Obj.</th><th>Obj.</th><th>Full</th><th>Obj.</th><th>Full</th><th>Obj.</th><th>Full</th><th>Obj.</th><th>Full</th><th>Obj.</th><th>Full</th></tr></thead>
+        <tbody>
+          <tr><td>Unlock iPad</td><td>0.0</td><td>0.0</td><td>17.3</td><td>8.7</td><td>15.3</td><td>4.7</td><td>26.7</td><td>6.0</td><td>26.7</td><td>14.0</td><td class="o"><b>31.3</b></td><td class="o"><b>15.3</b></td></tr>
+          <tr><td>Hanoi</td><td>8.0</td><td>4.7</td><td>11.3</td><td>8.7</td><td>24.0</td><td>4.7</td><td>24.0</td><td>13.3</td><td>24.0</td><td>10.7</td><td class="o"><b>28.0</b></td><td class="o"><b>14.0</b></td></tr>
+          <tr><td>Assembly</td><td>1.3</td><td>4.0</td><td>4.7</td><td>0.0</td><td>10.0</td><td>0.7</td><td>10.7</td><td>0.0</td><td>4.0</td><td>0.0</td><td class="o"><b>11.3</b></td><td class="o"><b>1.3</b></td></tr>
+          <tr><td>Microwave</td><td>42.7</td><td>34.7</td><td>84.7</td><td>61.3</td><td>81.3</td><td>62.7</td><td>82.0</td><td>62.0</td><td><b>89.3</b></td><td>62.7</td><td class="o">73.3</td><td class="o"><b>67.3</b></td></tr>
+          <tr><td>Photograph</td><td>28.0</td><td>7.3</td><td>41.3</td><td><b>32.0</b></td><td>54.7</td><td>30.7</td><td>47.3</td><td>24.0</td><td>46.7</td><td>22.7</td><td class="o"><b>66.7</b></td><td class="o">24.0</td></tr>
+          <tr class="sep"><td>Average</td><td>16.0</td><td>10.1</td><td>31.9</td><td>22.1</td><td>37.1</td><td>20.7</td><td>38.1</td><td>21.1</td><td>38.1</td><td>22.0</td><td class="o"><b>42.1</b></td><td class="o"><b>24.4</b></td></tr>
+        </tbody></table></div>
+      <p class="tnote">Success rates (%). One policy per backbone learns all five bimanual tasks under object (Obj.) or full randomization. DP-T and π<sub>0.5</sub> are published baselines.</p>
+    </div>
+
+    <div class="pane" id="t-lowdata" hidden>
+      <div class="tablewrap"><table>
+        <thead><tr class="grp"><th></th><th colspan="4">Goal</th><th colspan="4">Long</th></tr>
+        <tr><th>Demos per task</th><th>2B</th><th>8B</th><th>32B</th><th style="color:var(--green)">552B</th><th>2B</th><th>8B</th><th>32B</th><th style="color:var(--green)">552B</th></tr></thead>
+        <tbody>
+          <tr><td>5</td><td>39.4</td><td>60.6</td><td>61.2</td><td class="o"><b>77.4</b></td><td>24.0</td><td>40.0</td><td>37.6</td><td class="o"><b>62.2</b></td></tr>
+          <tr><td>10</td><td>55.0</td><td>70.0</td><td>83.0</td><td class="o"><b>87.8</b></td><td>56.0</td><td>65.2</td><td>66.4</td><td class="o"><b>75.0</b></td></tr>
+          <tr><td>25</td><td>85.2</td><td>83.0</td><td>90.4</td><td class="o"><b>97.6</b></td><td>69.6</td><td>65.6</td><td>83.6</td><td class="o"><b>84.6</b></td></tr>
+          <tr><td>50</td><td>85.6</td><td>88.6</td><td>95.2</td><td class="o"><b>95.4</b></td><td>82.4</td><td><b>87.2</b></td><td>83.8</td><td class="o">86.8</td></tr>
+        </tbody></table></div>
+      <p class="tnote">LIBERO success rates (%) with N demonstrations per task and a fixed training budget. The 2B, 8B and 32B backbones are Cosmos-Reason2 models; 552B is ScaleVLA.</p>
+    </div>
+
+    <h3>LIBERO-PRO rollouts</h3>
+    <p class="small" style="max-width:820px">Paired rollouts from the same perturbed initial state. Both policies use the same action head, data and training budget.</p>
+    <div class="g3" id="pro-grid" style="margin-top:18px"></div>
+  </div>
+</section>
+
+<section id="real" class="band">
+  <div class="wrap">
+    <p class="eyebrow">Real Robot</p>
+    <h2>Precise, contact-rich insertion.</h2>
+    <p class="lead">In the Plug In Charger task from RoboDojo, the right arm grasps a phone charger and hands it over, and the left arm aligns the plug with a power-strip socket, inserts it and releases it. The policies observe a head camera and two wrist cameras on a bimanual ARX X5.</p>
+
+    <div class="vlabel"><span>Cosmos-Reason2-2B + Action Head<span class="res no">✕</span></span></div>
+    <div class="vid"><video data-src="media/real/p13_cosmos.mp4" poster="media/real/p13_cosmos.jpg" muted loop playsinline preload="none"></video><span class="tag speed">4×</span></div>
+    <div class="vlabel"><span>π<sub>0.5</sub> + Action Head<span class="res no">✕</span></span></div>
+    <div class="vid"><video data-src="media/real/p13_pi05.mp4" poster="media/real/p13_pi05.jpg" muted loop playsinline preload="none"></video><span class="tag speed">4×</span></div>
+    <div class="vlabel ours"><span>ScaleVLA (552B)<span class="res ok">✓</span></span></div>
+    <div class="vid"><video data-src="media/real/p13_scalevla.mp4" poster="media/real/p13_scalevla.jpg" muted loop playsinline preload="none"></video><span class="tag speed">4×</span></div>
+    <div class="cams"><span>Head camera</span><span>Left wrist</span><span>Right wrist</span></div>
+    <p class="small" style="margin-top:14px">All three policies reach the socket; only ScaleVLA inserts the plug.</p>
+
+    <h3>Success rates and timing</h3>
+    <div class="tablewrap"><table>
+      <thead><tr class="grp"><th></th><th colspan="2">Successes</th><th colspan="2">In-domain, median (s)</th><th>Latency</th></tr>
+      <tr><th>Policy</th><th>In-domain</th><th>OOD</th><th>Insertion</th><th>Completion</th><th>(ms)</th></tr></thead>
+      <tbody>
+        <tr><td>Cosmos-Reason2-2B + Action Head</td><td>4/10</td><td>5/15</td><td>85.9</td><td>147.1</td><td>311</td></tr>
+        <tr><td>π<sub>0.5</sub> + Action Head</td><td>8/10</td><td>7/15</td><td>81.2</td><td>132.0</td><td><b>262</b></td></tr>
+        <tr class="ours"><td>ScaleVLA (552B)</td><td><b>9/10</b></td><td><b>8/15</b></td><td><b>58.1</b></td><td><b>114.4</b></td><td>384</td></tr>
+      </tbody></table></div>
+    <p class="tnote">Ten in-domain and fifteen out-of-distribution (OOD) trials per policy. Times are medians over successful in-domain trials; latency is the median round trip per action chunk at the robot client.</p>
+
+    <h3>More trials</h3>
+    <div class="controls">
+      <div class="seg" data-group="model">
+        <button class="on ours" data-v="B1">ScaleVLA</button>
+        <button data-v="PFR">π<sub>0.5</sub> + Action Head</button>
+        <button data-v="B0">Cosmos-Reason2-2B + Action Head</button>
+      </div>
+      <div class="seg" data-group="cat">
+        <button class="on" data-v="ID_success">In-domain · success</button>
+        <button data-v="ID_fail">In-domain · failure</button>
+        <button data-v="OOD_success">OOD · success</button>
+        <button data-v="OOD_fail">OOD · failure</button>
+      </div>
+    </div>
+    <div class="vid"><video id="trial" muted loop playsinline autoplay preload="metadata"></video><span class="tag speed">4×</span></div>
+    <div class="cams"><span>Head camera</span><span>Left wrist</span><span>Right wrist</span></div>
+  </div>
+</section>
+
+<section id="efficiency">
+  <div class="wrap">
+    <p class="eyebrow">Efficiency</p>
+    <h2>276× the parameters, 1.9× the latency.</h2>
+    <p class="lead">The sparse mixture-of-experts backbone activates only a subset of its experts per token, and the causal encoder runs once per action chunk. With four H200 GPUs, ScaleVLA keeps latency in the hundreds of milliseconds per chunk.</p>
+    <figure class="fig"><img src="media/fig/latency.jpg" alt="Backbone size and inference latency" loading="lazy"></figure>
+    <div class="tablewrap" style="margin-top:26px"><table>
+      <thead><tr class="grp"><th></th><th></th><th></th><th colspan="3">Median latency on RoboCasa (ms)</th></tr>
+      <tr><th>Backbone</th><th>GPUs</th><th>Tokens</th><th>Backbone</th><th>Action head</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>Qwen3-VL-2B</td><td>1</td><td>212</td><td><b>44.0</b></td><td>69.8</td><td>117.2</td></tr>
+        <tr><td>Cosmos-Reason2-2B</td><td>1</td><td>212</td><td>44.7</td><td><b>67.1</b></td><td><b>114.7</b></td></tr>
+        <tr><td>Cosmos-Reason2-8B</td><td>1</td><td>212</td><td>52.3</td><td>69.3</td><td>124.8</td></tr>
+        <tr><td>Qwen3-VL-32B</td><td>1</td><td>212</td><td>69.7</td><td>70.5</td><td>143.3</td></tr>
+        <tr><td>Cosmos-Reason2-32B</td><td>1</td><td>212</td><td>68.4</td><td>69.0</td><td>140.7</td></tr>
+        <tr class="ours"><td>ScaleVLA (552B)</td><td>4</td><td>568</td><td>140.7</td><td>72.1</td><td>215.8</td></tr>
+      </tbody></table></div>
+    <p class="tnote">Medians per action chunk on H200 GPUs.</p>
+  </div>
+</section>
+
+<section id="bibtex" class="band">
+  <div class="wrap">
+    <p class="eyebrow">BibTeX</p>
+<pre class="bib">@article{scalevla2026,
+  title   = {ScaleVLA: Scaling the Vision-Language Backbone to 552B for Robot Control},
+  author  = {Yu, Ruixi and Liu, Dairu and Chen, Xuchuan and Qi, Zekun and Li, Zekai and Cao, Zhuo
+             and Niu, Luyang and Zhang, Yingsheng and Liang, Sikai and Fan, Ke and Wang, He and Yi, Li},
+  year    = {2026},
+  url     = {https://galaxygeneralrobotics.github.io/scalevla/}
+}</pre>
+  </div>
+</section>
+
+<footer class="wrap">© 2026 Galbot · Tsinghua University · Peking University · Shanghai Jiao Tong University</footer>
+
+<script>
+// LIBERO-PRO pairs: [file stem, title, instruction, perturbation]
+const PRO = [
+  ["goal_env_t1_k32", "Bowl On Stove", "put the bowl on the stove", "Goal · Env."],
+  ["goal_env_t8_k22", "Bowl On Plate", "put the bowl on the plate", "Goal · Env."],
+  ["goal_object_t0_k37", "Open Middle Drawer", "open the middle drawer of the cabinet", "Goal · Obj."],
+  ["goal_object_t9_k40", "Wine Bottle On Rack", "put the wine bottle on the rack", "Goal · Obj."],
+  ["object_env_t1_k18", "Cream Cheese To Basket", "pick up the cream cheese and place it in the basket", "Object · Env."],
+  ["object_env_t5_k31", "Tomato Sauce To Basket", "pick up the tomato sauce and place it in the basket", "Object · Env."],
+];
+const grid = document.getElementById("pro-grid");
+for (const [stem, title, instr, pert] of PRO) {
+  const v = (s) => `<div class="vid"><video data-src="media/sim/${stem}_${s}.mp4" poster="media/sim/${stem}_${s}.jpg" muted loop playsinline preload="none"></video></div>`;
+  grid.insertAdjacentHTML("beforeend", `<div class="pair">
+    <h4>${title} <span class="small">· ${pert}</span></h4><p class="instr">“${instr}”</p>
+    <div class="two"><div>${v("B0_F")}<div class="cap">Cosmos-Reason2-2B<span class="res no">✕</span></div></div>
+    <div>${v("B1_S")}<div class="cap ours">ScaleVLA<span class="res ok">✓</span></div></div></div></div>`);
+}
+
+// play videos only while they are on screen (sources load lazily)
+const io = new IntersectionObserver((entries) => {
+  for (const e of entries) {
+    const v = e.target;
+    if (e.isIntersecting) {
+      if (!v.src && v.dataset.src) v.src = v.dataset.src;
+      v.play().catch(() => {});
+    } else v.pause();
+  }
+}, { threshold: 0.25 });
+document.querySelectorAll("video[data-src]").forEach((v) => io.observe(v));
+
+// segmented controls
+function seg(group, onChange) {
+  const box = document.querySelector(`.seg[data-group="${group}"]`);
+  box.addEventListener("click", (ev) => {
+    const b = ev.target.closest("button"); if (!b) return;
+    box.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
+    onChange(b);
+  });
+}
+seg("simtab", (b) => document.querySelectorAll(".pane").forEach((p) => p.hidden = p.id !== b.dataset.show));
+
+// real-robot trial browser: one clip per policy and outcome category
+const TRIALS = {
+  B0: { ID_success: "p15", ID_fail: "p12", OOD_success: "p34", OOD_fail: "p35" },
+  B1: { ID_success: "p13", ID_fail: "p14", OOD_success: "p24", OOD_fail: "p25" },
+  PFR: { ID_success: "p23", ID_fail: "p28", OOD_success: "p34", OOD_fail: "p35" },
+};
+const state = { model: "B1", cat: "ID_success" };
+const trial = document.getElementById("trial");
+function showTrial() {
+  const t = TRIALS[state.model][state.cat];
+  const [split, outcome] = state.cat.split("_");
+  const stem = `media/real/cat_${state.model}_${split}_${outcome}_${t}`;
+  trial.poster = stem + ".jpg"; trial.src = stem + ".mp4"; trial.play().catch(() => {});
+}
+seg("model", (b) => { state.model = b.dataset.v; showTrial(); });
+seg("cat", (b) => { state.cat = b.dataset.v; showTrial(); });
+showTrial();
+</script>
+</body>
+</html>
