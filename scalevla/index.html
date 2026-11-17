@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ScaleVLA</title>
-<meta name="description" content="ScaleVLA connects a 552B frontier vision-language backbone to a trainable action DiT and compares VLM backbones from 2B to 552B for robot control.">
+<meta name="description" content="ScaleVLA scales the vision-language backbone of a VLA policy to 552 billion parameters, connecting a frontier VLM to a trainable action DiT.">
 <meta property="og:title" content="ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters">
 <meta property="og:description" content="Frontier VLM representations as the foundation of a robot policy: sample efficiency, generalization and precise manipulation.">
 <meta property="og:image" content="media/fig/teaser.jpg">
@@ -176,19 +176,20 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
   <div class="affil"><sup>1</sup>Tsinghua University &nbsp; <sup>2</sup>Peking University &nbsp; <sup>3</sup>Shanghai Jiao Tong University &nbsp; <sup>4</sup>Galbot</div>
   <div class="affil"><sup>*</sup>Equal contribution &nbsp; <sup>‡</sup>Project leader &nbsp; <sup>†</sup>Corresponding authors</div>
   <div class="buttons">
-    <span class="btn off">Paper · coming soon</span>
+    <a class="btn" href="https://arxiv.org/abs/2611.21607">arXiv</a>
+    <a class="btn ghost" href="https://arxiv.org/pdf/2611.21607">Paper PDF</a>
     <a class="btn ghost" href="#bibtex">BibTeX</a>
   </div>
 </header>
 
-<!-- hero comparison: same start layout, same action head, data and training budget -->
+<!-- hero comparison: 2B vs 552B backbone on the real robot -->
 <div class="wrap" style="padding-bottom: 20px">
-  <div class="vlabel"><span>Cosmos-Reason2-2B + Action Head<span class="res no">✕</span></span><span class="note">Plug In Charger · same start layout</span></div>
+  <div class="vlabel"><span>Cosmos-Reason2-2B + Action Head<span class="res no">✕</span></span><span class="note">Plug In Charger</span></div>
   <div class="vid"><video data-src="media/real/p12_cosmos.mp4" poster="media/real/p12_cosmos.jpg" muted loop playsinline preload="none"></video><span class="tag speed">4×</span></div>
   <div class="vlabel ours"><span>ScaleVLA (552B)<span class="res ok">✓</span></span></div>
   <div class="vid"><video data-src="media/real/p12_scalevla.mp4" poster="media/real/p12_scalevla.jpg" muted loop playsinline preload="none"></video><span class="tag speed">4×</span></div>
   <div class="cams"><span>Head camera</span><span>Left wrist</span><span>Right wrist</span></div>
-  <p class="small" style="margin-top:14px">Both policies share the action head, training data and training budget; only the vision-language backbone differs. Both grasp and hand over the charger; ScaleVLA aligns and inserts the plug.</p>
+  <p class="small" style="margin-top:14px">Scaling the backbone from 2B to 552B turns a near miss into a clean insertion: both policies grasp and hand over the charger, but only ScaleVLA aligns and inserts the plug.</p>
 
   <div class="stats">
     <div class="stat"><div class="k">Sample efficiency</div><div class="v">87.8%</div><div class="d">LIBERO-Goal with 10 demos per task, vs 85.6% for a 2B backbone with 50.</div></div>
@@ -206,7 +207,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
     </figure>
     <div class="abstract">
       <p>Frontier Vision-Language Models (VLMs) such as GPT-6 Astra have demonstrated remarkable capabilities in robot control, suggesting that broad pretraining provides knowledge valuable for physical action. Yet most Vision-Language-Action (VLA) policies still rely on much smaller VLM backbones, leaving this potential largely untapped. We ask whether frontier-scale representations can provide a stronger foundation for robot learning.</p>
-      <p>We introduce <b>ScaleVLA</b>, which connects a 552B DeepSeek-V4.1-Flash backbone to a trainable action DiT, and systematically compare VLMs from 2B to 552B under a shared training setup. We evaluate three fundamental capabilities of robot foundation models. In <i>sample efficiency</i>, just 10 demonstrations outperform a 2B backbone trained with 50 (87.8% vs. 85.6%). In <i>generalization</i>, LIBERO-PRO success reaches 45.1%, compared with at most 31.3% for smaller backbones. In <i>precise manipulation</i>, real-world charger insertion improves from 4/10 to 9/10 successes, with gains concentrated in contact-sensitive alignment. Despite its scale, ScaleVLA achieves 216 ms median latency per action chunk.</p>
+      <p>We introduce <b>ScaleVLA</b>, which connects a 552B DeepSeek-V4.1-Flash backbone to a trainable action DiT, and scales the VLM backbone from 2B to 552B parameters. We evaluate three fundamental capabilities of robot foundation models. In <i>sample efficiency</i>, just 10 demonstrations outperform a 2B backbone trained with 50 (87.8% vs. 85.6%). In <i>generalization</i>, LIBERO-PRO success reaches 45.1%, compared with at most 31.3% for smaller backbones. In <i>precise manipulation</i>, real-world charger insertion improves from 4/10 to 9/10 successes, with gains concentrated in contact-sensitive alignment. Despite its scale, ScaleVLA achieves 216 ms median latency per action chunk.</p>
       <p>Our findings suggest that frontier VLMs can serve not only as reasoning agents, but also as powerful representational foundations for efficient and generalizable robot policies.</p>
     </div>
   </div>
@@ -220,7 +221,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
     <div class="cols">
       <div><h4>Vision-language backbone</h4><p>DeepSeek-V4.1-Flash-1017, a 552B mixture-of-experts model. We run its 20-layer causal encoder on the camera images and instruction and read every visual and text token (5120 dimensions). The decoder never runs.</p></div>
       <div><h4>Action head</h4><p>A GR00T N1.7-style head: a feature adapter, state and action encoders, a 32-layer diffusion transformer that cross-attends to the backbone features, and an action decoder, all trained on robot demonstrations.</p></div>
-      <div><h4>A controlled comparison</h4><p>Backbones from 2B to 552B share the action head architecture, its random initialization, the training data and the training budget. Only the input width of the feature adapter follows the backbone.</p></div>
+      <div><h4>Scaling the backbone</h4><p>From 2B to 552B, 276× more parameters. Frontier-scale representations bring higher sample efficiency, stronger generalization and more precise manipulation, while the decoder never runs, keeping latency at 216 ms per action chunk.</p></div>
     </div>
   </div>
 </section>
@@ -303,7 +304,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
 
     <h3><span class="num">2.3</span>Generalization</h3>
     <p style="max-width:860px">We test the LIBERO policies, without retraining, under the environment and object perturbations of LIBERO-PRO, which check whether a policy holds up outside its training conditions. Every policy drops sharply, but ScaleVLA retains the most: its mean success of 45.1% is about 14 points above the best dense backbone and well above the 23.3–29.3% of the 2B backbones, and it leads under both Goal-suite perturbations. Frontier representations therefore transfer better beyond the training distribution.</p>
-    <p class="small" style="max-width:860px">Below, paired rollouts start from the same perturbed initial state; both policies share the action head, training data and training budget. Full results are in the LIBERO-PRO table above.</p>
+    <p class="small" style="max-width:860px">Below, rollouts of the 2B backbone and ScaleVLA under LIBERO-PRO perturbations. Full results are in the LIBERO-PRO table above.</p>
     <div class="g3" id="pro-grid" style="margin-top:18px"></div>
   </div>
 </section>
@@ -357,7 +358,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
   <div class="wrap">
     <h2><span class="num">4</span>Efficiency</h2>
     <h3 style="margin-top:8px"><span class="num">4.1</span>Sample Efficiency</h3>
-    <p style="max-width:860px">We vary the number of demonstrations per task, N ∈ {5, 10, 25, 50}, on LIBERO Goal and Long while fixing training at 5,000 optimizer steps; all backbones use the same nested demonstration subsets. ScaleVLA consistently outperforms smaller backbones in low-data regimes, with the most pronounced gains when demonstrations are scarce. With only five demonstrations per task, scaling the backbone from 2B to 552B nearly doubles the success rate on LIBERO-Goal, from 39.4% to 77.4%. ScaleVLA needs only one fifth of the demonstrations to surpass the 2B backbone on LIBERO-Goal (87.8% with 10 vs 85.6% with 50).</p>
+    <p style="max-width:860px">We vary the number of demonstrations per task, N ∈ {5, 10, 25, 50}, on LIBERO Goal and Long. ScaleVLA consistently outperforms smaller backbones in low-data regimes, with the most pronounced gains when demonstrations are scarce. With only five demonstrations per task, scaling the backbone from 2B to 552B nearly doubles the success rate on LIBERO-Goal, from 39.4% to 77.4%. ScaleVLA needs only one fifth of the demonstrations to surpass the 2B backbone on LIBERO-Goal (87.8% with 10 vs 85.6% with 50).</p>
     <div>
       <div class="tablewrap"><table>
         <thead><tr class="grp"><th></th><th colspan="4">Goal</th><th colspan="4">Long</th></tr>
@@ -368,7 +369,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
           <tr><td>25</td><td>85.2</td><td>83.0</td><td>90.4</td><td class="o"><b>97.6</b></td><td>69.6</td><td>65.6</td><td>83.6</td><td class="o"><b>84.6</b></td></tr>
           <tr><td>50</td><td>85.6</td><td>88.6</td><td>95.2</td><td class="o"><b>95.4</b></td><td>82.4</td><td><b>87.2</b></td><td>83.8</td><td class="o">86.8</td></tr>
         </tbody></table></div>
-      <p class="tnote">LIBERO success rates (%) with N demonstrations per task and a fixed training budget. The 2B, 8B and 32B backbones are Cosmos-Reason2 models; 552B is ScaleVLA.</p>
+      <p class="tnote">LIBERO success rates (%) with N demonstrations per task. The 2B, 8B and 32B backbones are Cosmos-Reason2 models; 552B is ScaleVLA.</p>
     </div>
     <h3><span class="num">4.2</span>Inference Latency</h3>
     <p style="max-width:860px">The sparse mixture-of-experts backbone activates only a subset of its experts per token, and the causal encoder runs once per action chunk. With four H200 GPUs, ScaleVLA keeps latency in the hundreds of milliseconds per chunk: 276× the parameters of Cosmos-Reason2-2B at 1.9× its median latency per action chunk.</p>
@@ -391,12 +392,13 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
 <section id="bibtex" class="band">
   <div class="wrap">
     <h2>BibTeX</h2>
-<pre class="bib">@article{scalevla2026,
+<pre class="bib">@article{yu2026scalevla,
   title   = {ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters},
   author  = {Yu, Ruixi and Liu, Dairu and Chen, Xuchuan and Qi, Zekun and Li, Zekai and Cao, Zhuo
              and Niu, Luyang and Zhang, Yingsheng and Liang, Sikai and Fan, Ke and Wang, He and Yi, Li},
+  journal = {arXiv preprint arXiv:2611.21607},
   year    = {2026},
-  url     = {https://galaxygeneralrobotics.github.io/scalevla/}
+  url     = {https://arxiv.org/abs/2611.21607}
 }</pre>
   </div>
 </section>
