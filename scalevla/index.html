@@ -55,6 +55,8 @@ section.band { background: var(--band); }
 .eyebrow { font-size: 15px; font-weight: 600; color: var(--green); margin: 0 0 10px; letter-spacing: .01em; }
 h2 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.08; letter-spacing: -.02em; font-weight: 700; margin: 0 0 18px; }
 h3 { font-size: 22px; letter-spacing: -.01em; font-weight: 600; margin: 48px 0 12px; }
+h2 .num, h3 .num { color: var(--green); margin-right: .45em; font-variant-numeric: tabular-nums; }
+h2 { font-size: clamp(28px, 3.6vw, 38px); margin-bottom: 22px; }
 .lead { font-size: 21px; line-height: 1.45; color: var(--muted); max-width: 820px; margin: 0 0 36px; }
 p { margin: 0 0 16px; }
 .small { font-size: 14px; color: var(--muted); }
@@ -155,8 +157,8 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
 
 <nav class="top"><div class="in">
   <a class="brand" href="#top">ScaleVLA</a>
-  <a class="l" href="#overview">Overview</a>
-  <a class="l" href="#method">Method</a>
+  <a class="l" href="#overview">TL;DR</a>
+  <a class="l" href="#method">How It Works</a>
   <a class="l" href="#simulation">Simulation</a>
   <a class="l" href="#real">Real Robot</a>
   <a class="l" href="#efficiency">Efficiency</a>
@@ -198,9 +200,8 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
 
 <section id="overview">
   <div class="wrap">
-    <p class="eyebrow">Overview</p>
-    <h2>Can a frontier VLM be the foundation of a robot policy?</h2>
-    <figure class="fig" style="margin: 30px 0 40px">
+    <h2>TL;DR</h2>
+    <figure class="fig" style="margin: 10px 0 40px">
       <img src="media/fig/teaser.jpg" alt="ScaleVLA overview" loading="lazy">
     </figure>
     <div class="abstract">
@@ -213,8 +214,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
 
 <section id="method" class="band">
   <div class="wrap">
-    <p class="eyebrow">Method</p>
-    <h2>A 552B backbone, read once per action chunk.</h2>
+    <h2><span class="num">1</span>How It Works</h2>
     <p class="lead">ScaleVLA does not reason in text. It reads the representations of a frontier vision-language backbone and maps them directly to continuous actions with a flow-matching action head trained from scratch.</p>
     <figure class="fig"><img src="media/fig/architecture.jpg" alt="ScaleVLA architecture" loading="lazy"></figure>
     <div class="cols">
@@ -227,12 +227,12 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
 
 <section id="simulation">
   <div class="wrap">
-    <p class="eyebrow">Benchmarks</p>
-    <h2>Simulation Results</h2>
+    <h2><span class="num">2</span>Simulation Results</h2>
+    <h3 style="margin-top:8px"><span class="num">2.1</span>Benchmarks</h3>
     <p class="lead">LIBERO tests tabletop manipulation, LIBERO-PRO perturbs its objects and scenes, RoboCasa tests kitchen tasks in out-of-distribution scenes, and DexJoCo tests five tasks that require coordinating two dexterous hands.</p>
     <figure class="fig"><img src="media/fig/tasks.jpg" alt="Simulation tasks" loading="lazy"></figure>
 
-    <h3>Results</h3>
+    <h3><span class="num">2.2</span>Success Rates</h3>
     <div class="seg tabs" data-group="simtab">
       <button class="on" data-show="t-libero">LIBERO</button>
       <button data-show="t-pro">LIBERO-PRO</button>
@@ -314,7 +314,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
       <p class="tnote">LIBERO success rates (%) with N demonstrations per task and a fixed training budget. The 2B, 8B and 32B backbones are Cosmos-Reason2 models; 552B is ScaleVLA.</p>
     </div>
 
-    <h3>LIBERO-PRO rollouts</h3>
+    <h3><span class="num">2.3</span>LIBERO-PRO Rollouts</h3>
     <p class="small" style="max-width:820px">Paired rollouts from the same perturbed initial state. Both policies use the same action head, data and training budget.</p>
     <div class="g3" id="pro-grid" style="margin-top:18px"></div>
   </div>
@@ -322,8 +322,8 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
 
 <section id="real" class="band">
   <div class="wrap">
-    <p class="eyebrow">Real Robot</p>
-    <h2>Precise, contact-rich insertion.</h2>
+    <h2><span class="num">3</span>Real-Robot Experiments</h2>
+    <h3 style="margin-top:8px"><span class="num">3.1</span>Plug In Charger</h3>
     <p class="lead">In the Plug In Charger task from RoboDojo, the right arm grasps a phone charger and hands it over, and the left arm aligns the plug with a power-strip socket, inserts it and releases it. The policies observe a head camera and two wrist cameras on a bimanual ARX X5.</p>
 
     <div class="vlabel"><span>Cosmos-Reason2-2B + Action Head<span class="res no">✕</span></span></div>
@@ -335,7 +335,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
     <div class="cams"><span>Head camera</span><span>Left wrist</span><span>Right wrist</span></div>
     <p class="small" style="margin-top:14px">All three policies reach the socket; only ScaleVLA inserts the plug.</p>
 
-    <h3>Success rates and timing</h3>
+    <h3><span class="num">3.2</span>Success Rates and Timing</h3>
     <div class="tablewrap"><table>
       <thead><tr class="grp"><th></th><th colspan="2">Successes</th><th colspan="2">In-domain, median (s)</th><th>Latency</th></tr>
       <tr><th>Policy</th><th>In-domain</th><th>OOD</th><th>Insertion</th><th>Completion</th><th>(ms)</th></tr></thead>
@@ -346,7 +346,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
       </tbody></table></div>
     <p class="tnote">Ten in-domain and fifteen out-of-distribution (OOD) trials per policy. Times are medians over successful in-domain trials; latency is the median round trip per action chunk at the robot client.</p>
 
-    <h3>More trials</h3>
+    <h3><span class="num">3.3</span>More Trials</h3>
     <div class="controls">
       <div class="seg" data-group="model">
         <button class="on ours" data-v="B1">ScaleVLA</button>
@@ -367,8 +367,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
 
 <section id="efficiency">
   <div class="wrap">
-    <p class="eyebrow">Efficiency</p>
-    <h2>276× the parameters, 1.9× the latency.</h2>
+    <h2><span class="num">4</span>Inference Efficiency</h2>
     <p class="lead">The sparse mixture-of-experts backbone activates only a subset of its experts per token, and the causal encoder runs once per action chunk. With four H200 GPUs, ScaleVLA keeps latency in the hundreds of milliseconds per chunk.</p>
     <figure class="fig"><img src="media/fig/latency.jpg" alt="Backbone size and inference latency" loading="lazy"></figure>
     <div class="tablewrap" style="margin-top:26px"><table>
@@ -388,7 +387,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
 
 <section id="bibtex" class="band">
   <div class="wrap">
-    <p class="eyebrow">BibTeX</p>
+    <h2>BibTeX</h2>
 <pre class="bib">@article{scalevla2026,
   title   = {ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters},
   author  = {Yu, Ruixi and Liu, Dairu and Chen, Xuchuan and Qi, Zekun and Li, Zekai and Cao, Zhuo
