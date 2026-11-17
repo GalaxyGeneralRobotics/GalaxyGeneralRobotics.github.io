@@ -189,7 +189,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
   <div class="vlabel ours"><span>ScaleVLA (552B)<span class="res ok">✓</span></span></div>
   <div class="vid"><video data-src="media/real/p12_scalevla.mp4" poster="media/real/p12_scalevla.jpg" muted loop playsinline preload="none"></video><span class="tag speed">4×</span></div>
   <div class="cams"><span>Head camera</span><span>Left wrist</span><span>Right wrist</span></div>
-  <p class="small" style="margin-top:14px">Scaling the backbone from 2B to 552B turns a near miss into a clean insertion: both policies grasp and hand over the charger, but only ScaleVLA aligns and inserts the plug.</p>
+  <p class="small" style="margin-top:14px">Frontier-scale representations bring the precision that contact-rich insertion needs: ScaleVLA aligns and inserts the plug where the 2B model misses the socket.</p>
 
   <div class="stats">
     <div class="stat"><div class="k">Sample efficiency</div><div class="v">87.8%</div><div class="d">LIBERO-Goal with 10 demos per task, vs 85.6% for a 2B backbone with 50.</div></div>
@@ -207,7 +207,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
     </figure>
     <div class="abstract">
       <p>Frontier Vision-Language Models (VLMs) such as GPT-6 Astra have demonstrated remarkable capabilities in robot control, suggesting that broad pretraining provides knowledge valuable for physical action. Yet most Vision-Language-Action (VLA) policies still rely on much smaller VLM backbones, leaving this potential largely untapped. We ask whether frontier-scale representations can provide a stronger foundation for robot learning.</p>
-      <p>We introduce <b>ScaleVLA</b>, which connects a 552B DeepSeek-V4.1-Flash backbone to a trainable action DiT, and scales the VLM backbone from 2B to 552B parameters. We evaluate three fundamental capabilities of robot foundation models. In <i>sample efficiency</i>, just 10 demonstrations outperform a 2B backbone trained with 50 (87.8% vs. 85.6%). In <i>generalization</i>, LIBERO-PRO success reaches 45.1%, compared with at most 31.3% for smaller backbones. In <i>precise manipulation</i>, real-world charger insertion improves from 4/10 to 9/10 successes, with gains concentrated in contact-sensitive alignment. Despite its scale, ScaleVLA achieves 216 ms median latency per action chunk.</p>
+      <p>We introduce <b>ScaleVLA</b>, which connects a 552B DeepSeek-V4.1-Flash backbone to a trainable action DiT, scaling VLA models to 552 billion parameters. We evaluate three fundamental capabilities of robot foundation models. In <i>sample efficiency</i>, just 10 demonstrations outperform a 2B backbone trained with 50 (87.8% vs. 85.6%). In <i>generalization</i>, LIBERO-PRO success reaches 45.1%, compared with at most 31.3% for smaller backbones. In <i>precise manipulation</i>, real-world charger insertion improves from 4/10 to 9/10 successes, with gains concentrated in contact-sensitive alignment. Despite its scale, ScaleVLA achieves 216 ms median latency per action chunk.</p>
       <p>Our findings suggest that frontier VLMs can serve not only as reasoning agents, but also as powerful representational foundations for efficient and generalizable robot policies.</p>
     </div>
   </div>
@@ -221,7 +221,7 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
     <div class="cols">
       <div><h4>Vision-language backbone</h4><p>DeepSeek-V4.1-Flash-1017, a 552B mixture-of-experts model. We run its 20-layer causal encoder on the camera images and instruction and read every visual and text token (5120 dimensions). The decoder never runs.</p></div>
       <div><h4>Action head</h4><p>A GR00T N1.7-style head: a feature adapter, state and action encoders, a 32-layer diffusion transformer that cross-attends to the backbone features, and an action decoder, all trained on robot demonstrations.</p></div>
-      <div><h4>Scaling the backbone</h4><p>From 2B to 552B, 276× more parameters. Frontier-scale representations bring higher sample efficiency, stronger generalization and more precise manipulation, while the decoder never runs, keeping latency at 216 ms per action chunk.</p></div>
+      <div><h4>Why scale</h4><p>Frontier-scale pretraining carries knowledge that transfers to physical action. At 552B, the backbone learns from fewer demonstrations, generalizes further and manipulates more precisely, while running at 216 ms per action chunk.</p></div>
     </div>
   </div>
 </section>
