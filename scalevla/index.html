@@ -70,6 +70,12 @@ header.hero .sub { font-size: clamp(22px, 3vw, 30px); line-height: 1.25; letter-
 .authors span { white-space: nowrap; }
 sup { font-size: .62em; color: var(--muted); margin-left: 1px; }
 .affil { font-size: 14px; color: var(--muted); margin: 0 auto 4px; }
+.logos { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 16px 44px; margin: 28px auto 0; }
+.logos img { height: 52px; width: auto; display: block; }
+.logos .galbot { height: 20px; }
+.logos .sjtu { display: flex; align-items: center; gap: 8px; color: #C8171E; font-family: "Songti SC", "STSong", "Noto Serif SC", serif; line-height: 1.15; text-align: center; }
+.logos .sjtu b { display: block; font-size: 23px; font-weight: 700; letter-spacing: 1px; }
+.logos .sjtu small { display: block; font-size: 8.6px; letter-spacing: .2px; }
 .buttons { display: flex; justify-content: center; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 980px; font-size: 15px; font-weight: 500; background: var(--ink); color: #fff; }
 .btn:hover { text-decoration: none; background: #000; }
@@ -102,7 +108,9 @@ sup { font-size: .62em; color: var(--muted); margin-left: 1px; }
 .stat .v { font-size: 38px; font-weight: 700; letter-spacing: -.02em; color: var(--green); line-height: 1.05; }
 .stat .d { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
 @media (max-width: 860px) { .stats { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .stat .v { font-size: 30px; } .stat { padding: 18px 16px; } .authors { font-size: 15px; gap: 0 12px; } }
+@media (max-width: 520px) { .stat .v { font-size: 30px; } .stat { padding: 18px 16px; } .authors { font-size: 15px; gap: 0 12px; }
+  .logos { gap: 14px 26px; } .logos img { height: 40px; } .logos .galbot { height: 15px; }
+  .logos .sjtu b { font-size: 17px; } .logos .sjtu small { font-size: 6.4px; } }
 
 /* grids */
 .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -175,6 +183,12 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
   </div>
   <div class="affil"><sup>1</sup>Tsinghua University &nbsp; <sup>2</sup>Peking University &nbsp; <sup>3</sup>Shanghai Jiao Tong University &nbsp; <sup>4</sup>Galbot</div>
   <div class="affil"><sup>*</sup>Equal contribution &nbsp; <sup>‡</sup>Project leader &nbsp; <sup>†</sup>Corresponding authors</div>
+  <div class="logos">
+    <img src="media/logos/tsinghua_lockup.svg" alt="Tsinghua University">
+    <img src="media/logos/pku_lockup.svg" alt="Peking University">
+    <div class="sjtu"><img src="media/logos/sjtu_emblem.svg" alt="Shanghai Jiao Tong University"><div><b>上海交通大学</b><small>SHANGHAI JIAO TONG UNIVERSITY</small></div></div>
+    <img class="galbot" src="media/logos/galbot_logo.svg" alt="Galbot">
+  </div>
   <div class="buttons">
     <a class="btn" href="https://arxiv.org/abs/2611.21607">arXiv</a>
     <a class="btn ghost" href="https://arxiv.org/pdf/2611.21607">Paper PDF</a>
