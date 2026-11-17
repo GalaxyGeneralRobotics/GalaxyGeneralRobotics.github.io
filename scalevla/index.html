@@ -91,6 +91,7 @@ sup { font-size: .62em; color: var(--muted); margin-left: 1px; }
 .fig figcaption b { color: var(--ink); font-weight: 600; }
 .vid { position: relative; background: #000; border-radius: 14px; overflow: hidden; }
 .vid video { width: 100%; height: auto; }
+.vid.frame { background: #fff; border: 1px solid var(--line); }
 .tag { position: absolute; top: 10px; left: 10px; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 980px; background: rgba(255,255,255,.9); color: var(--ink); }
 .tag.speed { left: auto; right: 10px; background: rgba(0,0,0,.55); color: #fff; font-weight: 500; }
 .res { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; color: #fff; font-size: 12px; margin-left: 6px; vertical-align: -4px; }
@@ -196,14 +197,9 @@ footer { padding: 40px 0 60px; font-size: 13px; color: var(--faint); text-align:
   </div>
 </header>
 
-<!-- hero comparison: 2B vs 552B backbone on the real robot -->
+<!-- project video (narrated: plays with sound on click) -->
 <div class="wrap" style="padding-bottom: 20px">
-  <div class="vlabel"><span>Cosmos-Reason2-2B + Action Head<span class="res no">✕</span></span><span class="note">Plug In Charger</span></div>
-  <div class="vid"><video data-src="media/real/p12_cosmos.mp4" poster="media/real/p12_cosmos.jpg" muted loop playsinline preload="none"></video><span class="tag speed">4×</span></div>
-  <div class="vlabel ours"><span>ScaleVLA (552B)<span class="res ok">✓</span></span></div>
-  <div class="vid"><video data-src="media/real/p12_scalevla.mp4" poster="media/real/p12_scalevla.jpg" muted loop playsinline preload="none"></video><span class="tag speed">4×</span></div>
-  <div class="cams"><span>Head camera</span><span>Left wrist</span><span>Right wrist</span></div>
-  <p class="small" style="margin-top:14px">Frontier-scale representations bring the precision that contact-rich insertion needs: ScaleVLA aligns and inserts the plug where the 2B model misses the socket.</p>
+  <div class="vid frame"><video src="media/promo.mp4" poster="media/promo.jpg" width="1920" height="1080" controls playsinline preload="metadata"></video></div>
 
   <div class="stats">
     <div class="stat"><div class="k">Sample efficiency</div><div class="v">87.8%</div><div class="d">LIBERO-Goal with 10 demos per task, vs 85.6% for a 2B backbone with 50.</div></div>
